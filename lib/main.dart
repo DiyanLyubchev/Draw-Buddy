@@ -1,5 +1,15 @@
+import 'dart:async';
+import 'dart:math' as math;
+
+import 'package:drawapp/io_asset_loader.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:xml/xml.dart';
+
+String normalizeAssetPath(String raw) {
+  return raw.startsWith('assets/') ? raw.substring('assets/'.length) : raw;
+}
 
 IconData categoryIconFor(String category) {
   switch (category) {
@@ -9,6 +19,16 @@ IconData categoryIconFor(String category) {
       return Icons.directions_car_rounded;
     case 'Къщи':
       return Icons.home_rounded;
+    case 'Зима':
+      return Icons.ac_unit_rounded;
+    case 'Плодове':
+      return Icons.apple_rounded;
+    case 'Зеленчуци':
+      return Icons.eco_rounded;
+    case 'Сгради':
+      return Icons.account_balance_rounded;
+    case 'Машини':
+      return Icons.precision_manufacturing_rounded;
     default:
       return Icons.palette_rounded;
   }
@@ -22,6 +42,16 @@ Color categoryColorFor(String category) {
       return const Color(0xFF60D394);
     case 'Къщи':
       return const Color(0xFF7CC6FF);
+    case 'Зима':
+      return const Color(0xFF8AD7FF);
+    case 'Плодове':
+      return const Color(0xFFEF6F6C);
+    case 'Зеленчуци':
+      return const Color(0xFF7CD87E);
+    case 'Сгради':
+      return const Color(0xFFB28DFF);
+    case 'Машини':
+      return const Color(0xFF6DD3D9);
     default:
       return const Color(0xFFB39DDB);
   }
@@ -66,12 +96,29 @@ final List<DrawingLesson> lessons = [
     emoji: '🦊',
     accent: const Color(0xFFFFA66B),
     svgAsset: 'assets/illustrations/fox.svg',
-    prompt: 'Начертай лисица с триъгълни уши, дълга опашка и заострена муцуна.',
-    voiceText: 'Постави муцуната в триъгълна форма. Добави остри уши и дебела пухкава опашка. Накрая нарисувай очите и носа.',
+    finalPreviewAsset: 'assets/lessons/fox/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/fox/step_01.svg',
+      'assets/lessons/fox/step_02.svg',
+      'assets/lessons/fox/step_03.svg',
+      'assets/lessons/fox/step_04.svg',
+      'assets/lessons/fox/step_05.svg',
+    ],
+    prompt: 'Нарисувай лисица: първо глава, после уши, очи, нос, тяло и опашка.',
+    voiceText: 'Първо начертавай главата. После оформяй ушите. След това добави очите, носа и муцуната. След това голямото тяло и най-накрая пухкавата опашка.',
     steps: [
-      'Начертавай триъгълна глава.',
-      'Направи остри уши.',
-      'Добави опашка и лицето.',
+      'Начертавай голямата глава.',
+      'Добави двете остри уши.',
+      'Нарисувай очите, носа и муцуната.',
+      'Добави тялото и лапите.',
+      'Нарисувай пухкавата опашка и финалните линии.',
+    ],
+    teacherPrompts: [
+      'Начертавай голямата глава.',
+      'Сега добави двете остри уши.',
+      'Сега направи очите, носа и муцуната.',
+      'Добави тялото и лапите.',
+      'Накрая нарисувай пухкавата опашка.',
     ],
   ),
   DrawingLesson(
@@ -329,6 +376,471 @@ final List<DrawingLesson> lessons = [
       'Дорисувай прозорци и дърво.',
     ],
   ),
+  DrawingLesson(
+    id: 21,
+    category: 'Зима',
+    title: 'Снежен човек',
+    emoji: '⛄',
+    accent: const Color(0xFFBFE7FF),
+    svgAsset: 'assets/illustrations/snowman.svg',
+    prompt: 'Нарисувай снежен човек с две снежни топки, шапка и малък шал.',
+    voiceText: 'Първо начертавай голям кръг за тялото. После добави по-малък кръг за главата. Накрая нарисувай шапката, очите, носа и метлата.',
+    steps: [
+      'Начертавай голямото тяло.',
+      'Добави главата и шапката.',
+      'Дорисувай очи, нос, шал и метла.',
+    ],
+  ),
+  DrawingLesson(
+    id: 22,
+    category: 'Плодове',
+    title: 'Ябълка',
+    emoji: '🍎',
+    accent: const Color(0xFFFFB3B3),
+    svgAsset: 'assets/illustrations/apple.svg',
+    prompt: 'Нарисувай ябълка с овална форма, дръжка и листо.',
+    voiceText: 'Започни с овална ябълка. Добави дръжката и листото. Накрая направи малка вдлъбнатина в дъното.',
+    steps: [
+      'Начертавай ябълката.',
+      'Добави дръжката и листото.',
+      'Дорисувай дъното и детайлите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 23,
+    category: 'Плодове',
+    title: 'Круша',
+    emoji: '🍐',
+    accent: const Color(0xFFBFEBA9),
+    svgAsset: 'assets/illustrations/pear.svg',
+    prompt: 'Нарисувай круша с дълга форма, дръжка и листо.',
+    voiceText: 'Направи леко удължена форма. После добави дръжката и листото. Накрая направи дълбока линия в средата.',
+    steps: [
+      'Начертавай формата на крушата.',
+      'Добави дръжката и листото.',
+      'Дорисувай браздата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 24,
+    category: 'Плодове',
+    title: 'Портокал',
+    emoji: '🍊',
+    accent: const Color(0xFFFFCF73),
+    svgAsset: 'assets/illustrations/orange.svg',
+    prompt: 'Нарисувай портокал с кръгла форма и малка дръжка.',
+    voiceText: 'Начертавай кръг. После добави дръжката и малките сегменти. Накрая направи къса линия по средата.',
+    steps: [
+      'Начертавай право кръг.',
+      'Добави дръжката.',
+      'Дорисувай сегментите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 25,
+    category: 'Плодове',
+    title: 'Банан',
+    emoji: '🍌',
+    accent: const Color(0xFFEADF5B),
+    svgAsset: 'assets/illustrations/banana.svg',
+    prompt: 'Нарисувай банан с дълга полу-овална форма.',
+    voiceText: 'Начертавай дълъг полукръг. После добави краищата и малка бразда. Накрая направи лек завой по средата.',
+    steps: [
+      'Начертавай дългия банан.',
+      'Добави горната и долната линия.',
+      'Дорисувай сегментите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 26,
+    category: 'Плодове',
+    title: 'Грозде',
+    emoji: '🍇',
+    accent: const Color(0xFFB38BFF),
+    svgAsset: 'assets/illustrations/grapes.svg',
+    prompt: 'Нарисувай гроздето с малки кръгли зърна и листо.',
+    voiceText: 'Създай малки кръгли плодчета в група. Накрая добави листото и стъблото. Прави формата леко спретната и симетрична.',
+    steps: [
+      'Начертавай плодовете в група.',
+      'Добави стъблото и листото.',
+      'Довърши симетрията.',
+    ],
+  ),
+  DrawingLesson(
+    id: 27,
+    category: 'Плодове',
+    title: 'Ягода',
+    emoji: '🍓',
+    accent: const Color(0xFFFF8A8A),
+    svgAsset: 'assets/illustrations/strawberry.svg',
+    prompt: 'Нарисувай ягода с малки семена и зелено листо.',
+    voiceText: 'Начертавай сладко яйцевидно тяло. Добави малки семена и зелени листа. Накрая добави дръжката.',
+    steps: [
+      'Начертавай ягодата.',
+      'Добави семената и листата.',
+      'Дорисувай дръжката.',
+    ],
+  ),
+  DrawingLesson(
+    id: 28,
+    category: 'Плодове',
+    title: 'Диня',
+    emoji: '🍉',
+    accent: const Color(0xFF7EDC8A),
+    svgAsset: 'assets/illustrations/watermelon.svg',
+    prompt: 'Нарисувай диня с вълнообразна форма и семена.',
+    voiceText: 'Начертавай голяма овална диня. Добави светли линии и семена. След това направи малка дръжка.',
+    steps: [
+      'Начертавай основната форма.',
+      'Добави линиите и семената.',
+      'Дорисувай дръжката.',
+    ],
+  ),
+  DrawingLesson(
+    id: 29,
+    category: 'Плодове',
+    title: 'Праскова',
+    emoji: '🍑',
+    accent: const Color(0xFFFFAA7A),
+    svgAsset: 'assets/illustrations/peach.svg',
+    prompt: 'Нарисувай праскова с гладка форма и зелена дръжка.',
+    voiceText: 'Първо начертавай пухкава плодова форма. Добави дръжката и листото. Накрая направи лек завой около ръба.',
+    steps: [
+      'Начертавай формата на прасковата.',
+      'Добави дръжката и листото.',
+      'Довърши ръба.',
+    ],
+  ),
+  DrawingLesson(
+    id: 30,
+    category: 'Плодове',
+    title: 'Череша',
+    emoji: '🍒',
+    accent: const Color(0xFFFC5B68),
+    svgAsset: 'assets/illustrations/cherry.svg',
+    prompt: 'Нарисувай череша с две сливи и зелени листа.',
+    voiceText: 'Направи две малки кръгли череши. Добави стъблата и листата. Накрая допълни фините детайли.',
+    steps: [
+      'Начертавай двете череши.',
+      'Добави стъблата.',
+      'Дорисувай листата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 31,
+    category: 'Плодове',
+    title: 'Лимон',
+    emoji: '🍋',
+    accent: const Color(0xFFF9E76D),
+    svgAsset: 'assets/illustrations/lemon.svg',
+    prompt: 'Нарисувай лимон с вълнообразна форма и малка дръжка.',
+    voiceText: 'Начертавай леко овален лимон. После добави дръжката и малките сегменти. Накрая направи вълнообразни линии.',
+    steps: [
+      'Начертавай лимонът.',
+      'Добави дръжката.',
+      'Дорисувай сегментите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 32,
+    category: 'Зеленчуци',
+    title: 'Морков',
+    emoji: '🥕',
+    accent: const Color(0xFFFFB366),
+    svgAsset: 'assets/illustrations/carrot.svg',
+    prompt: 'Нарисувай морков с заострена форма и зелени листа.',
+    voiceText: 'Начертавай остро удължено коренче. Добави зеленията листа. Накрая направи малка дълбочина по средата.',
+    steps: [
+      'Начертавай моркова.',
+      'Добави листата.',
+      'Дорисувай детайлите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 33,
+    category: 'Зеленчуци',
+    title: 'Домат',
+    emoji: '🍅',
+    accent: const Color(0xFFFF6B6B),
+    svgAsset: 'assets/illustrations/tomato.svg',
+    prompt: 'Нарисувай домат с кръгла форма и зелено дръжче.',
+    voiceText: 'Начертавай кръгъл домат. Добави дръжчето и листото. Накрая направи малки семенни линии.',
+    steps: [
+      'Начертавай домата.',
+      'Добави дръжчето и листото.',
+      'Дорисувай детайлите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 34,
+    category: 'Зеленчуци',
+    title: 'Краставица',
+    emoji: '🥒',
+    accent: const Color(0xFF7DE48A),
+    svgAsset: 'assets/illustrations/cucumber.svg',
+    prompt: 'Нарисувай краставица с удължена форма и малки бразди.',
+    voiceText: 'Направи дълга цилиндрична форма. Добави леките линии и дръжката. Накрая направи върха.',
+    steps: [
+      'Начертавай формата.',
+      'Добави браздите.',
+      'Дорисувай дръжката.',
+    ],
+  ),
+  DrawingLesson(
+    id: 35,
+    category: 'Зеленчуци',
+    title: 'Чушка',
+    emoji: '🌶️',
+    accent: const Color(0xFFFF7F7F),
+    svgAsset: 'assets/illustrations/pepper.svg',
+    prompt: 'Нарисувай чушка с леко сплескана форма и дръжка.',
+    voiceText: 'Начертавай малка широколистна чушка. Добави дръжката и листото. Накрая направи тънкия ръб.',
+    steps: [
+      'Начертавай формата на чушката.',
+      'Добави дръжката.',
+      'Дорисувай листото.',
+    ],
+  ),
+  DrawingLesson(
+    id: 36,
+    category: 'Зеленчуци',
+    title: 'Картоф',
+    emoji: '🥔',
+    accent: const Color(0xFFB58C5E),
+    svgAsset: 'assets/illustrations/potato.svg',
+    prompt: 'Нарисувай картоф с гладки форми и малки очички.',
+    voiceText: 'Начертавай леко неравен корен. Добави дупките и дръжката. Накрая направи плавни линии по краищата.',
+    steps: [
+      'Начертавай картофа.',
+      'Добави дупките.',
+      'Дорисувай дръжката.',
+    ],
+  ),
+  DrawingLesson(
+    id: 37,
+    category: 'Зеленчуци',
+    title: 'Броколи',
+    emoji: '🥦',
+    accent: const Color(0xFF7FD183),
+    svgAsset: 'assets/illustrations/broccoli.svg',
+    prompt: 'Нарисувай броколи с малки зелени цветчета и стъбло.',
+    voiceText: 'Първо направи голяма глава от малки кръгли детайли. После добави стъблото и листата. Накрая съединяваш формичките.',
+    steps: [
+      'Начертавай главата на броколите.',
+      'Добави стъблото.',
+      'Дорисувай листата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 38,
+    category: 'Зеленчуци',
+    title: 'Лук',
+    emoji: '🧅',
+    accent: const Color(0xFFD8B4FF),
+    svgAsset: 'assets/illustrations/onion.svg',
+    prompt: 'Нарисувай лук с кръгла форма и зелени листа.',
+    voiceText: 'Начертавай леко заоблен лук. Добави късото стъбло и листата. Накрая направи вътрешните слоеве.',
+    steps: [
+      'Начертавай лука.',
+      'Добави стъблото.',
+      'Дорисувай листата и слоевете.',
+    ],
+  ),
+  DrawingLesson(
+    id: 39,
+    category: 'Зеленчуци',
+    title: 'Зеле',
+    emoji: '🥬',
+    accent: const Color(0xFF8CE28C),
+    svgAsset: 'assets/illustrations/cabbage.svg',
+    prompt: 'Нарисувай зеле с пухкави листа и стъбло.',
+    voiceText: 'Начертавай обща глава от няколко листа. Добави стъблото и последните листа по долу. Завърши с леко разширяване.',
+    steps: [
+      'Начертавай главата на зелето.',
+      'Добави листата.',
+      'Дорисувай стъблото.',
+    ],
+  ),
+  DrawingLesson(
+    id: 40,
+    category: 'Зеленчуци',
+    title: 'Царевица',
+    emoji: '🌽',
+    accent: const Color(0xFFE4D16E),
+    svgAsset: 'assets/illustrations/corn.svg',
+    prompt: 'Нарисувай царевица с зърна и листа.',
+    voiceText: 'Първо начертавай стъблото и листата. После добави зърната в гъста група. Накрая направи фините детайли.',
+    steps: [
+      'Начертавай стъблото.',
+      'Добави листата.',
+      'Дорисувай зърната.',
+    ],
+  ),
+  DrawingLesson(
+    id: 41,
+    category: 'Зеленчуци',
+    title: 'Тиква',
+    emoji: '🎃',
+    accent: const Color(0xFFFFA857),
+    svgAsset: 'assets/illustrations/pumpkin.svg',
+    prompt: 'Нарисувай тиква с заоблена форма и листо.',
+    voiceText: 'Начертавай голямо овално тяло. Добави стъблото и листото. Накрая направи малки линии по страните.',
+    steps: [
+      'Начертавай формата на тиквата.',
+      'Добави стъблото и листото.',
+      'Дорисувай линиите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 42,
+    category: 'Сгради',
+    title: 'Училище',
+    emoji: '🏫',
+    accent: const Color(0xFF9CCBFF),
+    svgAsset: 'assets/illustrations/school.svg',
+    prompt: 'Нарисувай училище с вход, прозорци и покрив.',
+    voiceText: 'Начертавай голяма правоъгълна сграда. Добави покрива, входа и прозорците. Накрая направи малка стълба.',
+    steps: [
+      'Начертавай формата на сградата.',
+      'Добави покрива и входа.',
+      'Дорисувай прозорците.',
+    ],
+  ),
+  DrawingLesson(
+    id: 43,
+    category: 'Сгради',
+    title: 'Замък',
+    emoji: '🏰',
+    accent: const Color(0xFFDDBBFF),
+    svgAsset: 'assets/illustrations/castle.svg',
+    prompt: 'Нарисувай замък с кули, врата и прозорци.',
+    voiceText: 'Първо начертавай основната база. После добави две кули и входната врата. Накрая нарисувай прозорците и стените.',
+    steps: [
+      'Начертавай основната форма.',
+      'Добави кулите.',
+      'Дорисувай прозорците и вратата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 44,
+    category: 'Сгради',
+    title: 'Пекарна',
+    emoji: '🏪',
+    accent: const Color(0xFFFFD8A8),
+    svgAsset: 'assets/illustrations/bakery.svg',
+    prompt: 'Нарисувай пекарна с витрина, покрив и вратa.',
+    voiceText: 'Начертавай малка сграда. Добави прозорците и витрината. Накрая направи покрива и вратата.',
+    steps: [
+      'Начертавай основната сградата.',
+      'Добави прозорците.',
+      'Дорисувай покрива и вратата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 45,
+    category: 'Сгради',
+    title: 'Кула',
+    emoji: '🗼',
+    accent: const Color(0xFF9ADFBF),
+    svgAsset: 'assets/illustrations/tower.svg',
+    prompt: 'Нарисувай кула с високи стени и малки прозорци.',
+    voiceText: 'Първо начертавай тясна висока кула. После добави върха и прозорците. Накрая направи основата.',
+    steps: [
+      'Начертавай формата на кулата.',
+      'Добави върха.',
+      'Дорисувай прозорците.',
+    ],
+  ),
+  DrawingLesson(
+    id: 46,
+    category: 'Сгради',
+    title: 'Апартамент',
+    emoji: '🏢',
+    accent: const Color(0xFF9ED7FF),
+    svgAsset: 'assets/illustrations/apartment.svg',
+    prompt: 'Нарисувай апартамент с много прозорци и вход.',
+    voiceText: 'Начертавай висока сграда. После добави редове прозорци и входната врата. Накрая направи покрива и линиите.',
+    steps: [
+      'Начертавай сградата.',
+      'Добави прозорците.',
+      'Дорисувай входа.',
+    ],
+  ),
+  DrawingLesson(
+    id: 47,
+    category: 'Машини',
+    title: 'Робот',
+    emoji: '🤖',
+    accent: const Color(0xFF7DE2D1),
+    svgAsset: 'assets/illustrations/robot.svg',
+    prompt: 'Нарисувай робот с главата, ръцете и краката.',
+    voiceText: 'Начертавай квадратна глава. Добави очите, ръцете и краката. Накрая направи тялото и жиците.',
+    steps: [
+      'Начертавай главата.',
+      'Добави очите и ръцете.',
+      'Дорисувай тялото и краката.',
+    ],
+  ),
+  DrawingLesson(
+    id: 48,
+    category: 'Машини',
+    title: 'Миксер',
+    emoji: '🥤',
+    accent: const Color(0xFF82D9FF),
+    svgAsset: 'assets/illustrations/mixer.svg',
+    prompt: 'Нарисувай миксер с контейнер и дръжка.',
+    voiceText: 'Начертавай основния контейнер. Добави дръжката и моторната база. Накрая направи силуета на машината.',
+    steps: [
+      'Начертавай контейнера.',
+      'Добави дръжката.',
+      'Дорисувай долната база.',
+    ],
+  ),
+  DrawingLesson(
+    id: 49,
+    category: 'Машини',
+    title: 'Дрель',
+    emoji: '🛠️',
+    accent: const Color(0xFFFFC58F),
+    svgAsset: 'assets/illustrations/drill.svg',
+    prompt: 'Нарисувай дрелка с ръкохватка и бита.',
+    voiceText: 'Първо начертавай основната дръжка. Добави бита и двигателя. Накрая направи малките детайли.',
+    steps: [
+      'Начертавай дръжката.',
+      'Добави бита.',
+      'Довърши мотора и детайлите.',
+    ],
+  ),
+  DrawingLesson(
+    id: 50,
+    category: 'Машини',
+    title: 'Комбайн',
+    emoji: '🚜',
+    accent: const Color(0xFFB1D9FF),
+    svgAsset: 'assets/illustrations/harvester.svg',
+    prompt: 'Нарисувай комбайн с голяма кабина и широки колела.',
+    voiceText: 'Начертавай дълго тяло с кабина. Добави колелата и широкия корем. Накрая направи входа и детайлите.',
+    steps: [
+      'Начертавай корпуса.',
+      'Добави кабината.',
+      'Дорисувай колелата.',
+    ],
+  ),
+  DrawingLesson(
+    id: 51,
+    category: 'Машини',
+    title: 'Вертолет',
+    emoji: '🚁',
+    accent: const Color(0xFF9BD7FF),
+    svgAsset: 'assets/illustrations/helicopter.svg',
+    prompt: 'Нарисувай хеликоптер с витла, кабина и опашка.',
+    voiceText: 'Начертавай малка кабина и крило. Добави витлата, опашката и стойките. Накрая линии и детайли.',
+    steps: [
+      'Начертавай кабината.',
+      'Добави витлата и крилото.',
+      'Дорисувай опашката.',
+    ],
+  ),
 ];
 
 void main() {
@@ -364,7 +876,8 @@ class LessonHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final columns = isTablet ? 4 : 2;
+    final categories = lessons.map((lesson) => lesson.category).toSet().toList();
+    final columns = isTablet ? 3 : 2;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FF),
@@ -379,55 +892,144 @@ class LessonHomePage extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(
-                      horizontal: isTablet ? 26 : 20,
-                      vertical: isTablet ? 22 : 16,
+                      horizontal: isTablet ? 28 : 20,
+                      vertical: isTablet ? 24 : 18,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(32),
                       gradient: const LinearGradient(
-                        colors: [Color(0xFF7C9DFF), Color(0xFF9D8CFF)],
+                        colors: [Color(0xFF6E8BFF), Color(0xFF8C7DF5), Color(0xFF5BC0BE)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF7C9DFF).withValues(alpha: 0.32),
+                          blurRadius: 24,
+                          offset: const Offset(0, 16),
+                        ),
+                      ],
                     ),
-                    child: Row(
+                    child: Stack(
                       children: [
-                        Container(
-                          width: isTablet ? 76 : 58,
-                          height: isTablet ? 76 : 58,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.18),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.palette_outlined,
-                            color: Colors.white,
-                            size: 32,
+                        Positioned(
+                          right: -18,
+                          top: -20,
+                          child: Container(
+                            width: isTablet ? 150 : 110,
+                            height: isTablet ? 150 : 110,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.12),
+                              shape: BoxShape.circle,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 18),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Уроци за рисуване',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: isTablet ? 32 : 24,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                              const SizedBox(height: 6),
-                              Text(
-                                'Следвай интуитивните инструкции и рисувай с радост!',
-                                style: TextStyle(
-                                  color: Colors.white.withValues(alpha: 0.9),
-                                  fontSize: isTablet ? 18 : 14,
-                                ),
-                              ),
-                            ],
+                        Positioned(
+                          left: 150,
+                          bottom: -14,
+                          child: Container(
+                            width: isTablet ? 120 : 94,
+                            height: isTablet ? 120 : 94,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.1),
+                              shape: BoxShape.circle,
+                            ),
                           ),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: isTablet ? 88 : 70,
+                              height: isTablet ? 88 : 70,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.35),
+                                  width: 1.8,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.auto_awesome_rounded,
+                                color: Colors.white,
+                                size: 34,
+                              ),
+                            ),
+                            const SizedBox(width: 18),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Категории',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w800,
+                                      letterSpacing: 1.2,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Draw Buddy',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: isTablet ? 30 : 24,
+                                      fontWeight: FontWeight.w800,
+                                      letterSpacing: -0.6,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    'Избери категория и започни страхотно рисуване.',
+                                    style: TextStyle(
+                                      color: Colors.white.withValues(alpha: 0.92),
+                                      fontSize: isTablet ? 17 : 13,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 14),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                    vertical: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withValues(alpha: 0.15),
+                                    borderRadius: BorderRadius.circular(18),
+                                  ),
+                                  child: Text(
+                                    '${lessons.length} урока',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Row(
+                                  children: const [
+                                    Icon(Icons.star_rounded, color: Color(0xFFFFE27A), size: 16),
+                                    SizedBox(width: 4),
+                                    Text(
+                                      'Почни сега',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -435,21 +1037,226 @@ class LessonHomePage extends StatelessWidget {
                   const SizedBox(height: 24),
                   Expanded(
                     child: GridView.builder(
-                      itemCount: lessons.length,
+                      itemCount: categories.length,
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: columns,
                         crossAxisSpacing: 18,
                         mainAxisSpacing: 18,
-                        childAspectRatio: isTablet ? 0.9 : 0.82,
+                        childAspectRatio: isTablet ? 1.2 : 0.96,
                       ),
                       itemBuilder: (context, index) {
-                        final lesson = lessons[index];
-                        return LessonCard(lesson: lesson, isTablet: isTablet);
+                        final category = categories[index];
+                        final categoryLessons = lessons
+                            .where((lesson) => lesson.category == category)
+                            .toList();
+                        return CategoryCard(
+                          category: category,
+                          lessonCount: categoryLessons.length,
+                          isTablet: isTablet,
+                        );
                       },
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({
+    super.key,
+    required this.category,
+    required this.lessonCount,
+    required this.isTablet,
+  });
+
+  final String category;
+  final int lessonCount;
+  final bool isTablet;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = categoryColorFor(category);
+    final icon = categoryIconFor(category);
+
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0.96, end: 1),
+      duration: const Duration(milliseconds: 360),
+      curve: Curves.easeOutBack,
+      builder: (context, value, child) {
+        return Transform.scale(scale: value, child: child);
+      },
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => CategoryLessonsPage(category: category),
+            ),
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white,
+                color.withValues(alpha: 0.09),
+              ],
+            ),
+            border: Border.all(
+              color: color.withValues(alpha: 0.18),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: color.withValues(alpha: 0.18),
+                blurRadius: 22,
+                spreadRadius: 0,
+                offset: const Offset(0, 12),
+              ),
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.06),
+                blurRadius: 12,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          padding: EdgeInsets.all(isTablet ? 18 : 14),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: isTablet ? 74 : 62,
+                    height: isTablet ? 74 : 62,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          color.withValues(alpha: 0.22),
+                          color.withValues(alpha: 0.38),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: color.withValues(alpha: 0.22),
+                          blurRadius: 18,
+                          offset: const Offset(0, 8),
+                        ),
+                      ],
+                    ),
+                    child: Icon(icon, size: isTablet ? 34 : 28, color: color),
+                  ),
+                  const Spacer(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: color.withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                    child: Text(
+                      '$lessonCount',
+                      style: TextStyle(
+                        fontSize: isTablet ? 13 : 11,
+                        fontWeight: FontWeight.w800,
+                        color: color,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 18),
+              Text(
+                category,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: isTablet ? 22 : 18,
+                  fontWeight: FontWeight.w800,
+                  color: const Color(0xFF1F2A44),
+                  letterSpacing: -0.4,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Уроци',
+                style: TextStyle(
+                  fontSize: isTablet ? 13 : 12,
+                  color: Colors.grey.shade700,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryLessonsPage extends StatelessWidget {
+  const CategoryLessonsPage({super.key, required this.category});
+
+  final String category;
+
+  @override
+  Widget build(BuildContext context) {
+    final categoryLessons = lessons
+        .where((lesson) => lesson.category == category)
+        .toList();
+    final isTablet = MediaQuery.sizeOf(context).width >= 900;
+    final columns = isTablet ? 3 : 2;
+
+    return Scaffold(
+      backgroundColor: const Color(0xFFF5F7FF),
+      appBar: AppBar(
+        title: Text(category),
+        backgroundColor: const Color(0xFF7C9DFF),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: false,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF6E8BFF), Color(0xFF8C7DF5)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(22)),
+        ),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Padding(
+              padding: EdgeInsets.all(isTablet ? 22 : 18),
+              child: GridView.builder(
+                itemCount: categoryLessons.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: columns,
+                  crossAxisSpacing: 18,
+                  mainAxisSpacing: 18,
+                  childAspectRatio: isTablet ? 0.9 : 0.82,
+                ),
+                itemBuilder: (context, index) {
+                  final lesson = categoryLessons[index];
+                  return LessonCard(lesson: lesson, isTablet: isTablet);
+                },
               ),
             ),
           ),
@@ -467,6 +1274,8 @@ class LessonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final accent = categoryColorFor(lesson.category);
+
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.96, end: 1),
       duration: const Duration(milliseconds: 360),
@@ -486,12 +1295,25 @@ class LessonCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: Colors.white,
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFFFFFFFF), Color(0xFFF7F9FF)],
+            ),
+            border: Border.all(
+              color: accent.withValues(alpha: 0.16),
+              width: 1.2,
+            ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.08),
-                blurRadius: 16,
-                offset: const Offset(0, 8),
+                color: accent.withValues(alpha: 0.14),
+                blurRadius: 24,
+                offset: const Offset(0, 12),
+              ),
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 6),
               ),
             ],
           ),
@@ -499,7 +1321,7 @@ class LessonCard extends StatelessWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final double imageHeight =
-                  isTablet ? 172.0 : (constraints.maxWidth > 170 ? 80.0 : 58.0);
+                  isTablet ? 182.0 : (constraints.maxWidth > 170 ? 92.0 : 74.0);
 
               return SingleChildScrollView(
                 padding: const EdgeInsets.only(bottom: 4),
@@ -514,11 +1336,15 @@ class LessonCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(24),
                         gradient: LinearGradient(
                           colors: [
-                            lesson.accent.withValues(alpha: 0.34),
+                            accent.withValues(alpha: 0.22),
                             Colors.white,
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
+                        ),
+                        border: Border.all(
+                          color: accent.withValues(alpha: 0.18),
+                          width: 1,
                         ),
                       ),
                       child: Center(
@@ -526,24 +1352,34 @@ class LessonCard extends StatelessWidget {
                           alignment: Alignment.center,
                           children: [
                             Positioned.fill(
-                              child: SvgPicture.asset(
-                                lesson.svgAsset,
-                                fit: BoxFit.contain,
-                                semanticsLabel: lesson.title,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: SvgPicture.asset(
+                                  lesson.svgAsset,
+                                  fit: BoxFit.contain,
+                                  semanticsLabel: lesson.title,
+                                ),
                               ),
                             ),
                             Positioned(
                               right: 12,
                               top: 10,
                               child: Container(
-                                padding: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(9),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withValues(alpha: 0.75),
+                                  color: Colors.white.withValues(alpha: 0.8),
                                   shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: accent.withValues(alpha: 0.18),
+                                      blurRadius: 12,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ],
                                 ),
                                 child: Text(
                                   lesson.emoji,
-                                  style: TextStyle(fontSize: isTablet ? 30 : 22),
+                                  style: TextStyle(fontSize: isTablet ? 26 : 20),
                                 ),
                               ),
                             ),
@@ -552,49 +1388,62 @@ class LessonCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    Text(
-                      lesson.category,
-                      style: TextStyle(
-                        fontSize: isTablet ? 12 : 10,
-                        fontWeight: FontWeight.w800,
-                        color: const Color(0xFF6C8DFF),
-                        letterSpacing: 1.0,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: accent.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                      child: Text(
+                        lesson.category,
+                        style: TextStyle(
+                          fontSize: isTablet ? 11 : 9,
+                          fontWeight: FontWeight.w800,
+                          color: accent,
+                          letterSpacing: 0.7,
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 10),
                     Text(
                       lesson.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: isTablet ? 28 : 17,
+                        fontSize: isTablet ? 26 : 17,
                         fontWeight: FontWeight.w800,
-                        height: 1.1,
+                        height: 1.15,
                         color: const Color(0xFF1F2A44),
                       ),
                     ),
-                    const SizedBox(height: 6),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Icon(
-                            categoryIconFor(lesson.category),
-                            size: isTablet ? 24 : 17,
-                            color: categoryColorFor(lesson.category),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Container(
+                          width: 28,
+                          height: 28,
+                          decoration: BoxDecoration(
+                            color: accent.withValues(alpha: 0.12),
+                            shape: BoxShape.circle,
                           ),
-                          const SizedBox(width: 6),
-                          Text(
+                          child: Icon(
+                            categoryIconFor(lesson.category),
+                            size: isTablet ? 17 : 14,
+                            color: accent,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
                             lesson.category,
                             style: TextStyle(
                               color: Colors.grey.shade700,
                               fontWeight: FontWeight.w700,
-                              fontSize: isTablet ? 16 : 12,
+                              fontSize: isTablet ? 14 : 11,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -617,9 +1466,26 @@ class LessonDetailPage extends StatefulWidget {
 }
 
 class _LessonDetailPageState extends State<LessonDetailPage> {
+  int _currentStepIndex = 0;
+
+  void _advanceStep() {
+    setState(() {
+      if (_currentStepIndex < widget.lesson.steps.length - 1) {
+        _currentStepIndex += 1;
+      }
+    });
+  }
+
+  void _restartLesson() {
+    setState(() {
+      _currentStepIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final isTablet = MediaQuery.sizeOf(context).width >= 900;
+    final totalSteps = widget.lesson.steps.length;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FF),
@@ -640,20 +1506,42 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
                       children: [
                         Expanded(
                           flex: 2,
-                          child: _LessonVisualCard(lesson: widget.lesson),
+                          child: _LessonVisualCard(
+                            lesson: widget.lesson,
+                            currentStepIndex: _currentStepIndex,
+                            totalSteps: totalSteps,
+                            onNextStep: _advanceStep,
+                          ),
                         ),
                         const SizedBox(width: 24),
                         Expanded(
                           flex: 1,
-                          child: _LessonGuideCard(lesson: widget.lesson),
+                          child: _LessonGuideCard(
+                            lesson: widget.lesson,
+                            currentStepIndex: _currentStepIndex,
+                            totalSteps: totalSteps,
+                            onNextStep: _advanceStep,
+                            onRestart: _restartLesson,
+                          ),
                         ),
                       ],
                     )
                   : Column(
                       children: [
-                        _LessonVisualCard(lesson: widget.lesson),
+                        _LessonVisualCard(
+                          lesson: widget.lesson,
+                          currentStepIndex: _currentStepIndex,
+                          totalSteps: totalSteps,
+                          onNextStep: _advanceStep,
+                        ),
                         const SizedBox(height: 18),
-                        _LessonGuideCard(lesson: widget.lesson),
+                        _LessonGuideCard(
+                          lesson: widget.lesson,
+                          currentStepIndex: _currentStepIndex,
+                          totalSteps: totalSteps,
+                          onNextStep: _advanceStep,
+                          onRestart: _restartLesson,
+                        ),
                       ],
                     ),
             ),
@@ -664,811 +1552,518 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
   }
 }
 
-class _RevealClip extends CustomClipper<Path> {
-  const _RevealClip(this.path, this.progress);
-
-  final Path path;
-  final double progress;
-
-  @override
-  Path getClip(Size size) {
-    final result = Path();
-    final metrics = path.computeMetrics();
-    final totalLength = metrics.fold<double>(0, (sum, metric) => sum + metric.length);
-    var remaining = totalLength * progress;
-
-    for (final metric in metrics) {
-      final segmentLength = metric.length;
-      if (remaining <= 0) break;
-      final drawLength = segmentLength < remaining ? segmentLength : remaining;
-      final segment = metric.extractPath(0, drawLength);
-      result.addPath(segment, Offset.zero);
-      remaining -= drawLength;
-    }
-
-    return result;
-  }
-
-  @override
-  bool shouldReclip(covariant _RevealClip oldClipper) =>
-      oldClipper.progress != progress || oldClipper.path != path;
-}
-
-class _TracePainter extends CustomPainter {
-  const _TracePainter({
-    required this.path,
-    required this.progress,
-    required this.color,
-    this.strokeWidth = 7,
+class _LessonVisualCard extends StatefulWidget {
+  const _LessonVisualCard({
+    required this.lesson,
+    required this.currentStepIndex,
+    required this.totalSteps,
+    required this.onNextStep,
   });
 
-  final Path path;
-  final double progress;
-  final Color color;
-  final double strokeWidth;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final metrics = path.computeMetrics();
-    final total = metrics.fold<double>(0, (sum, metric) => sum + metric.length);
-    final target = total * progress;
-    var remaining = target;
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round;
-
-    for (final metric in metrics) {
-      final length = metric.length;
-      if (remaining <= 0) break;
-      final drawLength = length < remaining ? length : remaining;
-      final segment = metric.extractPath(0, drawLength);
-      canvas.drawPath(segment, paint);
-      remaining -= drawLength;
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _TracePainter oldDelegate) {
-    return oldDelegate.path != path ||
-        oldDelegate.progress != progress ||
-        oldDelegate.color != color ||
-        oldDelegate.strokeWidth != strokeWidth;
-  }
-}
-
-class _LessonVisualCard extends StatefulWidget {
-  const _LessonVisualCard({required this.lesson});
-
   final DrawingLesson lesson;
+  final int currentStepIndex;
+  final int totalSteps;
+  final VoidCallback onNextStep;
 
   @override
   State<_LessonVisualCard> createState() => _LessonVisualCardState();
 }
 
-class _LessonVisualCardState extends State<_LessonVisualCard>
-    with SingleTickerProviderStateMixin {
+class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProviderStateMixin {
   late final AnimationController _controller;
+  Timer? _stepTimer;
+  List<List<ParsedSvgShape>> _parsedSteps = const [];
+  bool _showFinalPreview = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 4200),
-    )..repeat();
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 4000))
+      ..addListener(() {
+        if (mounted) {
+          setState(() {});
+        }
+      });
+    _loadParsedSteps();
+  }
+
+  @override
+  void didUpdateWidget(covariant _LessonVisualCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentStepIndex != widget.currentStepIndex ||
+        oldWidget.lesson.stepAssets != widget.lesson.stepAssets) {
+      _restartStepAnimation();
+    }
   }
 
   @override
   void dispose() {
+    _stepTimer?.cancel();
     _controller.dispose();
     super.dispose();
   }
 
-  Path _buildContourPath(Size size) {
-    final width = size.width;
-    final height = size.height;
-    final path = Path();
+  Future<void> _loadParsedSteps() async {
+    final assets = widget.lesson.stepAssets.isNotEmpty
+        ? widget.lesson.stepAssets
+        : [widget.lesson.svgAsset];
 
-    switch (widget.lesson.title) {
-      case 'Котка':
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.52, height * 0.54), width: width * 0.46, height: height * 0.48));
-        path.moveTo(width * 0.42, height * 0.28);
-        path.lineTo(width * 0.28, height * 0.14);
-        path.lineTo(width * 0.36, height * 0.34);
-        path.moveTo(width * 0.62, height * 0.28);
-        path.lineTo(width * 0.76, height * 0.14);
-        path.lineTo(width * 0.68, height * 0.34);
-        path.moveTo(width * 0.38, height * 0.58);
-        path.lineTo(width * 0.26, height * 0.72);
-        path.moveTo(width * 0.66, height * 0.58);
-        path.lineTo(width * 0.78, height * 0.72);
-        path.moveTo(width * 0.54, height * 0.68);
-        path.lineTo(width * 0.54, height * 0.86);
-        path.moveTo(width * 0.52, height * 0.52);
-        path.lineTo(width * 0.68, height * 0.52);
-        break;
-      case 'Куче':
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.52, height * 0.5), width: width * 0.48, height: height * 0.44));
-        path.moveTo(width * 0.30, height * 0.30);
-        path.lineTo(width * 0.18, height * 0.18);
-        path.lineTo(width * 0.24, height * 0.42);
-        path.moveTo(width * 0.74, height * 0.30);
-        path.lineTo(width * 0.86, height * 0.18);
-        path.lineTo(width * 0.80, height * 0.42);
-        path.moveTo(width * 0.46, height * 0.52);
-        path.lineTo(width * 0.42, height * 0.74);
-        path.moveTo(width * 0.58, height * 0.52);
-        path.lineTo(width * 0.62, height * 0.74);
-        path.moveTo(width * 0.40, height * 0.62);
-        path.lineTo(width * 0.28, height * 0.80);
-        path.moveTo(width * 0.60, height * 0.62);
-        path.lineTo(width * 0.72, height * 0.80);
-        break;
-      case 'Лисица':
-        path.moveTo(width * 0.48, height * 0.20);
-        path.lineTo(width * 0.30, height * 0.12);
-        path.lineTo(width * 0.36, height * 0.34);
-        path.lineTo(width * 0.22, height * 0.42);
-        path.lineTo(width * 0.42, height * 0.58);
-        path.lineTo(width * 0.58, height * 0.58);
-        path.lineTo(width * 0.78, height * 0.42);
-        path.lineTo(width * 0.64, height * 0.34);
-        path.lineTo(width * 0.70, height * 0.12);
-        path.lineTo(width * 0.52, height * 0.20);
-        path.close();
-        path.moveTo(width * 0.42, height * 0.58);
-        path.lineTo(width * 0.52, height * 0.82);
-        path.lineTo(width * 0.58, height * 0.58);
-        path.moveTo(width * 0.46, height * 0.44);
-        path.lineTo(width * 0.54, height * 0.44);
-        break;
-      case 'Зайче':
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.50, height * 0.55), width: width * 0.40, height: height * 0.42));
-        path.moveTo(width * 0.26, height * 0.20);
-        path.lineTo(width * 0.18, height * 0.02);
-        path.lineTo(width * 0.34, height * 0.20);
-        path.moveTo(width * 0.74, height * 0.20);
-        path.lineTo(width * 0.82, height * 0.02);
-        path.lineTo(width * 0.66, height * 0.20);
-        path.moveTo(width * 0.34, height * 0.62);
-        path.lineTo(width * 0.28, height * 0.80);
-        path.moveTo(width * 0.66, height * 0.62);
-        path.lineTo(width * 0.72, height * 0.80);
-        path.moveTo(width * 0.40, height * 0.52);
-        path.lineTo(width * 0.48, height * 0.52);
-        break;
-      case 'Рибка':
-        path.moveTo(width * 0.20, height * 0.52);
-        path.quadraticBezierTo(width * 0.38, height * 0.22, width * 0.56, height * 0.24);
-        path.quadraticBezierTo(width * 0.76, height * 0.22, width * 0.84, height * 0.52);
-        path.quadraticBezierTo(width * 0.76, height * 0.80, width * 0.56, height * 0.76);
-        path.quadraticBezierTo(width * 0.38, height * 0.80, width * 0.20, height * 0.52);
-        path.moveTo(width * 0.56, height * 0.24);
-        path.lineTo(width * 0.86, height * 0.10);
-        path.lineTo(width * 0.78, height * 0.34);
-        path.moveTo(width * 0.52, height * 0.52);
-        path.lineTo(width * 0.52, height * 0.66);
-        break;
-      case 'Пингвин':
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.52, height * 0.54), width: width * 0.42, height: height * 0.52));
-        path.moveTo(width * 0.28, height * 0.56);
-        path.lineTo(width * 0.16, height * 0.68);
-        path.moveTo(width * 0.76, height * 0.56);
-        path.lineTo(width * 0.88, height * 0.68);
-        path.moveTo(width * 0.46, height * 0.72);
-        path.lineTo(width * 0.46, height * 0.86);
-        path.moveTo(width * 0.58, height * 0.72);
-        path.lineTo(width * 0.58, height * 0.86);
-        path.moveTo(width * 0.42, height * 0.36);
-        path.lineTo(width * 0.50, height * 0.30);
-        path.lineTo(width * 0.58, height * 0.36);
-        break;
-      case 'Слон':
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.52, height * 0.58), width: width * 0.50, height: height * 0.42));
-        path.moveTo(width * 0.22, height * 0.48);
-        path.lineTo(width * 0.10, height * 0.36);
-        path.lineTo(width * 0.20, height * 0.62);
-        path.moveTo(width * 0.82, height * 0.48);
-        path.lineTo(width * 0.94, height * 0.36);
-        path.lineTo(width * 0.84, height * 0.62);
-        path.moveTo(width * 0.52, height * 0.60);
-        path.lineTo(width * 0.52, height * 0.86);
-        path.moveTo(width * 0.36, height * 0.48);
-        path.lineTo(width * 0.36, height * 0.60);
-        path.moveTo(width * 0.68, height * 0.48);
-        path.lineTo(width * 0.68, height * 0.60);
-        break;
-      case 'Автомобил':
-        path.moveTo(width * 0.18, height * 0.58);
-        path.lineTo(width * 0.30, height * 0.38);
-        path.lineTo(width * 0.70, height * 0.38);
-        path.lineTo(width * 0.82, height * 0.58);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.18, height * 0.70);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.30, height * 0.80), width: width * 0.16, height: height * 0.16));
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.70, height * 0.80), width: width * 0.16, height: height * 0.16));
-        path.moveTo(width * 0.46, height * 0.38);
-        path.lineTo(width * 0.54, height * 0.38);
-        break;
-      case 'Камион':
-        path.moveTo(width * 0.16, height * 0.60);
-        path.lineTo(width * 0.16, height * 0.38);
-        path.lineTo(width * 0.62, height * 0.38);
-        path.lineTo(width * 0.76, height * 0.50);
-        path.lineTo(width * 0.82, height * 0.50);
-        path.lineTo(width * 0.82, height * 0.60);
-        path.lineTo(width * 0.16, height * 0.60);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.30, height * 0.80), width: width * 0.16, height: height * 0.16));
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.68, height * 0.80), width: width * 0.16, height: height * 0.16));
-        break;
-      case 'Ван':
-        path.moveTo(width * 0.18, height * 0.58);
-        path.lineTo(width * 0.24, height * 0.36);
-        path.lineTo(width * 0.66, height * 0.36);
-        path.lineTo(width * 0.82, height * 0.58);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.18, height * 0.70);
-        path.close();
-        path.moveTo(width * 0.30, height * 0.36);
-        path.lineTo(width * 0.30, height * 0.22);
-        path.lineTo(width * 0.56, height * 0.22);
-        path.lineTo(width * 0.56, height * 0.36);
-        break;
-      case 'Трактор':
-        path.moveTo(width * 0.18, height * 0.58);
-        path.lineTo(width * 0.24, height * 0.34);
-        path.lineTo(width * 0.56, height * 0.34);
-        path.lineTo(width * 0.82, height * 0.58);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.18, height * 0.70);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.28, height * 0.82), width: width * 0.18, height: height * 0.18));
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.72, height * 0.82), width: width * 0.18, height: height * 0.18));
-        path.moveTo(width * 0.60, height * 0.34);
-        path.lineTo(width * 0.60, height * 0.18);
-        path.lineTo(width * 0.74, height * 0.18);
-        break;
-      case 'Пожарна кола':
-        path.moveTo(width * 0.18, height * 0.58);
-        path.lineTo(width * 0.24, height * 0.38);
-        path.lineTo(width * 0.66, height * 0.38);
-        path.lineTo(width * 0.82, height * 0.58);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.18, height * 0.70);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.30, height * 0.82), width: width * 0.16, height: height * 0.16));
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.70, height * 0.82), width: width * 0.16, height: height * 0.16));
-        path.moveTo(width * 0.46, height * 0.38);
-        path.lineTo(width * 0.54, height * 0.38);
-        path.moveTo(width * 0.30, height * 0.58);
-        path.lineTo(width * 0.30, height * 0.28);
-        break;
-      case 'Полицейски камион':
-        path.moveTo(width * 0.18, height * 0.62);
-        path.lineTo(width * 0.22, height * 0.40);
-        path.lineTo(width * 0.68, height * 0.40);
-        path.lineTo(width * 0.82, height * 0.62);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.18, height * 0.70);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.30, height * 0.82), width: width * 0.16, height: height * 0.16));
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.68, height * 0.82), width: width * 0.16, height: height * 0.16));
-        path.moveTo(width * 0.40, height * 0.40);
-        path.lineTo(width * 0.48, height * 0.28);
-        path.lineTo(width * 0.60, height * 0.28);
-        path.lineTo(width * 0.68, height * 0.40);
-        break;
-      case 'Къща':
-        path.moveTo(width * 0.18, height * 0.72);
-        path.lineTo(width * 0.52, height * 0.22);
-        path.lineTo(width * 0.82, height * 0.72);
-        path.lineTo(width * 0.82, height * 0.84);
-        path.lineTo(width * 0.18, height * 0.84);
-        path.close();
-        path.moveTo(width * 0.28, height * 0.84);
-        path.lineTo(width * 0.28, height * 0.56);
-        path.lineTo(width * 0.46, height * 0.56);
-        path.lineTo(width * 0.46, height * 0.84);
-        path.moveTo(width * 0.54, height * 0.84);
-        path.lineTo(width * 0.54, height * 0.56);
-        path.lineTo(width * 0.72, height * 0.56);
-        path.lineTo(width * 0.72, height * 0.84);
-        path.moveTo(width * 0.60, height * 0.22);
-        path.lineTo(width * 0.60, height * 0.08);
-        path.lineTo(width * 0.72, height * 0.08);
-        break;
-      case 'Малка къща':
-        path.moveTo(width * 0.22, height * 0.70);
-        path.lineTo(width * 0.50, height * 0.36);
-        path.lineTo(width * 0.78, height * 0.70);
-        path.lineTo(width * 0.78, height * 0.84);
-        path.lineTo(width * 0.22, height * 0.84);
-        path.close();
-        path.moveTo(width * 0.34, height * 0.84);
-        path.lineTo(width * 0.34, height * 0.60);
-        path.lineTo(width * 0.50, height * 0.60);
-        path.lineTo(width * 0.50, height * 0.84);
-        path.moveTo(width * 0.62, height * 0.84);
-        path.lineTo(width * 0.62, height * 0.60);
-        path.lineTo(width * 0.70, height * 0.60);
-        break;
-      case 'Вила':
-        path.moveTo(width * 0.20, height * 0.72);
-        path.lineTo(width * 0.50, height * 0.20);
-        path.lineTo(width * 0.80, height * 0.72);
-        path.lineTo(width * 0.80, height * 0.86);
-        path.lineTo(width * 0.20, height * 0.86);
-        path.close();
-        path.moveTo(width * 0.50, height * 0.20);
-        path.lineTo(width * 0.32, height * 0.36);
-        path.lineTo(width * 0.68, height * 0.36);
-        path.moveTo(width * 0.30, height * 0.86);
-        path.lineTo(width * 0.30, height * 0.56);
-        path.moveTo(width * 0.70, height * 0.86);
-        path.lineTo(width * 0.70, height * 0.56);
-        break;
-      case 'Пързалка':
-        path.moveTo(width * 0.24, height * 0.70);
-        path.lineTo(width * 0.24, height * 0.42);
-        path.lineTo(width * 0.72, height * 0.42);
-        path.lineTo(width * 0.72, height * 0.70);
-        path.moveTo(width * 0.36, height * 0.42);
-        path.lineTo(width * 0.36, height * 0.18);
-        path.moveTo(width * 0.60, height * 0.42);
-        path.lineTo(width * 0.60, height * 0.18);
-        path.moveTo(width * 0.24, height * 0.18);
-        path.lineTo(width * 0.72, height * 0.18);
-        break;
-      case 'Параход':
-        path.moveTo(width * 0.18, height * 0.60);
-        path.lineTo(width * 0.38, height * 0.36);
-        path.lineTo(width * 0.72, height * 0.36);
-        path.lineTo(width * 0.82, height * 0.60);
-        path.lineTo(width * 0.18, height * 0.60);
-        path.close();
-        path.moveTo(width * 0.52, height * 0.36);
-        path.lineTo(width * 0.52, height * 0.18);
-        path.lineTo(width * 0.62, height * 0.18);
-        break;
-      case 'Слънчев дом':
-        path.moveTo(width * 0.18, height * 0.70);
-        path.lineTo(width * 0.50, height * 0.24);
-        path.lineTo(width * 0.82, height * 0.70);
-        path.lineTo(width * 0.82, height * 0.84);
-        path.lineTo(width * 0.18, height * 0.84);
-        path.close();
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.22, height * 0.18), width: width * 0.16, height: height * 0.16));
-        path.moveTo(width * 0.30, height * 0.84);
-        path.lineTo(width * 0.30, height * 0.56);
-        path.lineTo(width * 0.48, height * 0.56);
-        path.lineTo(width * 0.48, height * 0.84);
-        path.moveTo(width * 0.56, height * 0.84);
-        path.lineTo(width * 0.56, height * 0.56);
-        path.lineTo(width * 0.72, height * 0.56);
-        path.lineTo(width * 0.72, height * 0.84);
-        break;
-      default:
-        path.addOval(Rect.fromCenter(center: Offset(width * 0.52, height * 0.50), width: width * 0.46, height: height * 0.44));
-        break;
+    print('LOAD START: ${assets.length} assets');
+
+    try {
+      final result = await Future.wait(assets.map(parseSvgDrawingShapesForStep));
+
+      print('PARSED STEPS TOTAL = ${result.length}');
+      for (var i = 0; i < assets.length; i++) {
+        final parsed = result[i];
+        print('PARSED ${assets[i]} => ${parsed.length} shapes');
+        for (final shape in parsed) {
+          print(shape.path.getBounds());
+        }
+      }
+      print('LOAD FINISHED');
+
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _parsedSteps = result;
+      });
+      print('_parsedSteps.length = ${_parsedSteps.length}');
+      for (var i = 0; i < _parsedSteps.length; i++) {
+        print('UI STEP $i => ${_parsedSteps[i].length}');
+      }
+      _restartStepAnimation();
+    } catch (error, stackTrace) {
+      print('LOAD ERROR: $error');
+      print('LOAD STACK: $stackTrace');
     }
-
-    return path;
   }
 
-  Offset _pointAlongPath(double progress, Size size) {
-    final List<Offset> points = switch (widget.lesson.title) {
-      'Котка' => [
-          Offset(size.width * 0.42, size.height * 0.28),
-          Offset(size.width * 0.28, size.height * 0.14),
-          Offset(size.width * 0.36, size.height * 0.34),
-          Offset(size.width * 0.26, size.height * 0.72),
-          Offset(size.width * 0.54, size.height * 0.68),
-          Offset(size.width * 0.68, size.height * 0.52),
-          Offset(size.width * 0.78, size.height * 0.72),
-          Offset(size.width * 0.42, size.height * 0.28),
-        ],
-      'Куче' => [
-          Offset(size.width * 0.30, size.height * 0.30),
-          Offset(size.width * 0.18, size.height * 0.18),
-          Offset(size.width * 0.24, size.height * 0.42),
-          Offset(size.width * 0.42, size.height * 0.74),
-          Offset(size.width * 0.60, size.height * 0.62),
-          Offset(size.width * 0.72, size.height * 0.80),
-          Offset(size.width * 0.74, size.height * 0.30),
-          Offset(size.width * 0.86, size.height * 0.18),
-          Offset(size.width * 0.30, size.height * 0.30),
-        ],
-      'Лисица' => [
-          Offset(size.width * 0.48, size.height * 0.20),
-          Offset(size.width * 0.30, size.height * 0.12),
-          Offset(size.width * 0.22, size.height * 0.42),
-          Offset(size.width * 0.42, size.height * 0.58),
-          Offset(size.width * 0.52, size.height * 0.82),
-          Offset(size.width * 0.58, size.height * 0.58),
-          Offset(size.width * 0.78, size.height * 0.42),
-          Offset(size.width * 0.70, size.height * 0.12),
-          Offset(size.width * 0.48, size.height * 0.20),
-        ],
-      'Зайче' => [
-          Offset(size.width * 0.26, size.height * 0.20),
-          Offset(size.width * 0.18, size.height * 0.02),
-          Offset(size.width * 0.34, size.height * 0.20),
-          Offset(size.width * 0.34, size.height * 0.62),
-          Offset(size.width * 0.28, size.height * 0.80),
-          Offset(size.width * 0.66, size.height * 0.62),
-          Offset(size.width * 0.72, size.height * 0.80),
-          Offset(size.width * 0.74, size.height * 0.20),
-          Offset(size.width * 0.82, size.height * 0.02),
-          Offset(size.width * 0.26, size.height * 0.20),
-        ],
-      'Рибка' => [
-          Offset(size.width * 0.20, size.height * 0.52),
-          Offset(size.width * 0.38, size.height * 0.22),
-          Offset(size.width * 0.56, size.height * 0.24),
-          Offset(size.width * 0.86, size.height * 0.10),
-          Offset(size.width * 0.84, size.height * 0.52),
-          Offset(size.width * 0.56, size.height * 0.76),
-          Offset(size.width * 0.20, size.height * 0.52),
-        ],
-      'Пингвин' => [
-          Offset(size.width * 0.28, size.height * 0.56),
-          Offset(size.width * 0.16, size.height * 0.68),
-          Offset(size.width * 0.46, size.height * 0.72),
-          Offset(size.width * 0.46, size.height * 0.86),
-          Offset(size.width * 0.58, size.height * 0.72),
-          Offset(size.width * 0.88, size.height * 0.68),
-          Offset(size.width * 0.76, size.height * 0.56),
-          Offset(size.width * 0.28, size.height * 0.56),
-        ],
-      'Слон' => [
-          Offset(size.width * 0.22, size.height * 0.48),
-          Offset(size.width * 0.10, size.height * 0.36),
-          Offset(size.width * 0.20, size.height * 0.62),
-          Offset(size.width * 0.52, size.height * 0.86),
-          Offset(size.width * 0.68, size.height * 0.60),
-          Offset(size.width * 0.94, size.height * 0.36),
-          Offset(size.width * 0.82, size.height * 0.48),
-          Offset(size.width * 0.22, size.height * 0.48),
-        ],
-      'Автомобил' => [
-          Offset(size.width * 0.18, size.height * 0.58),
-          Offset(size.width * 0.30, size.height * 0.38),
-          Offset(size.width * 0.70, size.height * 0.38),
-          Offset(size.width * 0.82, size.height * 0.58),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.58),
-        ],
-      'Камион' => [
-          Offset(size.width * 0.16, size.height * 0.60),
-          Offset(size.width * 0.16, size.height * 0.38),
-          Offset(size.width * 0.62, size.height * 0.38),
-          Offset(size.width * 0.76, size.height * 0.50),
-          Offset(size.width * 0.82, size.height * 0.60),
-          Offset(size.width * 0.16, size.height * 0.60),
-        ],
-      'Ван' => [
-          Offset(size.width * 0.18, size.height * 0.58),
-          Offset(size.width * 0.24, size.height * 0.36),
-          Offset(size.width * 0.66, size.height * 0.36),
-          Offset(size.width * 0.82, size.height * 0.58),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.58),
-        ],
-      'Трактор' => [
-          Offset(size.width * 0.18, size.height * 0.58),
-          Offset(size.width * 0.24, size.height * 0.34),
-          Offset(size.width * 0.56, size.height * 0.34),
-          Offset(size.width * 0.82, size.height * 0.58),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.58),
-        ],
-      'Пожарна кола' => [
-          Offset(size.width * 0.18, size.height * 0.58),
-          Offset(size.width * 0.24, size.height * 0.38),
-          Offset(size.width * 0.66, size.height * 0.38),
-          Offset(size.width * 0.82, size.height * 0.58),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.58),
-        ],
-      'Полицейски камион' => [
-          Offset(size.width * 0.18, size.height * 0.62),
-          Offset(size.width * 0.22, size.height * 0.40),
-          Offset(size.width * 0.68, size.height * 0.40),
-          Offset(size.width * 0.82, size.height * 0.62),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.18, size.height * 0.62),
-        ],
-      'Къща' => [
-          Offset(size.width * 0.18, size.height * 0.72),
-          Offset(size.width * 0.52, size.height * 0.22),
-          Offset(size.width * 0.82, size.height * 0.72),
-          Offset(size.width * 0.82, size.height * 0.84),
-          Offset(size.width * 0.18, size.height * 0.84),
-          Offset(size.width * 0.18, size.height * 0.72),
-        ],
-      'Малка къща' => [
-          Offset(size.width * 0.22, size.height * 0.70),
-          Offset(size.width * 0.50, size.height * 0.36),
-          Offset(size.width * 0.78, size.height * 0.70),
-          Offset(size.width * 0.78, size.height * 0.84),
-          Offset(size.width * 0.22, size.height * 0.84),
-          Offset(size.width * 0.22, size.height * 0.70),
-        ],
-      'Вила' => [
-          Offset(size.width * 0.20, size.height * 0.72),
-          Offset(size.width * 0.50, size.height * 0.20),
-          Offset(size.width * 0.80, size.height * 0.72),
-          Offset(size.width * 0.80, size.height * 0.86),
-          Offset(size.width * 0.20, size.height * 0.86),
-          Offset(size.width * 0.20, size.height * 0.72),
-        ],
-      'Пързалка' => [
-          Offset(size.width * 0.24, size.height * 0.70),
-          Offset(size.width * 0.24, size.height * 0.42),
-          Offset(size.width * 0.36, size.height * 0.18),
-          Offset(size.width * 0.60, size.height * 0.18),
-          Offset(size.width * 0.72, size.height * 0.42),
-          Offset(size.width * 0.72, size.height * 0.70),
-          Offset(size.width * 0.24, size.height * 0.70),
-        ],
-      'Параход' => [
-          Offset(size.width * 0.18, size.height * 0.60),
-          Offset(size.width * 0.38, size.height * 0.36),
-          Offset(size.width * 0.52, size.height * 0.18),
-          Offset(size.width * 0.62, size.height * 0.18),
-          Offset(size.width * 0.82, size.height * 0.60),
-          Offset(size.width * 0.18, size.height * 0.60),
-        ],
-      'Слънчев дом' => [
-          Offset(size.width * 0.18, size.height * 0.70),
-          Offset(size.width * 0.50, size.height * 0.24),
-          Offset(size.width * 0.82, size.height * 0.70),
-          Offset(size.width * 0.82, size.height * 0.84),
-          Offset(size.width * 0.18, size.height * 0.84),
-          Offset(size.width * 0.18, size.height * 0.70),
-        ],
-      _ => [
-          Offset(size.width * 0.34, size.height * 0.66),
-          Offset(size.width * 0.22, size.height * 0.54),
-          Offset(size.width * 0.22, size.height * 0.26),
-          Offset(size.width * 0.46, size.height * 0.12),
-          Offset(size.width * 0.60, size.height * 0.14),
-          Offset(size.width * 0.68, size.height * 0.26),
-          Offset(size.width * 0.72, size.height * 0.76),
-          Offset(size.width * 0.54, size.height * 0.84),
-          Offset(size.width * 0.38, size.height * 0.84),
-          Offset(size.width * 0.22, size.height * 0.68),
-          Offset(size.width * 0.34, size.height * 0.66),
-        ],
+  Duration _stepDurationForIndex(int index) {
+    final durations = <int, Duration>{
+      0: const Duration(seconds: 4),
+      1: const Duration(seconds: 3),
+      2: const Duration(seconds: 3),
+      3: const Duration(seconds: 5),
+      4: const Duration(seconds: 4),
     };
 
-    if (points.length < 2) {
-      return const Offset(0, 0);
+    return durations[index] ?? const Duration(seconds: 4);
+  }
+
+  void _restartStepAnimation() {
+    _stepTimer?.cancel();
+    _showFinalPreview = false;
+
+    if (_parsedSteps.isEmpty) {
+      return;
     }
 
-    final scaled = progress.clamp(0.0, 1.0) * (points.length - 1);
-    final index = scaled.floor();
-    final nextIndex = (index + 1).clamp(0, points.length - 1);
-    final localProgress = scaled - index;
-    final from = points[index];
-    final to = points[nextIndex];
+    final safeIndex = widget.currentStepIndex.clamp(0, _parsedSteps.length - 1);
+    final stepDuration = _stepDurationForIndex(safeIndex);
 
-    return Offset(
-      from.dx + (to.dx - from.dx) * localProgress,
-      from.dy + (to.dy - from.dy) * localProgress,
-    );
+    _controller
+      ..stop()
+      ..duration = stepDuration
+      ..reset();
+
+    _controller.forward().then((_) {
+      if (!mounted) {
+        return;
+      }
+
+      if (widget.currentStepIndex >= widget.totalSteps - 1) {
+        setState(() {
+          _showFinalPreview = true;
+        });
+        Timer(const Duration(seconds: 2), () {
+          if (mounted) {
+            setState(() {
+              _showFinalPreview = false;
+            });
+          }
+        });
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_parsedSteps.isEmpty) {
+      return Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          gradient: const LinearGradient(
+            colors: [Color(0xFFFFF8F8), Color(0xFFF5F8FF), Color(0xFFF0FFF9)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.06),
+              blurRadius: 14,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+        child: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator(color: Color(0xFF7C9DFF)),
+              SizedBox(height: 14),
+              Text(
+                'Подготвяме стъпката…',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF2B3D72),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     final isTablet = MediaQuery.sizeOf(context).width >= 960;
     final canvasHeight = isTablet ? 720.0 : 460.0;
-    final canvasSize = Size(isTablet ? 540.0 : 360.0, canvasHeight - 26);
+    final prompt = widget.lesson.teacherPrompts.isNotEmpty
+        ? widget.lesson.teacherPrompts[widget.currentStepIndex.clamp(0, widget.lesson.teacherPrompts.length - 1)]
+        : widget.lesson.steps[widget.currentStepIndex.clamp(0, widget.lesson.steps.length - 1)];
 
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        final progress = Curves.easeInOutSine.transform(_controller.value);
-        final path = _buildContourPath(canvasSize);
-        final penPoint = _pointAlongPath(progress, canvasSize);
-        final reveal = 0.05 + (progress * 0.95);
-        final penX = penPoint.dx.clamp(16.0, canvasSize.width - 34.0);
-        final penY = penPoint.dy.clamp(18.0, canvasSize.height - 30.0);
+    final completedShapes = <ParsedSvgShape>[];
+    final currentShapes = _parsedSteps.isNotEmpty
+        ? _parsedSteps[widget.currentStepIndex.clamp(0, _parsedSteps.length - 1)]
+        : const <ParsedSvgShape>[];
 
-        return TweenAnimationBuilder<double>(
-          tween: Tween(begin: 0.88, end: 1),
-          duration: const Duration(milliseconds: 450),
-          curve: Curves.easeOutBack,
-          builder: (context, value, child) {
-            return Transform.scale(
-              scale: value,
-              child: child,
-            );
-          },
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFFF4F6FB),
-                  Color(0xFFFFFFFF),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.06),
-                  blurRadius: 14,
-                  offset: const Offset(0, 6),
+    for (var i = 0; i < widget.currentStepIndex && i < _parsedSteps.length; i++) {
+      completedShapes.addAll(_parsedSteps[i]);
+    }
+
+    print('STEP ${widget.currentStepIndex}');
+    print('currentShapes = ${currentShapes.length}');
+    print('completedShapes = ${completedShapes.length}');
+    for (final shape in currentShapes) {
+      print(shape.path.getBounds());
+    }
+
+    final debugText = 'Parsed steps: ${_parsedSteps.length} | Current step shapes: ${currentShapes.length}';
+
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFFF8F8), Color(0xFFF5F8FF), Color(0xFFF0FFF9)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.06),
+            blurRadius: 14,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.lesson.category,
+                style: const TextStyle(
+                  fontSize: 13,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF6C8DFF),
                 ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6C8DFF).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: Text(
+                  'Стъпка ${widget.currentStepIndex + 1}/${widget.totalSteps}',
+                  style: const TextStyle(
+                    color: Color(0xFF2B3D72),
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 18),
+          Container(
+            margin: const EdgeInsets.only(bottom: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFEDF3FF),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: const Color(0xFFD5E3FF), width: 1.5),
+            ),
+            child: Text(
+              debugText,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF3F5FB7),
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: canvasHeight,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(26),
+              color: Colors.white,
+              border: Border.all(color: const Color(0xFFE8ECF3), width: 2),
+            ),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: CustomPaint(
+                    painter: _CumulativeDrawingPainter(
+                      completedShapes: completedShapes,
+                      currentShapes: currentShapes,
+                      progress: _controller.value,
+                    ),
+                  ),
+                ),
+                if (_showFinalPreview)
+                  Positioned.fill(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.92),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned.fill(
+                            child: widget.lesson.finalPreviewAsset != null
+                                ? SvgPicture.asset(
+                                    widget.lesson.finalPreviewAsset!,
+                                    fit: BoxFit.contain,
+                                  )
+                                : const SizedBox.shrink(),
+                          ),
+                          Positioned(
+                            bottom: 28,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF7C9DFF),
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                              child: const Text(
+                                'Браво! Страхотно се справи!',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          const SizedBox(height: 18),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: const Color(0xFFEEF3FF),
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(color: const Color(0xFFD8E5FF), width: 2),
+            ),
+            child: Row(
               children: [
-                Text(
-                  widget.lesson.category,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w800,
-                    color: Color(0xFF6C8DFF),
-                  ),
-                ),
-                const SizedBox(height: 18),
                 Container(
-                  height: canvasHeight,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(26),
-                    color: Colors.white.withValues(alpha: 0.58),
+                  width: 42,
+                  height: 42,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFDFA8),
+                    shape: BoxShape.circle,
                   ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Positioned.fill(
-                        child: Container(
-                          margin: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(22),
-                            color: const Color(0xFFF9FAFC),
-                            border: Border.all(
-                              color: const Color(0xFFE3E8F0),
-                              width: 3,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned.fill(
-                        child: IgnorePointer(
-                          child: CustomPaint(
-                            painter: _TracePainter(
-                              path: path,
-                              progress: 1.0,
-                              color: const Color(0xFFBFD0FF).withValues(alpha: 0.85),
-                              strokeWidth: 4,
-                            ),
-                          ),
-                        ),
-                      ),
-                      ClipPath(
-                        clipper: _RevealClip(path, reveal),
-                        child: Transform.translate(
-                          offset: const Offset(0, 0),
-                          child: ColorFiltered(
-                            colorFilter: const ColorFilter.mode(
-                              Colors.black,
-                              BlendMode.srcIn,
-                            ),
-                            child: SvgPicture.asset(
-                              widget.lesson.svgAsset,
-                              width: isTablet ? 390 : 320,
-                              height: isTablet ? 390 : 320,
-                              fit: BoxFit.contain,
-                              semanticsLabel: widget.lesson.title,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: penX - 18,
-                        top: penY - 14,
-                        child: Transform.rotate(
-                          angle: -0.7 + (progress * 1.4),
-                          child: Container(
-                            padding: EdgeInsets.all(isTablet ? 12 : 10),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF6C8DFF).withValues(alpha: 0.96),
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.12),
-                                  blurRadius: 16,
-                                  offset: const Offset(0, 8),
-                                ),
-                              ],
-                            ),
-                            child: Icon(
-                              Icons.brush_rounded,
-                              color: Colors.white,
-                              size: isTablet ? 28 : 24,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 18,
-                        bottom: 16,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF7C9DFF).withValues(alpha: 0.14),
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          child: Text(
-                            'Рисувай ${widget.lesson.title.toLowerCase()}!',
-                            style: const TextStyle(
-                              color: Color(0xFF1F2A44),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned.fill(
-                        child: IgnorePointer(
-                          child: CustomPaint(
-                            painter: _TracePainter(
-                              path: path,
-                              progress: progress,
-                              color: const Color(0xFF6C8DFF).withValues(alpha: 0.9),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: const Icon(Icons.auto_awesome_rounded, color: Color(0xFFFFB703), size: 24),
                 ),
-                const SizedBox(height: 18),
-                Text(
-                  widget.lesson.prompt,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF1F2A44),
-                    height: 1.4,
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    prompt,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF1F2A44),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-        );
-      },
+          if (widget.currentStepIndex == widget.totalSteps - 1)
+            const SizedBox(height: 12),
+          if (widget.currentStepIndex == widget.totalSteps - 1)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFF3C4),
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: const Color(0xFFFFD36A), width: 2),
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.star_rounded, color: Color(0xFFFFB703), size: 28),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      widget.lesson.rewardText,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF3A2B00),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(Icons.sports_kabaddi_rounded, color: Color(0xFFFFB703), size: 22),
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
 
+class _CumulativeDrawingPainter extends CustomPainter {
+  const _CumulativeDrawingPainter({
+    required this.completedShapes,
+    required this.currentShapes,
+    required this.progress,
+  });
+
+  final List<ParsedSvgShape> completedShapes;
+  final List<ParsedSvgShape> currentShapes;
+  final double progress;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final allPaths = <ParsedSvgShape>[]
+      ..addAll(completedShapes)
+      ..addAll(currentShapes);
+
+    if (allPaths.isEmpty) {
+      return;
+    }
+
+    final fullPath = _combineSvgPaths(allPaths);
+    final bounds = fullPath.getBounds();
+    if (bounds.isEmpty) {
+      return;
+    }
+
+    final scale = math.min(size.width / bounds.width, size.height / bounds.height);
+    final offset = Offset(
+      (size.width - bounds.width * scale) / 2 - bounds.left * scale,
+      (size.height - bounds.height * scale) / 2 - bounds.top * scale,
+    );
+
+    canvas.translate(offset.dx, offset.dy);
+    canvas.scale(scale);
+
+    for (final shape in completedShapes) {
+      final paint = Paint()
+        ..color = (shape.stroke ?? const Color(0xFF2B5BDA)).withValues(alpha: 0.92)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 7
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round;
+      canvas.drawPath(shape.path, paint);
+    }
+
+    for (final shape in currentShapes) {
+      final previewPaint = Paint()
+        ..color = const Color(0xFFB4C5EA)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 5
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..isAntiAlias = true;
+      canvas.drawPath(shape.path, previewPaint);
+    }
+
+    for (final shape in currentShapes) {
+      final revealPath = _progressivePath(shape.path, progress);
+      final paint = Paint()
+        ..color = const Color(0xFF2F6CFF)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 6
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..isAntiAlias = true;
+      canvas.drawPath(revealPath, paint);
+    }
+
+    final brushPoint = _pathPointAtProgress(_combineSvgPaths(currentShapes), progress);
+    final brushShadow = Paint()..color = Colors.orange.withValues(alpha: 0.20)..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12);
+    canvas.drawCircle(brushPoint, 14, brushShadow);
+    canvas.drawCircle(brushPoint, 10, Paint()..color = const Color(0xFFFFB22F));
+
+    final tail = Offset(brushPoint.dx - 14, brushPoint.dy + 8);
+    canvas.drawLine(
+      tail,
+      brushPoint,
+      Paint()
+        ..color = const Color(0xFF4D2B00)
+        ..strokeWidth = 3
+        ..strokeCap = StrokeCap.round,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _CumulativeDrawingPainter oldDelegate) {
+    return oldDelegate.progress != progress ||
+        oldDelegate.completedShapes.length != completedShapes.length ||
+        oldDelegate.currentShapes.length != currentShapes.length;
+  }
+}
+
 class _LessonGuideCard extends StatelessWidget {
-  const _LessonGuideCard({required this.lesson});
+  const _LessonGuideCard({
+    required this.lesson,
+    required this.currentStepIndex,
+    required this.totalSteps,
+    required this.onNextStep,
+    required this.onRestart,
+  });
 
   final DrawingLesson lesson;
+  final int currentStepIndex;
+  final int totalSteps;
+  final VoidCallback onNextStep;
+  final VoidCallback onRestart;
 
   @override
   Widget build(BuildContext context) {
+    final isLastStep = currentStepIndex >= totalSteps - 1;
+    final teacherPrompt = lesson.teacherPrompts.isNotEmpty
+        ? lesson.teacherPrompts[currentStepIndex.clamp(0, lesson.teacherPrompts.length - 1)]
+        : lesson.steps[currentStepIndex.clamp(0, lesson.steps.length - 1)];
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -1485,52 +2080,320 @@ class _LessonGuideCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Стъпки за рисуване',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w800,
-              color: const Color(0xFF1F2A44),
-            ),
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEDF4FF),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.record_voice_over_rounded, color: Color(0xFF7C9DFF), size: 18),
+                    SizedBox(width: 6),
+                    Text(
+                      'Учител',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF7C9DFF),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFF3C4),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.star_rounded, color: Color(0xFFFFB703), size: 16),
+                    SizedBox(width: 4),
+                    Text(
+                      '3 звезди',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF6A4D00),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const _TeacherMascot(),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFEDF4FF), Color(0xFFF3F9FF), Color(0xFFEFFCF4)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(22),
+                    border: Border.all(color: const Color(0xFFD7E7FF), width: 2),
+                  ),
+                  child: Text(
+                    '“$teacherPrompt”',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF233154),
+                      height: 1.4,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 18),
-          ...lesson.steps.map(
-            (step) => Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 30,
-                    height: 30,
-                    margin: const EdgeInsets.only(top: 2),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF7C9DFF),
-                      shape: BoxShape.circle,
+          Row(
+            children: [
+              const Icon(Icons.auto_awesome_rounded, color: Color(0xFFFFB703), size: 20),
+              const SizedBox(width: 8),
+              Text(
+                'Стъпки за рисуване',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF1F2A44),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          ...lesson.steps.asMap().entries.map(
+            (entry) {
+              final index = entry.key;
+              final step = entry.value;
+              final isCurrent = index == currentStepIndex;
+              final isDone = index < currentStepIndex;
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 220),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: isCurrent ? const Color(0xFFEAF2FF) : const Color(0xFFFFFDF7),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: isCurrent ? const Color(0xFF8AA7FF) : const Color(0xFFE8EBF4),
                     ),
-                    child: const Center(
-                      child: Text(
-                        '✓',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
+                    boxShadow: isCurrent
+                        ? [
+                            BoxShadow(
+                              color: const Color(0xFF8AA7FF).withValues(alpha: 0.18),
+                              blurRadius: 12,
+                              offset: const Offset(0, 5),
+                            ),
+                          ]
+                        : null,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 28,
+                        height: 28,
+                        margin: const EdgeInsets.only(top: 2),
+                        decoration: BoxDecoration(
+                          color: isDone ? const Color(0xFF7C9DFF) : isCurrent ? const Color(0xFFB9C9FF) : const Color(0xFFE5EAF8),
+                          shape: BoxShape.circle,
                         ),
+                        child: Center(
+                          child: Text(
+                            isDone ? '✓' : '${index + 1}',
+                            style: TextStyle(
+                              color: isDone || isCurrent ? Colors.white : const Color(0xFF7182A7),
+                              fontWeight: FontWeight.w800,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          step,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            height: 1.5,
+                            color: Color(0xFF26314D),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton.icon(
+                  onPressed: onRestart,
+                  icon: const Icon(Icons.restart_alt_rounded),
+                  label: const Text('Отново'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFEBF1FF),
+                    foregroundColor: const Color(0xFF32456E),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ElevatedButton.icon(
+                  onPressed: isLastStep
+                      ? null
+                      : () {
+                          Future.delayed(const Duration(milliseconds: 1000), onNextStep);
+                        },
+                  icon: Icon(isLastStep ? Icons.check_rounded : Icons.arrow_forward_rounded),
+                  label: Text(isLastStep ? 'Готово' : 'Следваща'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF7C9DFF),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TeacherMascot extends StatelessWidget {
+  const _TeacherMascot();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 104,
+      height: 104,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFFE7AC), Color(0xFFFFD676), Color(0xFFFFB26B)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: const Color(0xFFE9C66B), width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.06),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            top: 8,
+            left: 12,
+            child: Container(
+              width: 14,
+              height: 14,
+              decoration: const BoxDecoration(
+                color: Color(0xFFE9C66B),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 8,
+            right: 12,
+            child: Container(
+              width: 14,
+              height: 14,
+              decoration: const BoxDecoration(
+                color: Color(0xFFE9C66B),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 16,
+            child: Container(
+              width: 52,
+              height: 52,
+              decoration: const BoxDecoration(
+                color: Color(0xFFB77A52),
+                shape: BoxShape.circle,
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    top: 14,
+                    left: 12,
+                    child: Container(
+                      width: 6,
+                      height: 6,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF2F2F2F),
+                        shape: BoxShape.circle,
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      step,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        height: 1.5,
-                        color: Color(0xFF26314D),
+                  Positioned(
+                    top: 14,
+                    right: 12,
+                    child: Container(
+                      width: 6,
+                      height: 6,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF2F2F2F),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 12,
+                    child: Container(
+                      width: 22,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFF8EA3),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 10,
+            child: Container(
+              width: 54,
+              height: 14,
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFD160),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
               ),
             ),
           ),
@@ -1540,18 +2403,517 @@ class _LessonGuideCard extends StatelessWidget {
   }
 }
 
+class ParsedSvgShape {
+  const ParsedSvgShape({
+    required this.path,
+    required this.fill,
+    required this.stroke,
+  });
+
+  final Path path;
+  final Color? fill;
+  final Color? stroke;
+}
+
+Path _parseSvgPathData(String data) => parseSvgPathData(data);
+
+Path parseSvgPathData(String data) {
+  final path = Path();
+  final commandMatcher = RegExp(r'[A-Za-z]|[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?');
+  final matches = commandMatcher.allMatches(data).toList();
+
+  if (matches.isEmpty) {
+    return path;
+  }
+
+  double currentX = 0;
+  double currentY = 0;
+  double startX = 0;
+  double startY = 0;
+  String? lastCommand;
+  Offset? lastCubicControl;
+  Offset? lastQuadraticControl;
+  int index = 0;
+
+  while (index < matches.length) {
+    final token = matches[index].group(0)!;
+    final isCommand = token.length == 1 && token.contains(RegExp(r'[A-Za-z]'));
+
+    if (isCommand) {
+      lastCommand = token;
+      index += 1;
+      continue;
+    }
+
+    if (lastCommand == null) {
+      index += 1;
+      continue;
+    }
+
+    final values = <double>[];
+    while (index < matches.length) {
+      final next = matches[index].group(0)!;
+      if (next.length == 1 && next.contains(RegExp(r'[A-Za-z]'))) {
+        break;
+      }
+      values.add(double.parse(next));
+      index += 1;
+    }
+
+    final command = lastCommand!.toUpperCase();
+    final relative = lastCommand != lastCommand!.toUpperCase();
+
+    switch (command) {
+      case 'M':
+        for (var i = 0; i < values.length; i += 2) {
+          final x = relative ? currentX + values[i] : values[i];
+          final y = relative ? currentY + values[i + 1] : values[i + 1];
+          if (i == 0) {
+            currentX = x;
+            currentY = y;
+            startX = x;
+            startY = y;
+            path.moveTo(currentX, currentY);
+          } else {
+            currentX = x;
+            currentY = y;
+            path.lineTo(currentX, currentY);
+          }
+        }
+        lastCubicControl = null;
+        lastQuadraticControl = null;
+        break;
+      case 'L':
+        for (var i = 0; i < values.length; i += 2) {
+          final x = relative ? currentX + values[i] : values[i];
+          final y = relative ? currentY + values[i + 1] : values[i + 1];
+          currentX = x;
+          currentY = y;
+          path.lineTo(currentX, currentY);
+        }
+        lastCubicControl = null;
+        lastQuadraticControl = null;
+        break;
+      case 'H':
+        for (var i = 0; i < values.length; i++) {
+          final x = relative ? currentX + values[i] : values[i];
+          currentX = x;
+          path.lineTo(currentX, currentY);
+        }
+        lastCubicControl = null;
+        lastQuadraticControl = null;
+        break;
+      case 'V':
+        for (var i = 0; i < values.length; i++) {
+          final y = relative ? currentY + values[i] : values[i];
+          currentY = y;
+          path.lineTo(currentX, currentY);
+        }
+        lastCubicControl = null;
+        lastQuadraticControl = null;
+        break;
+      case 'C':
+        for (var i = 0; i < values.length; i += 6) {
+          final x1 = relative ? currentX + values[i] : values[i];
+          final y1 = relative ? currentY + values[i + 1] : values[i + 1];
+          final x2 = relative ? currentX + values[i + 2] : values[i + 2];
+          final y2 = relative ? currentY + values[i + 3] : values[i + 3];
+          final x = relative ? currentX + values[i + 4] : values[i + 4];
+          final y = relative ? currentY + values[i + 5] : values[i + 5];
+          path.cubicTo(x1, y1, x2, y2, x, y);
+          lastCubicControl = Offset(x2, y2);
+          lastQuadraticControl = null;
+          currentX = x;
+          currentY = y;
+        }
+        break;
+      case 'S':
+        for (var i = 0; i < values.length; i += 4) {
+          final x2 = relative ? currentX + values[i] : values[i];
+          final y2 = relative ? currentY + values[i + 1] : values[i + 1];
+          final x = relative ? currentX + values[i + 2] : values[i + 2];
+          final y = relative ? currentY + values[i + 3] : values[i + 3];
+          final reflected = _reflectPreviousControl(lastCubicControl, currentX, currentY);
+          path.cubicTo(reflected.dx, reflected.dy, x2, y2, x, y);
+          lastCubicControl = Offset(x2, y2);
+          lastQuadraticControl = null;
+          currentX = x;
+          currentY = y;
+        }
+        break;
+      case 'Q':
+        for (var i = 0; i < values.length; i += 4) {
+          final x1 = relative ? currentX + values[i] : values[i];
+          final y1 = relative ? currentY + values[i + 1] : values[i + 1];
+          final x = relative ? currentX + values[i + 2] : values[i + 2];
+          final y = relative ? currentY + values[i + 3] : values[i + 3];
+          path.quadraticBezierTo(x1, y1, x, y);
+          lastQuadraticControl = Offset(x1, y1);
+          lastCubicControl = null;
+          currentX = x;
+          currentY = y;
+        }
+        break;
+      case 'T':
+        for (var i = 0; i < values.length; i += 2) {
+          final x = relative ? currentX + values[i] : values[i];
+          final y = relative ? currentY + values[i + 1] : values[i + 1];
+          final reflected = _reflectPreviousControl(lastQuadraticControl, currentX, currentY);
+          path.quadraticBezierTo(reflected.dx, reflected.dy, x, y);
+          lastQuadraticControl = Offset(reflected.dx, reflected.dy);
+          lastCubicControl = null;
+          currentX = x;
+          currentY = y;
+        }
+        break;
+      case 'Z':
+        path.close();
+        currentX = startX;
+        currentY = startY;
+        lastCubicControl = null;
+        lastQuadraticControl = null;
+        break;
+      case 'A':
+        for (var i = 0; i < values.length; i += 7) {
+          final rx = values[i];
+          final ry = values[i + 1];
+          final rotation = values[i + 2];
+          final largeArcFlag = values[i + 3] == 1;
+          final sweepFlag = values[i + 4] == 1;
+          final x = relative ? currentX + values[i + 5] : values[i + 5];
+          final y = relative ? currentY + values[i + 6] : values[i + 6];
+
+          final arcRect = Rect.fromCenter(
+            center: Offset((currentX + x) / 2, (currentY + y) / 2),
+            width: rx.abs() * 2,
+            height: ry.abs() * 2,
+          );
+          final arcPath = Path();
+          arcPath.addArc(arcRect, 0, math.pi * 2);
+          if (largeArcFlag && sweepFlag) {
+            path.addPath(arcPath, Offset.zero);
+          }
+          currentX = x;
+          currentY = y;
+          lastCubicControl = null;
+          lastQuadraticControl = null;
+        }
+        break;
+      default:
+        break;
+    }
+
+    if (index < matches.length) {
+      final nextToken = matches[index].group(0)!;
+      if (nextToken.length == 1 && nextToken.contains(RegExp(r'[A-Za-z]'))) {
+        lastCommand = nextToken;
+        index += 1;
+      }
+    }
+  }
+
+  return path;
+}
+
+Offset _reflectPreviousControl(Offset? previousControl, double currentX, double currentY) {
+  if (previousControl == null) {
+    return Offset(currentX, currentY);
+  }
+
+  return Offset(
+    currentX * 2 - previousControl.dx,
+    currentY * 2 - previousControl.dy,
+  );
+}
+
+Path _combineSvgPaths(List<ParsedSvgShape> shapes) {
+  final combined = Path();
+  for (final shape in shapes) {
+    combined.addPath(shape.path, Offset.zero);
+  }
+  return combined;
+}
+
+Path _progressivePath(Path original, double progress) {
+  if (progress <= 0) {
+    return Path();
+  }
+  final metrics = original.computeMetrics().toList();
+  if (metrics.isEmpty) {
+    return original;
+  }
+
+  final totalLength = metrics.fold<double>(0, (sum, metric) => sum + metric.length);
+  if (totalLength <= 0) {
+    return original;
+  }
+
+  final targetLength = totalLength * progress.clamp(0.0, 1.0);
+  final reveal = Path();
+  double travelled = 0;
+
+  for (final metric in metrics) {
+    final segmentLength = metric.length;
+    if (travelled + segmentLength >= targetLength) {
+      reveal.addPath(metric.extractPath(0, targetLength - travelled), Offset.zero);
+      break;
+    }
+    reveal.addPath(metric.extractPath(0, segmentLength), Offset.zero);
+    travelled += segmentLength;
+  }
+
+  return reveal;
+}
+
+Offset _pathPointAtProgress(Path original, double progress) {
+  final metrics = original.computeMetrics().toList();
+  if (metrics.isEmpty) {
+    return Offset.zero;
+  }
+
+  final totalLength = metrics.fold<double>(0, (sum, metric) => sum + metric.length);
+  if (totalLength <= 0) {
+    return original.getBounds().center;
+  }
+
+  final targetLength = totalLength * progress.clamp(0.0, 1.0);
+  double travelled = 0;
+
+  for (final metric in metrics) {
+    if (travelled + metric.length >= targetLength) {
+      final localOffset = (targetLength - travelled).clamp(0.0, metric.length);
+      final sampleStart = (localOffset - 1.0).clamp(0.0, metric.length);
+      final sampleEnd = (localOffset + 1.0).clamp(0.0, metric.length);
+      final samplePath = metric.extractPath(sampleStart, sampleEnd);
+      final bounds = samplePath.getBounds();
+      return bounds.isEmpty ? Offset.zero : bounds.center;
+    }
+    travelled += metric.length;
+  }
+
+  final lastMetric = metrics.last;
+  final samplePath = lastMetric.extractPath(lastMetric.length - 1, lastMetric.length);
+  final bounds = samplePath.getBounds();
+  return bounds.isEmpty ? Offset.zero : bounds.center;
+}
+
+Color? _parseSvgColor(String? colorValue) {
+  if (colorValue == null || colorValue == 'none') {
+    return null;
+  }
+
+  final raw = colorValue.trim();
+  if (raw.startsWith('#')) {
+    final hex = raw.replaceFirst('#', '');
+    final value = hex.length == 6 ? 'FF$hex' : hex;
+    return Color(int.tryParse(value, radix: 16) ?? 0xFF000000);
+  }
+
+  switch (raw.toLowerCase()) {
+    case 'black':
+      return const Color(0xFF000000);
+    case 'white':
+      return const Color(0xFFFFFFFF);
+    case 'red':
+      return const Color(0xFFFF0000);
+    default:
+      return null;
+  }
+}
+
+Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) async {
+  final normalizedAssetPath = normalizeAssetPath(assetPath);
+  String rawSvg;
+  print('READING FILE: $assetPath');
+  try {
+    rawSvg = await rootBundle.loadString(normalizedAssetPath);
+    print('READ OK: $assetPath');
+  } catch (_) {
+    final fallback = await readTextFromProjectFile(assetPath);
+    if (fallback == null || fallback.isEmpty) {
+      print('READ FAILED: $assetPath');
+      return const <ParsedSvgShape>[];
+    }
+    rawSvg = fallback;
+    print('READ FALLBACK OK: $assetPath');
+  }
+
+  print('SVG PREVIEW: ${rawSvg.substring(0, math.min(200, rawSvg.length))}');
+
+  try {
+    final document = XmlDocument.parse(rawSvg);
+    print('AFTER XML: $assetPath');
+
+    final shapes = <ParsedSvgShape>[];
+
+    for (final element in document.descendants.whereType<XmlElement>()) {
+      final d = element.getAttribute('d');
+      if (d != null && d.trim().isNotEmpty) {
+        final path = _parseSvgPathData(d);
+        if (!path.getBounds().isEmpty) {
+          shapes.add(
+            ParsedSvgShape(
+              path: path,
+              fill: _parseSvgColor(element.getAttribute('fill')),
+              stroke: _parseSvgColor(element.getAttribute('stroke')),
+            ),
+          );
+        }
+        continue;
+      }
+
+      final cx = double.tryParse(element.getAttribute('cx') ?? '');
+      final cy = double.tryParse(element.getAttribute('cy') ?? '');
+      final rx = double.tryParse(element.getAttribute('rx') ?? '');
+      final ry = double.tryParse(element.getAttribute('ry') ?? '');
+      final r = double.tryParse(element.getAttribute('r') ?? '');
+
+      if (element.name.local == 'circle' && r != null && cx != null && cy != null) {
+        final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 2));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+        continue;
+      }
+
+      if (element.name.local == 'ellipse' && rx != null && ry != null && cx != null && cy != null) {
+        final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: rx * 2, height: ry * 2));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+        continue;
+      }
+
+      if (element.name.local == 'line') {
+        final x1 = double.tryParse(element.getAttribute('x1') ?? '');
+        final y1 = double.tryParse(element.getAttribute('y1') ?? '');
+        final x2 = double.tryParse(element.getAttribute('x2') ?? '');
+        final y2 = double.tryParse(element.getAttribute('y2') ?? '');
+        if (x1 != null && y1 != null && x2 != null && y2 != null) {
+          final path = Path()
+            ..moveTo(x1, y1)
+            ..lineTo(x2, y2);
+          shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+        }
+      }
+    }
+
+    print('RETURNING ${shapes.length} SHAPES: $assetPath');
+    return shapes;
+  } catch (e, stack) {
+    print('PARSE ERROR IN $assetPath');
+    print(e);
+    print(stack);
+    rethrow;
+  }
+}
+
+class _ContourRevealPainter extends CustomPainter {
+  const _ContourRevealPainter({
+    required this.shapes,
+    required this.progress,
+    required this.revealColor,
+    required this.brushColor,
+  });
+
+  final List<ParsedSvgShape> shapes;
+  final double progress;
+  final Color revealColor;
+  final Color brushColor;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (shapes.isEmpty) {
+      return;
+    }
+
+    final combinedPath = _combineSvgPaths(shapes);
+    final bounds = combinedPath.getBounds();
+    if (bounds.isEmpty) {
+      return;
+    }
+
+    final scale = math.min(size.width / bounds.width, size.height / bounds.height);
+    final offset = Offset(
+      (size.width - bounds.width * scale) / 2 - bounds.left * scale,
+      (size.height - bounds.height * scale) / 2 - bounds.top * scale,
+    );
+
+    canvas.translate(offset.dx, offset.dy);
+    canvas.scale(scale);
+
+    final basePaint = Paint()
+      ..color = revealColor.withValues(alpha: 0.15)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 8
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    final revealPaint = Paint()
+      ..color = revealColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    canvas.drawPath(combinedPath, basePaint);
+    canvas.drawPath(_progressivePath(combinedPath, progress), revealPaint);
+
+    final pathProgressPoint = _pathPointAtProgress(combinedPath, progress);
+    final brushPaint = Paint()..color = brushColor;
+    canvas.drawCircle(pathProgressPoint, 8, brushPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _ContourRevealPainter oldDelegate) {
+    return oldDelegate.progress != progress || oldDelegate.shapes.length != shapes.length;
+  }
+}
+
 class DrawingLesson {
-  const DrawingLesson({
+  DrawingLesson({
     required this.id,
     required this.category,
     required this.title,
     required this.emoji,
     required this.accent,
     required this.svgAsset,
+    this.finalPreviewAsset,
+    List<String>? stepAssets,
     required this.prompt,
     required this.voiceText,
-    required this.steps,
-  });
+    required List<String> steps,
+    List<String>? teacherPrompts,
+    String? rewardText,
+  })  : steps = _normalizeSteps(steps),
+        stepAssets = stepAssets ?? const <String>[],
+        teacherPrompts = teacherPrompts ?? _defaultTeacherPrompts(_normalizeSteps(steps)),
+        rewardText = rewardText ?? 'Много добре! Ти завърши картинката и си се справил отлично!';
+
+  static List<String> _normalizeSteps(List<String> steps) {
+    if (steps.length >= 5) {
+      return List<String>.from(steps.take(8));
+    }
+
+    final list = List<String>.from(steps);
+    final filler = [
+      'Добави голямата основна форма.',
+      'Постави детайлите на лицето и тялото.',
+      'Сложи финалните линии и детайли.',
+      'Провери симетрията и формата.',
+    ];
+
+    for (var i = list.length; i < 5; i++) {
+      list.add(filler[i - list.length]);
+    }
+
+    return list;
+  }
+
+  static List<String> _defaultTeacherPrompts(List<String> steps) {
+    final base = <String>[];
+    for (var i = 0; i < steps.length; i++) {
+      final label = i == 0 ? 'Нарисувай' : i == steps.length - 1 ? 'Накрая' : 'Сега';
+      base.add('$label ${steps[i].toLowerCase()}.');
+    }
+    return base;
+  }
 
   final int id;
   final String category;
@@ -1559,7 +2921,11 @@ class DrawingLesson {
   final String emoji;
   final Color accent;
   final String svgAsset;
+  final String? finalPreviewAsset;
+  final List<String> stepAssets;
   final String prompt;
   final String voiceText;
   final List<String> steps;
+  final List<String> teacherPrompts;
+  final String rewardText;
 }

@@ -1,15 +1,13 @@
+
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M94 302 160 220h192l78 58v56c0 28-22 50-50 50H144c-28 0-50-22-50-50v-56Z"/>
-    <path d="M154 220 204 172h104l50 48"/>
-    <path d="M176 220v-46h160v46"/>
-    <path d="M170 296h172"/>
-    <path d="M182 242h150"/>
-    <circle cx="170" cy="366" r="42"/>
-    <circle cx="340" cy="366" r="42"/>
-    <circle cx="170" cy="366" r="16" fill="#111827" stroke="none"/>
-    <circle cx="340" cy="366" r="16" fill="#111827" stroke="none"/>
-    <path d="M214 220v-36"/>
-    <path d="M298 220v-36"/>
+  <g fill="none" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    M104 284h42l28-62h144l44 62h42c18 0 32 14 32 32v20c0 18-14 32-32 32h-22c-12 0-22-10-22-22v-8H164v8c0 12-10 22-22 22h-22c-18 0-32-14-32-32v-20c0-18 14-32 32-32Z
+    M174 222l18-42h120l18 42
+    M166 328v34
+    M346 328v34
+    M204 330h104
+    M240 250h32
+    M128 280h-24
+    M384 280h24
   </g>
 </svg>

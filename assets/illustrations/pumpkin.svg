@@ -1,0 +1,14 @@
+
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    M188 230c0-70 54-124 120-124s120 54 120 124v56c0 76-56 136-120 136s-120-60-120-136v-56Z
+    M208 198c16 20 32 30 48 34
+    M304 198c-16 20-32 30-48 34
+    M256 156v104
+    M198 264h116
+    M236 168l-20-42
+    M276 168l20-42
+    M228 346l-26 52
+    M284 346l26 52
+  </g>
+</svg>

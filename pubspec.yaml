@@ -60,28 +60,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/illustrations/animal.svg
-    - assets/illustrations/vehicle.svg
-    - assets/illustrations/house.svg
-    - assets/illustrations/butterfly.svg
-    - assets/illustrations/boat.svg
-    - assets/illustrations/playground.svg
-    - assets/illustrations/cat.svg
-    - assets/illustrations/dog.svg
-    - assets/illustrations/fox.svg
-    - assets/illustrations/bunny.svg
-    - assets/illustrations/fish.svg
-    - assets/illustrations/penguin.svg
-    - assets/illustrations/elephant.svg
-    - assets/illustrations/car.svg
-    - assets/illustrations/truck.svg
-    - assets/illustrations/van.svg
-    - assets/illustrations/tractor.svg
-    - assets/illustrations/firetruck.svg
-    - assets/illustrations/police.svg
-    - assets/illustrations/small_house.svg
-    - assets/illustrations/villa.svg
-    - assets/illustrations/sun_house.svg
+    - assets/illustrations/
+    - assets/lessons/
+    - assets/lessons/fox/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

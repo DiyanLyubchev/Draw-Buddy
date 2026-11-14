@@ -8,6 +8,7 @@ From the project root, run:
 
 ```bash
 flutter pub get && flutter run -d chrome
+
 ```
 
 If you prefer to run the steps separately:
@@ -15,6 +16,7 @@ If you prefer to run the steps separately:
 ```bash
 flutter pub get
 flutter run -d chrome
+
 ```
 
 ## Notes
