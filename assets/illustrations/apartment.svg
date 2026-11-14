@@ -1,13 +1,13 @@
 
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    M154 382V188h204v194
-    M184 188v-44h144v44
-    M206 218h100
-    M206 266h100
-    M206 314h100
-    M176 382v-60h160v60
-    M240 188v-18
-    M272 188v-18
+  <g fill="none" stroke="#58483F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M154 382V188h204v194"/>
+    <path d="M184 188v-44h144v44"/>
+    <path d="M206 218h100"/>
+    <path d="M206 266h100"/>
+    <path d="M206 314h100"/>
+    <path d="M176 382v-60h160v60"/>
+    <path d="M240 188v-18"/>
+    <path d="M272 188v-18"/>
   </g>
 </svg>

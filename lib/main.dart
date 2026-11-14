@@ -8,7 +8,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:xml/xml.dart';
 
 String normalizeAssetPath(String raw) {
-  return raw.startsWith('assets/') ? raw.substring('assets/'.length) : raw;
+  return raw;
 }
 
 IconData categoryIconFor(String category) {
@@ -64,7 +64,15 @@ final List<DrawingLesson> lessons = [
     title: 'Котка',
     emoji: '🐱',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/cat.svg',
+    svgAsset: 'assets/illustrations/cat.svg',
+    finalPreviewAsset: 'assets/lessons/cat/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/cat/step_01.svg',
+      'assets/lessons/cat/step_02.svg',
+      'assets/lessons/cat/step_03.svg',
+      'assets/lessons/cat/step_04.svg',
+      'assets/lessons/cat/step_05.svg',
+    ],
     prompt: 'Нарисувай котка: кръгло тяло, две уши, очи, мустаци и дълга опашка.',
     voiceText:
         'Първо начертавай голям кръг. После добави две уши, две очи и мустаци. Накрая нарисувай опашката и ушите са остри.',
@@ -80,7 +88,15 @@ final List<DrawingLesson> lessons = [
     title: 'Куче',
     emoji: '🐶',
     accent: const Color(0xFF7CC6FE),
-    svgAsset: 'assets/illustrations/dog.svg',
+    svgAsset: 'assets/illustrations/dog.svg',
+    finalPreviewAsset: 'assets/lessons/dog/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/dog/step_01.svg',
+      'assets/lessons/dog/step_02.svg',
+      'assets/lessons/dog/step_03.svg',
+      'assets/lessons/dog/step_04.svg',
+      'assets/lessons/dog/step_05.svg',
+    ],
     prompt: 'Нарисувай куче с триъгълна глава, нос, уши и лапи.',
     voiceText: 'Създай една голяма глава, после ушите, носа и очите. След това добави лапи и опашка.',
     steps: [
@@ -127,7 +143,15 @@ final List<DrawingLesson> lessons = [
     title: 'Зайче',
     emoji: '🐰',
     accent: const Color(0xFFD9C2FF),
-    svgAsset: 'assets/illustrations/bunny.svg',
+    svgAsset: 'assets/illustrations/bunny.svg',
+    finalPreviewAsset: 'assets/lessons/bunny/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/bunny/step_01.svg',
+      'assets/lessons/bunny/step_02.svg',
+      'assets/lessons/bunny/step_03.svg',
+      'assets/lessons/bunny/step_04.svg',
+      'assets/lessons/bunny/step_05.svg',
+    ],
     prompt: 'Нарисувай заек с дълги уши, овално тяло и малък нос.',
     voiceText: 'Начертавай овално тяло. После направи два дълги уши. Добави малки очи, нос и лапички.',
     steps: [
@@ -142,7 +166,15 @@ final List<DrawingLesson> lessons = [
     title: 'Рибка',
     emoji: '🐟',
     accent: const Color(0xFF7AE582),
-    svgAsset: 'assets/illustrations/fish.svg',
+    svgAsset: 'assets/illustrations/fish.svg',
+    finalPreviewAsset: 'assets/lessons/fish/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/fish/step_01.svg',
+      'assets/lessons/fish/step_02.svg',
+      'assets/lessons/fish/step_03.svg',
+      'assets/lessons/fish/step_04.svg',
+      'assets/lessons/fish/step_05.svg',
+    ],
     prompt: 'Нарисувай рибка с овално тяло, перки и опашка.',
     voiceText: 'Сложи яйцевидно тяло. Добави две перки нагоре и една голяма опашка. Дорисувай око и устни.',
     steps: [
@@ -157,7 +189,15 @@ final List<DrawingLesson> lessons = [
     title: 'Пингвин',
     emoji: '🐧',
     accent: const Color(0xFFB8C0FF),
-    svgAsset: 'assets/illustrations/penguin.svg',
+    svgAsset: 'assets/illustrations/penguin.svg',
+    finalPreviewAsset: 'assets/lessons/penguin/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/penguin/step_01.svg',
+      'assets/lessons/penguin/step_02.svg',
+      'assets/lessons/penguin/step_03.svg',
+      'assets/lessons/penguin/step_04.svg',
+      'assets/lessons/penguin/step_05.svg',
+    ],
     prompt: 'Нарисувай пингвин с бяло коремче, клюн и малки лапи.',
     voiceText: 'Направи черно тяло с бяло коремче. Добави малки очи, жълт клюн и две лапички.',
     steps: [
@@ -172,7 +212,15 @@ final List<DrawingLesson> lessons = [
     title: 'Слон',
     emoji: '🐘',
     accent: const Color(0xFFB0D7FF),
-    svgAsset: 'assets/illustrations/elephant.svg',
+    svgAsset: 'assets/illustrations/elephant.svg',
+    finalPreviewAsset: 'assets/lessons/elephant/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/elephant/step_01.svg',
+      'assets/lessons/elephant/step_02.svg',
+      'assets/lessons/elephant/step_03.svg',
+      'assets/lessons/elephant/step_04.svg',
+      'assets/lessons/elephant/step_05.svg',
+    ],
     prompt: 'Нарисувай слон с големи уши, хобот и малки очи.',
     voiceText: 'Начертавай кръгло тяло и огромни уши. После нарисувай хобота, очите и краката.',
     steps: [
@@ -187,7 +235,15 @@ final List<DrawingLesson> lessons = [
     title: 'Пеперуда',
     emoji: '🦋',
     accent: const Color(0xFFFFB4A2),
-    svgAsset: 'assets/illustrations/butterfly.svg',
+    svgAsset: 'assets/illustrations/butterfly.svg',
+    finalPreviewAsset: 'assets/lessons/butterfly/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/butterfly/step_01.svg',
+      'assets/lessons/butterfly/step_02.svg',
+      'assets/lessons/butterfly/step_03.svg',
+      'assets/lessons/butterfly/step_04.svg',
+      'assets/lessons/butterfly/step_05.svg',
+    ],
     prompt: 'Нарисувай пеперуда с две крила, тънко тяло и усмивка.',
     voiceText: 'Начертавай две симетрични крила. След това направи тънко тяло и антенки. Накрая добави малки точки върху крилата.',
     steps: [
@@ -202,7 +258,15 @@ final List<DrawingLesson> lessons = [
     title: 'Автомобил',
     emoji: '🚗',
     accent: const Color(0xFF7AE582),
-    svgAsset: 'assets/illustrations/car.svg',
+    svgAsset: 'assets/illustrations/car.svg',
+    finalPreviewAsset: 'assets/lessons/car/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/car/step_01.svg',
+      'assets/lessons/car/step_02.svg',
+      'assets/lessons/car/step_03.svg',
+      'assets/lessons/car/step_04.svg',
+      'assets/lessons/car/step_05.svg',
+    ],
     prompt: 'Нарисувай кола с правоъгълно тяло, колела и фарове.',
     voiceText: 'Начертавай правоъгълно тяло. Добави две колела, прозорци и накрая фаровете.',
     steps: [
@@ -217,7 +281,15 @@ final List<DrawingLesson> lessons = [
     title: 'Камион',
     emoji: '🚚',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/truck.svg',
+    svgAsset: 'assets/illustrations/truck.svg',
+    finalPreviewAsset: 'assets/lessons/truck/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/truck/step_01.svg',
+      'assets/lessons/truck/step_02.svg',
+      'assets/lessons/truck/step_03.svg',
+      'assets/lessons/truck/step_04.svg',
+      'assets/lessons/truck/step_05.svg',
+    ],
     prompt: 'Нарисувай камион с голяма кабина, платформа и колела.',
     voiceText: 'Създай голяма кабина и дълга платформа. След това добави четири колела и светлини.',
     steps: [
@@ -232,7 +304,15 @@ final List<DrawingLesson> lessons = [
     title: 'Ван',
     emoji: '🚐',
     accent: const Color(0xFF90E0EF),
-    svgAsset: 'assets/illustrations/van.svg',
+    svgAsset: 'assets/illustrations/van.svg',
+    finalPreviewAsset: 'assets/lessons/van/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/van/step_01.svg',
+      'assets/lessons/van/step_02.svg',
+      'assets/lessons/van/step_03.svg',
+      'assets/lessons/van/step_04.svg',
+      'assets/lessons/van/step_05.svg',
+    ],
     prompt: 'Нарисувай ван с голямо пространство, прозорци и две колела.',
     voiceText: 'Начертавай правоъгълник с голямо пространство. Добави прозорци и колела. Накрая направи малка врата.',
     steps: [
@@ -247,7 +327,15 @@ final List<DrawingLesson> lessons = [
     title: 'Трактор',
     emoji: '🚜',
     accent: const Color(0xFFD9C2FF),
-    svgAsset: 'assets/illustrations/tractor.svg',
+    svgAsset: 'assets/illustrations/tractor.svg',
+    finalPreviewAsset: 'assets/lessons/tractor/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/tractor/step_01.svg',
+      'assets/lessons/tractor/step_02.svg',
+      'assets/lessons/tractor/step_03.svg',
+      'assets/lessons/tractor/step_04.svg',
+      'assets/lessons/tractor/step_05.svg',
+    ],
     prompt: 'Нарисувай трактор с голяма кабина, големи колела и малка рука.',
     voiceText: 'Начертавай голяма кабина и тяло. След това добави два големи колела и малка ръка отпред.',
     steps: [
@@ -262,7 +350,15 @@ final List<DrawingLesson> lessons = [
     title: 'Пожарна кола',
     emoji: '🚒',
     accent: const Color(0xFFFF7F7F),
-    svgAsset: 'assets/illustrations/firetruck.svg',
+    svgAsset: 'assets/illustrations/firetruck.svg',
+    finalPreviewAsset: 'assets/lessons/firetruck/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/firetruck/step_01.svg',
+      'assets/lessons/firetruck/step_02.svg',
+      'assets/lessons/firetruck/step_03.svg',
+      'assets/lessons/firetruck/step_04.svg',
+      'assets/lessons/firetruck/step_05.svg',
+    ],
     prompt: 'Нарисувай пожарна кола с червено тяло и сини светлини.',
     voiceText: 'Начертавай червено тяло и кабината. Добави колела и две сини светлини. Накрая рисувай люка и звънец.',
     steps: [
@@ -277,7 +373,15 @@ final List<DrawingLesson> lessons = [
     title: 'Полицейски камион',
     emoji: '🚓',
     accent: const Color(0xFF6DA9FF),
-    svgAsset: 'assets/illustrations/police.svg',
+    svgAsset: 'assets/illustrations/police.svg',
+    finalPreviewAsset: 'assets/lessons/police/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/police/step_01.svg',
+      'assets/lessons/police/step_02.svg',
+      'assets/lessons/police/step_03.svg',
+      'assets/lessons/police/step_04.svg',
+      'assets/lessons/police/step_05.svg',
+    ],
     prompt: 'Нарисувай полицейска кола с сини и червени ленти и светлини.',
     voiceText: 'Начертавай голямо тяло. Добави синьо-червени ленти, колела и светлини. Накрая добави вратата и фаровете.',
     steps: [
@@ -292,7 +396,15 @@ final List<DrawingLesson> lessons = [
     title: 'Къща',
     emoji: '🏠',
     accent: const Color(0xFFB9FBC0),
-    svgAsset: 'assets/illustrations/house.svg',
+    svgAsset: 'assets/illustrations/house.svg',
+    finalPreviewAsset: 'assets/lessons/house/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/house/step_01.svg',
+      'assets/lessons/house/step_02.svg',
+      'assets/lessons/house/step_03.svg',
+      'assets/lessons/house/step_04.svg',
+      'assets/lessons/house/step_05.svg',
+    ],
     prompt: 'Нарисувай къща с правоъгълници, покрив и врата.',
     voiceText: 'Начертавай голям квадрат. После добави покрива и вратата. Накрая нарисувай прозорци и комин.',
     steps: [
@@ -307,7 +419,15 @@ final List<DrawingLesson> lessons = [
     title: 'Малка къща',
     emoji: '🏡',
     accent: const Color(0xFFFACBFF),
-    svgAsset: 'assets/illustrations/small_house.svg',
+    svgAsset: 'assets/illustrations/small_house.svg',
+    finalPreviewAsset: 'assets/lessons/small_house/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/small_house/step_01.svg',
+      'assets/lessons/small_house/step_02.svg',
+      'assets/lessons/small_house/step_03.svg',
+      'assets/lessons/small_house/step_04.svg',
+      'assets/lessons/small_house/step_05.svg',
+    ],
     prompt: 'Нарисувай малка къща с кръгло цветно дворче и покрив.',
     voiceText: 'Създай малка къща с покрив и врата. Добави две малки прозорчета и дърво до нея.',
     steps: [
@@ -322,7 +442,15 @@ final List<DrawingLesson> lessons = [
     title: 'Вила',
     emoji: '🏝️',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/villa.svg',
+    svgAsset: 'assets/illustrations/villa.svg',
+    finalPreviewAsset: 'assets/lessons/villa/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/villa/step_01.svg',
+      'assets/lessons/villa/step_02.svg',
+      'assets/lessons/villa/step_03.svg',
+      'assets/lessons/villa/step_04.svg',
+      'assets/lessons/villa/step_05.svg',
+    ],
     prompt: 'Нарисувай вила с две къщи, палми и пътека.',
     voiceText: 'Направи голяма основна къща и една по-малка до нея. Добави палми и пътека отпред.',
     steps: [
@@ -337,7 +465,15 @@ final List<DrawingLesson> lessons = [
     title: 'Пързалка',
     emoji: '🛝',
     accent: const Color(0xFFBDE0FE),
-    svgAsset: 'assets/illustrations/playground.svg',
+    svgAsset: 'assets/illustrations/playground.svg',
+    finalPreviewAsset: 'assets/lessons/playground/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/playground/step_01.svg',
+      'assets/lessons/playground/step_02.svg',
+      'assets/lessons/playground/step_03.svg',
+      'assets/lessons/playground/step_04.svg',
+      'assets/lessons/playground/step_05.svg',
+    ],
     prompt: 'Нарисувай пързалка, стълби и безопасна площадка.',
     voiceText: 'Начертавай детска площадка, след това стълбите и пързалката. Добави ограда и малка сянка.',
     steps: [
@@ -352,7 +488,15 @@ final List<DrawingLesson> lessons = [
     title: 'Параход',
     emoji: '🛶',
     accent: const Color(0xFF9AD1D4),
-    svgAsset: 'assets/illustrations/boat.svg',
+    svgAsset: 'assets/illustrations/boat.svg',
+    finalPreviewAsset: 'assets/lessons/boat/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/boat/step_01.svg',
+      'assets/lessons/boat/step_02.svg',
+      'assets/lessons/boat/step_03.svg',
+      'assets/lessons/boat/step_04.svg',
+      'assets/lessons/boat/step_05.svg',
+    ],
     prompt: 'Нарисувай малък лоден кораб, вълни и флагче.',
     voiceText: 'Начертавай дълго тяло на лодка. После добави флагче и вълни под нея. Накрая добави малък мачт.',
     steps: [
@@ -367,7 +511,15 @@ final List<DrawingLesson> lessons = [
     title: 'Слънчев дом',
     emoji: '🏠',
     accent: const Color(0xFFFFE69A),
-    svgAsset: 'assets/illustrations/sun_house.svg',
+    svgAsset: 'assets/illustrations/sun_house.svg',
+    finalPreviewAsset: 'assets/lessons/sun_house/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/sun_house/step_01.svg',
+      'assets/lessons/sun_house/step_02.svg',
+      'assets/lessons/sun_house/step_03.svg',
+      'assets/lessons/sun_house/step_04.svg',
+      'assets/lessons/sun_house/step_05.svg',
+    ],
     prompt: 'Нарисувай слънчев дом с покрив, прозорци, дърво и слънце.',
     voiceText: 'Начертавай къща с покрив и врата. Добави слънце в небето. Накрая добави дърво и големи прозорци.',
     steps: [
@@ -382,7 +534,15 @@ final List<DrawingLesson> lessons = [
     title: 'Снежен човек',
     emoji: '⛄',
     accent: const Color(0xFFBFE7FF),
-    svgAsset: 'assets/illustrations/snowman.svg',
+    svgAsset: 'assets/illustrations/snowman.svg',
+    finalPreviewAsset: 'assets/lessons/snowman/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/snowman/step_01.svg',
+      'assets/lessons/snowman/step_02.svg',
+      'assets/lessons/snowman/step_03.svg',
+      'assets/lessons/snowman/step_04.svg',
+      'assets/lessons/snowman/step_05.svg',
+    ],
     prompt: 'Нарисувай снежен човек с две снежни топки, шапка и малък шал.',
     voiceText: 'Първо начертавай голям кръг за тялото. После добави по-малък кръг за главата. Накрая нарисувай шапката, очите, носа и метлата.',
     steps: [
@@ -397,7 +557,15 @@ final List<DrawingLesson> lessons = [
     title: 'Ябълка',
     emoji: '🍎',
     accent: const Color(0xFFFFB3B3),
-    svgAsset: 'assets/illustrations/apple.svg',
+    svgAsset: 'assets/illustrations/apple.svg',
+    finalPreviewAsset: 'assets/lessons/apple/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/apple/step_01.svg',
+      'assets/lessons/apple/step_02.svg',
+      'assets/lessons/apple/step_03.svg',
+      'assets/lessons/apple/step_04.svg',
+      'assets/lessons/apple/step_05.svg',
+    ],
     prompt: 'Нарисувай ябълка с овална форма, дръжка и листо.',
     voiceText: 'Започни с овална ябълка. Добави дръжката и листото. Накрая направи малка вдлъбнатина в дъното.',
     steps: [
@@ -412,7 +580,15 @@ final List<DrawingLesson> lessons = [
     title: 'Круша',
     emoji: '🍐',
     accent: const Color(0xFFBFEBA9),
-    svgAsset: 'assets/illustrations/pear.svg',
+    svgAsset: 'assets/illustrations/pear.svg',
+    finalPreviewAsset: 'assets/lessons/pear/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/pear/step_01.svg',
+      'assets/lessons/pear/step_02.svg',
+      'assets/lessons/pear/step_03.svg',
+      'assets/lessons/pear/step_04.svg',
+      'assets/lessons/pear/step_05.svg',
+    ],
     prompt: 'Нарисувай круша с дълга форма, дръжка и листо.',
     voiceText: 'Направи леко удължена форма. После добави дръжката и листото. Накрая направи дълбока линия в средата.',
     steps: [
@@ -427,7 +603,15 @@ final List<DrawingLesson> lessons = [
     title: 'Портокал',
     emoji: '🍊',
     accent: const Color(0xFFFFCF73),
-    svgAsset: 'assets/illustrations/orange.svg',
+    svgAsset: 'assets/illustrations/orange.svg',
+    finalPreviewAsset: 'assets/lessons/orange/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/orange/step_01.svg',
+      'assets/lessons/orange/step_02.svg',
+      'assets/lessons/orange/step_03.svg',
+      'assets/lessons/orange/step_04.svg',
+      'assets/lessons/orange/step_05.svg',
+    ],
     prompt: 'Нарисувай портокал с кръгла форма и малка дръжка.',
     voiceText: 'Начертавай кръг. После добави дръжката и малките сегменти. Накрая направи къса линия по средата.',
     steps: [
@@ -442,7 +626,15 @@ final List<DrawingLesson> lessons = [
     title: 'Банан',
     emoji: '🍌',
     accent: const Color(0xFFEADF5B),
-    svgAsset: 'assets/illustrations/banana.svg',
+    svgAsset: 'assets/illustrations/banana.svg',
+    finalPreviewAsset: 'assets/lessons/banana/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/banana/step_01.svg',
+      'assets/lessons/banana/step_02.svg',
+      'assets/lessons/banana/step_03.svg',
+      'assets/lessons/banana/step_04.svg',
+      'assets/lessons/banana/step_05.svg',
+    ],
     prompt: 'Нарисувай банан с дълга полу-овална форма.',
     voiceText: 'Начертавай дълъг полукръг. После добави краищата и малка бразда. Накрая направи лек завой по средата.',
     steps: [
@@ -457,7 +649,15 @@ final List<DrawingLesson> lessons = [
     title: 'Грозде',
     emoji: '🍇',
     accent: const Color(0xFFB38BFF),
-    svgAsset: 'assets/illustrations/grapes.svg',
+    svgAsset: 'assets/illustrations/grapes.svg',
+    finalPreviewAsset: 'assets/lessons/grapes/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/grapes/step_01.svg',
+      'assets/lessons/grapes/step_02.svg',
+      'assets/lessons/grapes/step_03.svg',
+      'assets/lessons/grapes/step_04.svg',
+      'assets/lessons/grapes/step_05.svg',
+    ],
     prompt: 'Нарисувай гроздето с малки кръгли зърна и листо.',
     voiceText: 'Създай малки кръгли плодчета в група. Накрая добави листото и стъблото. Прави формата леко спретната и симетрична.',
     steps: [
@@ -472,7 +672,15 @@ final List<DrawingLesson> lessons = [
     title: 'Ягода',
     emoji: '🍓',
     accent: const Color(0xFFFF8A8A),
-    svgAsset: 'assets/illustrations/strawberry.svg',
+    svgAsset: 'assets/illustrations/strawberry.svg',
+    finalPreviewAsset: 'assets/lessons/strawberry/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/strawberry/step_01.svg',
+      'assets/lessons/strawberry/step_02.svg',
+      'assets/lessons/strawberry/step_03.svg',
+      'assets/lessons/strawberry/step_04.svg',
+      'assets/lessons/strawberry/step_05.svg',
+    ],
     prompt: 'Нарисувай ягода с малки семена и зелено листо.',
     voiceText: 'Начертавай сладко яйцевидно тяло. Добави малки семена и зелени листа. Накрая добави дръжката.',
     steps: [
@@ -487,7 +695,15 @@ final List<DrawingLesson> lessons = [
     title: 'Диня',
     emoji: '🍉',
     accent: const Color(0xFF7EDC8A),
-    svgAsset: 'assets/illustrations/watermelon.svg',
+    svgAsset: 'assets/illustrations/watermelon.svg',
+    finalPreviewAsset: 'assets/lessons/watermelon/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/watermelon/step_01.svg',
+      'assets/lessons/watermelon/step_02.svg',
+      'assets/lessons/watermelon/step_03.svg',
+      'assets/lessons/watermelon/step_04.svg',
+      'assets/lessons/watermelon/step_05.svg',
+    ],
     prompt: 'Нарисувай диня с вълнообразна форма и семена.',
     voiceText: 'Начертавай голяма овална диня. Добави светли линии и семена. След това направи малка дръжка.',
     steps: [
@@ -502,7 +718,15 @@ final List<DrawingLesson> lessons = [
     title: 'Праскова',
     emoji: '🍑',
     accent: const Color(0xFFFFAA7A),
-    svgAsset: 'assets/illustrations/peach.svg',
+    svgAsset: 'assets/illustrations/peach.svg',
+    finalPreviewAsset: 'assets/lessons/peach/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/peach/step_01.svg',
+      'assets/lessons/peach/step_02.svg',
+      'assets/lessons/peach/step_03.svg',
+      'assets/lessons/peach/step_04.svg',
+      'assets/lessons/peach/step_05.svg',
+    ],
     prompt: 'Нарисувай праскова с гладка форма и зелена дръжка.',
     voiceText: 'Първо начертавай пухкава плодова форма. Добави дръжката и листото. Накрая направи лек завой около ръба.',
     steps: [
@@ -517,7 +741,15 @@ final List<DrawingLesson> lessons = [
     title: 'Череша',
     emoji: '🍒',
     accent: const Color(0xFFFC5B68),
-    svgAsset: 'assets/illustrations/cherry.svg',
+    svgAsset: 'assets/illustrations/cherry.svg',
+    finalPreviewAsset: 'assets/lessons/cherry/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/cherry/step_01.svg',
+      'assets/lessons/cherry/step_02.svg',
+      'assets/lessons/cherry/step_03.svg',
+      'assets/lessons/cherry/step_04.svg',
+      'assets/lessons/cherry/step_05.svg',
+    ],
     prompt: 'Нарисувай череша с две сливи и зелени листа.',
     voiceText: 'Направи две малки кръгли череши. Добави стъблата и листата. Накрая допълни фините детайли.',
     steps: [
@@ -532,7 +764,15 @@ final List<DrawingLesson> lessons = [
     title: 'Лимон',
     emoji: '🍋',
     accent: const Color(0xFFF9E76D),
-    svgAsset: 'assets/illustrations/lemon.svg',
+    svgAsset: 'assets/illustrations/lemon.svg',
+    finalPreviewAsset: 'assets/lessons/lemon/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/lemon/step_01.svg',
+      'assets/lessons/lemon/step_02.svg',
+      'assets/lessons/lemon/step_03.svg',
+      'assets/lessons/lemon/step_04.svg',
+      'assets/lessons/lemon/step_05.svg',
+    ],
     prompt: 'Нарисувай лимон с вълнообразна форма и малка дръжка.',
     voiceText: 'Начертавай леко овален лимон. После добави дръжката и малките сегменти. Накрая направи вълнообразни линии.',
     steps: [
@@ -547,7 +787,15 @@ final List<DrawingLesson> lessons = [
     title: 'Морков',
     emoji: '🥕',
     accent: const Color(0xFFFFB366),
-    svgAsset: 'assets/illustrations/carrot.svg',
+    svgAsset: 'assets/illustrations/carrot.svg',
+    finalPreviewAsset: 'assets/lessons/carrot/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/carrot/step_01.svg',
+      'assets/lessons/carrot/step_02.svg',
+      'assets/lessons/carrot/step_03.svg',
+      'assets/lessons/carrot/step_04.svg',
+      'assets/lessons/carrot/step_05.svg',
+    ],
     prompt: 'Нарисувай морков с заострена форма и зелени листа.',
     voiceText: 'Начертавай остро удължено коренче. Добави зеленията листа. Накрая направи малка дълбочина по средата.',
     steps: [
@@ -562,7 +810,15 @@ final List<DrawingLesson> lessons = [
     title: 'Домат',
     emoji: '🍅',
     accent: const Color(0xFFFF6B6B),
-    svgAsset: 'assets/illustrations/tomato.svg',
+    svgAsset: 'assets/illustrations/tomato.svg',
+    finalPreviewAsset: 'assets/lessons/tomato/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/tomato/step_01.svg',
+      'assets/lessons/tomato/step_02.svg',
+      'assets/lessons/tomato/step_03.svg',
+      'assets/lessons/tomato/step_04.svg',
+      'assets/lessons/tomato/step_05.svg',
+    ],
     prompt: 'Нарисувай домат с кръгла форма и зелено дръжче.',
     voiceText: 'Начертавай кръгъл домат. Добави дръжчето и листото. Накрая направи малки семенни линии.',
     steps: [
@@ -577,7 +833,15 @@ final List<DrawingLesson> lessons = [
     title: 'Краставица',
     emoji: '🥒',
     accent: const Color(0xFF7DE48A),
-    svgAsset: 'assets/illustrations/cucumber.svg',
+    svgAsset: 'assets/illustrations/cucumber.svg',
+    finalPreviewAsset: 'assets/lessons/cucumber/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/cucumber/step_01.svg',
+      'assets/lessons/cucumber/step_02.svg',
+      'assets/lessons/cucumber/step_03.svg',
+      'assets/lessons/cucumber/step_04.svg',
+      'assets/lessons/cucumber/step_05.svg',
+    ],
     prompt: 'Нарисувай краставица с удължена форма и малки бразди.',
     voiceText: 'Направи дълга цилиндрична форма. Добави леките линии и дръжката. Накрая направи върха.',
     steps: [
@@ -592,7 +856,15 @@ final List<DrawingLesson> lessons = [
     title: 'Чушка',
     emoji: '🌶️',
     accent: const Color(0xFFFF7F7F),
-    svgAsset: 'assets/illustrations/pepper.svg',
+    svgAsset: 'assets/illustrations/pepper.svg',
+    finalPreviewAsset: 'assets/lessons/pepper/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/pepper/step_01.svg',
+      'assets/lessons/pepper/step_02.svg',
+      'assets/lessons/pepper/step_03.svg',
+      'assets/lessons/pepper/step_04.svg',
+      'assets/lessons/pepper/step_05.svg',
+    ],
     prompt: 'Нарисувай чушка с леко сплескана форма и дръжка.',
     voiceText: 'Начертавай малка широколистна чушка. Добави дръжката и листото. Накрая направи тънкия ръб.',
     steps: [
@@ -607,7 +879,15 @@ final List<DrawingLesson> lessons = [
     title: 'Картоф',
     emoji: '🥔',
     accent: const Color(0xFFB58C5E),
-    svgAsset: 'assets/illustrations/potato.svg',
+    svgAsset: 'assets/illustrations/potato.svg',
+    finalPreviewAsset: 'assets/lessons/potato/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/potato/step_01.svg',
+      'assets/lessons/potato/step_02.svg',
+      'assets/lessons/potato/step_03.svg',
+      'assets/lessons/potato/step_04.svg',
+      'assets/lessons/potato/step_05.svg',
+    ],
     prompt: 'Нарисувай картоф с гладки форми и малки очички.',
     voiceText: 'Начертавай леко неравен корен. Добави дупките и дръжката. Накрая направи плавни линии по краищата.',
     steps: [
@@ -622,7 +902,15 @@ final List<DrawingLesson> lessons = [
     title: 'Броколи',
     emoji: '🥦',
     accent: const Color(0xFF7FD183),
-    svgAsset: 'assets/illustrations/broccoli.svg',
+    svgAsset: 'assets/illustrations/broccoli.svg',
+    finalPreviewAsset: 'assets/lessons/broccoli/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/broccoli/step_01.svg',
+      'assets/lessons/broccoli/step_02.svg',
+      'assets/lessons/broccoli/step_03.svg',
+      'assets/lessons/broccoli/step_04.svg',
+      'assets/lessons/broccoli/step_05.svg',
+    ],
     prompt: 'Нарисувай броколи с малки зелени цветчета и стъбло.',
     voiceText: 'Първо направи голяма глава от малки кръгли детайли. После добави стъблото и листата. Накрая съединяваш формичките.',
     steps: [
@@ -637,7 +925,15 @@ final List<DrawingLesson> lessons = [
     title: 'Лук',
     emoji: '🧅',
     accent: const Color(0xFFD8B4FF),
-    svgAsset: 'assets/illustrations/onion.svg',
+    svgAsset: 'assets/illustrations/onion.svg',
+    finalPreviewAsset: 'assets/lessons/onion/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/onion/step_01.svg',
+      'assets/lessons/onion/step_02.svg',
+      'assets/lessons/onion/step_03.svg',
+      'assets/lessons/onion/step_04.svg',
+      'assets/lessons/onion/step_05.svg',
+    ],
     prompt: 'Нарисувай лук с кръгла форма и зелени листа.',
     voiceText: 'Начертавай леко заоблен лук. Добави късото стъбло и листата. Накрая направи вътрешните слоеве.',
     steps: [
@@ -652,7 +948,15 @@ final List<DrawingLesson> lessons = [
     title: 'Зеле',
     emoji: '🥬',
     accent: const Color(0xFF8CE28C),
-    svgAsset: 'assets/illustrations/cabbage.svg',
+    svgAsset: 'assets/illustrations/cabbage.svg',
+    finalPreviewAsset: 'assets/lessons/cabbage/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/cabbage/step_01.svg',
+      'assets/lessons/cabbage/step_02.svg',
+      'assets/lessons/cabbage/step_03.svg',
+      'assets/lessons/cabbage/step_04.svg',
+      'assets/lessons/cabbage/step_05.svg',
+    ],
     prompt: 'Нарисувай зеле с пухкави листа и стъбло.',
     voiceText: 'Начертавай обща глава от няколко листа. Добави стъблото и последните листа по долу. Завърши с леко разширяване.',
     steps: [
@@ -667,7 +971,15 @@ final List<DrawingLesson> lessons = [
     title: 'Царевица',
     emoji: '🌽',
     accent: const Color(0xFFE4D16E),
-    svgAsset: 'assets/illustrations/corn.svg',
+    svgAsset: 'assets/illustrations/corn.svg',
+    finalPreviewAsset: 'assets/lessons/corn/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/corn/step_01.svg',
+      'assets/lessons/corn/step_02.svg',
+      'assets/lessons/corn/step_03.svg',
+      'assets/lessons/corn/step_04.svg',
+      'assets/lessons/corn/step_05.svg',
+    ],
     prompt: 'Нарисувай царевица с зърна и листа.',
     voiceText: 'Първо начертавай стъблото и листата. После добави зърната в гъста група. Накрая направи фините детайли.',
     steps: [
@@ -682,7 +994,15 @@ final List<DrawingLesson> lessons = [
     title: 'Тиква',
     emoji: '🎃',
     accent: const Color(0xFFFFA857),
-    svgAsset: 'assets/illustrations/pumpkin.svg',
+    svgAsset: 'assets/illustrations/pumpkin.svg',
+    finalPreviewAsset: 'assets/lessons/pumpkin/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/pumpkin/step_01.svg',
+      'assets/lessons/pumpkin/step_02.svg',
+      'assets/lessons/pumpkin/step_03.svg',
+      'assets/lessons/pumpkin/step_04.svg',
+      'assets/lessons/pumpkin/step_05.svg',
+    ],
     prompt: 'Нарисувай тиква с заоблена форма и листо.',
     voiceText: 'Начертавай голямо овално тяло. Добави стъблото и листото. Накрая направи малки линии по страните.',
     steps: [
@@ -697,7 +1017,15 @@ final List<DrawingLesson> lessons = [
     title: 'Училище',
     emoji: '🏫',
     accent: const Color(0xFF9CCBFF),
-    svgAsset: 'assets/illustrations/school.svg',
+    svgAsset: 'assets/illustrations/school.svg',
+    finalPreviewAsset: 'assets/lessons/school/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/school/step_01.svg',
+      'assets/lessons/school/step_02.svg',
+      'assets/lessons/school/step_03.svg',
+      'assets/lessons/school/step_04.svg',
+      'assets/lessons/school/step_05.svg',
+    ],
     prompt: 'Нарисувай училище с вход, прозорци и покрив.',
     voiceText: 'Начертавай голяма правоъгълна сграда. Добави покрива, входа и прозорците. Накрая направи малка стълба.',
     steps: [
@@ -712,7 +1040,15 @@ final List<DrawingLesson> lessons = [
     title: 'Замък',
     emoji: '🏰',
     accent: const Color(0xFFDDBBFF),
-    svgAsset: 'assets/illustrations/castle.svg',
+    svgAsset: 'assets/illustrations/castle.svg',
+    finalPreviewAsset: 'assets/lessons/castle/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/castle/step_01.svg',
+      'assets/lessons/castle/step_02.svg',
+      'assets/lessons/castle/step_03.svg',
+      'assets/lessons/castle/step_04.svg',
+      'assets/lessons/castle/step_05.svg',
+    ],
     prompt: 'Нарисувай замък с кули, врата и прозорци.',
     voiceText: 'Първо начертавай основната база. После добави две кули и входната врата. Накрая нарисувай прозорците и стените.',
     steps: [
@@ -727,7 +1063,15 @@ final List<DrawingLesson> lessons = [
     title: 'Пекарна',
     emoji: '🏪',
     accent: const Color(0xFFFFD8A8),
-    svgAsset: 'assets/illustrations/bakery.svg',
+    svgAsset: 'assets/illustrations/bakery.svg',
+    finalPreviewAsset: 'assets/lessons/bakery/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/bakery/step_01.svg',
+      'assets/lessons/bakery/step_02.svg',
+      'assets/lessons/bakery/step_03.svg',
+      'assets/lessons/bakery/step_04.svg',
+      'assets/lessons/bakery/step_05.svg',
+    ],
     prompt: 'Нарисувай пекарна с витрина, покрив и вратa.',
     voiceText: 'Начертавай малка сграда. Добави прозорците и витрината. Накрая направи покрива и вратата.',
     steps: [
@@ -742,7 +1086,15 @@ final List<DrawingLesson> lessons = [
     title: 'Кула',
     emoji: '🗼',
     accent: const Color(0xFF9ADFBF),
-    svgAsset: 'assets/illustrations/tower.svg',
+    svgAsset: 'assets/illustrations/tower.svg',
+    finalPreviewAsset: 'assets/lessons/tower/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/tower/step_01.svg',
+      'assets/lessons/tower/step_02.svg',
+      'assets/lessons/tower/step_03.svg',
+      'assets/lessons/tower/step_04.svg',
+      'assets/lessons/tower/step_05.svg',
+    ],
     prompt: 'Нарисувай кула с високи стени и малки прозорци.',
     voiceText: 'Първо начертавай тясна висока кула. После добави върха и прозорците. Накрая направи основата.',
     steps: [
@@ -757,7 +1109,15 @@ final List<DrawingLesson> lessons = [
     title: 'Апартамент',
     emoji: '🏢',
     accent: const Color(0xFF9ED7FF),
-    svgAsset: 'assets/illustrations/apartment.svg',
+    svgAsset: 'assets/illustrations/apartment.svg',
+    finalPreviewAsset: 'assets/lessons/apartment/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/apartment/step_01.svg',
+      'assets/lessons/apartment/step_02.svg',
+      'assets/lessons/apartment/step_03.svg',
+      'assets/lessons/apartment/step_04.svg',
+      'assets/lessons/apartment/step_05.svg',
+    ],
     prompt: 'Нарисувай апартамент с много прозорци и вход.',
     voiceText: 'Начертавай висока сграда. После добави редове прозорци и входната врата. Накрая направи покрива и линиите.',
     steps: [
@@ -772,7 +1132,15 @@ final List<DrawingLesson> lessons = [
     title: 'Робот',
     emoji: '🤖',
     accent: const Color(0xFF7DE2D1),
-    svgAsset: 'assets/illustrations/robot.svg',
+    svgAsset: 'assets/illustrations/robot.svg',
+    finalPreviewAsset: 'assets/lessons/robot/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/robot/step_01.svg',
+      'assets/lessons/robot/step_02.svg',
+      'assets/lessons/robot/step_03.svg',
+      'assets/lessons/robot/step_04.svg',
+      'assets/lessons/robot/step_05.svg',
+    ],
     prompt: 'Нарисувай робот с главата, ръцете и краката.',
     voiceText: 'Начертавай квадратна глава. Добави очите, ръцете и краката. Накрая направи тялото и жиците.',
     steps: [
@@ -787,7 +1155,15 @@ final List<DrawingLesson> lessons = [
     title: 'Миксер',
     emoji: '🥤',
     accent: const Color(0xFF82D9FF),
-    svgAsset: 'assets/illustrations/mixer.svg',
+    svgAsset: 'assets/illustrations/mixer.svg',
+    finalPreviewAsset: 'assets/lessons/mixer/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/mixer/step_01.svg',
+      'assets/lessons/mixer/step_02.svg',
+      'assets/lessons/mixer/step_03.svg',
+      'assets/lessons/mixer/step_04.svg',
+      'assets/lessons/mixer/step_05.svg',
+    ],
     prompt: 'Нарисувай миксер с контейнер и дръжка.',
     voiceText: 'Начертавай основния контейнер. Добави дръжката и моторната база. Накрая направи силуета на машината.',
     steps: [
@@ -802,7 +1178,15 @@ final List<DrawingLesson> lessons = [
     title: 'Дрель',
     emoji: '🛠️',
     accent: const Color(0xFFFFC58F),
-    svgAsset: 'assets/illustrations/drill.svg',
+    svgAsset: 'assets/illustrations/drill.svg',
+    finalPreviewAsset: 'assets/lessons/drill/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/drill/step_01.svg',
+      'assets/lessons/drill/step_02.svg',
+      'assets/lessons/drill/step_03.svg',
+      'assets/lessons/drill/step_04.svg',
+      'assets/lessons/drill/step_05.svg',
+    ],
     prompt: 'Нарисувай дрелка с ръкохватка и бита.',
     voiceText: 'Първо начертавай основната дръжка. Добави бита и двигателя. Накрая направи малките детайли.',
     steps: [
@@ -817,7 +1201,15 @@ final List<DrawingLesson> lessons = [
     title: 'Комбайн',
     emoji: '🚜',
     accent: const Color(0xFFB1D9FF),
-    svgAsset: 'assets/illustrations/harvester.svg',
+    svgAsset: 'assets/illustrations/harvester.svg',
+    finalPreviewAsset: 'assets/lessons/harvester/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/harvester/step_01.svg',
+      'assets/lessons/harvester/step_02.svg',
+      'assets/lessons/harvester/step_03.svg',
+      'assets/lessons/harvester/step_04.svg',
+      'assets/lessons/harvester/step_05.svg',
+    ],
     prompt: 'Нарисувай комбайн с голяма кабина и широки колела.',
     voiceText: 'Начертавай дълго тяло с кабина. Добави колелата и широкия корем. Накрая направи входа и детайлите.',
     steps: [
@@ -832,7 +1224,15 @@ final List<DrawingLesson> lessons = [
     title: 'Вертолет',
     emoji: '🚁',
     accent: const Color(0xFF9BD7FF),
-    svgAsset: 'assets/illustrations/helicopter.svg',
+    svgAsset: 'assets/illustrations/helicopter.svg',
+    finalPreviewAsset: 'assets/lessons/helicopter/final_preview.svg',
+    stepAssets: [
+      'assets/lessons/helicopter/step_01.svg',
+      'assets/lessons/helicopter/step_02.svg',
+      'assets/lessons/helicopter/step_03.svg',
+      'assets/lessons/helicopter/step_04.svg',
+      'assets/lessons/helicopter/step_05.svg',
+    ],
     prompt: 'Нарисувай хеликоптер с витла, кабина и опашка.',
     voiceText: 'Начертавай малка кабина и крило. Добави витлата, опашката и стойките. Накрая линии и детайли.',
     steps: [
@@ -1355,7 +1755,7 @@ class LessonCard extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: SvgPicture.asset(
-                                  lesson.svgAsset,
+                                  lesson.finalPreviewAsset ?? lesson.svgAsset,
                                   fit: BoxFit.contain,
                                   semanticsLabel: lesson.title,
                                 ),
@@ -1578,7 +1978,7 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 4000))
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 4400))
       ..addListener(() {
         if (mounted) {
           setState(() {});
@@ -1608,20 +2008,18 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
         ? widget.lesson.stepAssets
         : [widget.lesson.svgAsset];
 
-    print('LOAD START: ${assets.length} assets');
-
     try {
-      final result = await Future.wait(assets.map(parseSvgDrawingShapesForStep));
-
-      print('PARSED STEPS TOTAL = ${result.length}');
-      for (var i = 0; i < assets.length; i++) {
-        final parsed = result[i];
-        print('PARSED ${assets[i]} => ${parsed.length} shapes');
-        for (final shape in parsed) {
-          print(shape.path.getBounds());
+      final cumulativeSteps = await Future.wait(assets.map(parseSvgDrawingShapesForStep));
+      final seenShapeKeys = <String>{};
+      final result = cumulativeSteps.map((shapes) {
+        final additions = <ParsedSvgShape>[];
+        for (var index = 0; index < shapes.length; index++) {
+          final shape = shapes[index];
+          final key = shape.sourceKey ?? '${shape.path.getBounds()}:$index';
+          if (seenShapeKeys.add(key)) additions.add(shape);
         }
-      }
-      print('LOAD FINISHED');
+        return additions;
+      }).toList(growable: false);
 
       if (!mounted) {
         return;
@@ -1630,27 +2028,22 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
       setState(() {
         _parsedSteps = result;
       });
-      print('_parsedSteps.length = ${_parsedSteps.length}');
-      for (var i = 0; i < _parsedSteps.length; i++) {
-        print('UI STEP $i => ${_parsedSteps[i].length}');
-      }
       _restartStepAnimation();
     } catch (error, stackTrace) {
-      print('LOAD ERROR: $error');
-      print('LOAD STACK: $stackTrace');
+      debugPrint('Unable to load drawing steps: $error\n$stackTrace');
     }
   }
 
   Duration _stepDurationForIndex(int index) {
     final durations = <int, Duration>{
-      0: const Duration(seconds: 4),
-      1: const Duration(seconds: 3),
-      2: const Duration(seconds: 3),
-      3: const Duration(seconds: 5),
-      4: const Duration(seconds: 4),
+      0: const Duration(milliseconds: 4400),
+      1: const Duration(milliseconds: 3300),
+      2: const Duration(milliseconds: 3300),
+      3: const Duration(milliseconds: 5500),
+      4: const Duration(milliseconds: 4400),
     };
 
-    return durations[index] ?? const Duration(seconds: 4);
+    return durations[index] ?? const Duration(milliseconds: 4400);
   }
 
   void _restartStepAnimation() {
@@ -1739,19 +2132,11 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
     final currentShapes = _parsedSteps.isNotEmpty
         ? _parsedSteps[widget.currentStepIndex.clamp(0, _parsedSteps.length - 1)]
         : const <ParsedSvgShape>[];
+    final debugText = 'Parsed steps: ${_parsedSteps.length} | Current step shapes: ${currentShapes.length}';
 
     for (var i = 0; i < widget.currentStepIndex && i < _parsedSteps.length; i++) {
       completedShapes.addAll(_parsedSteps[i]);
     }
-
-    print('STEP ${widget.currentStepIndex}');
-    print('currentShapes = ${currentShapes.length}');
-    print('completedShapes = ${completedShapes.length}');
-    for (final shape in currentShapes) {
-      print(shape.path.getBounds());
-    }
-
-    final debugText = 'Parsed steps: ${_parsedSteps.length} | Current step shapes: ${currentShapes.length}';
 
     return Container(
       padding: const EdgeInsets.all(20),
@@ -1850,9 +2235,12 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
                         children: [
                           Positioned.fill(
                             child: widget.lesson.finalPreviewAsset != null
-                                ? SvgPicture.asset(
-                                    widget.lesson.finalPreviewAsset!,
-                                    fit: BoxFit.contain,
+                                ? Transform.scale(
+                                    scale: 0.88,
+                                    child: SvgPicture.asset(
+                                      widget.lesson.finalPreviewAsset!,
+                                      fit: BoxFit.contain,
+                                    ),
                                   )
                                 : const SizedBox.shrink(),
                           ),
@@ -1976,7 +2364,7 @@ class _CumulativeDrawingPainter extends CustomPainter {
       return;
     }
 
-    final scale = math.min(size.width / bounds.width, size.height / bounds.height);
+    final scale = math.min(size.width / bounds.width, size.height / bounds.height) * 0.88;
     final offset = Offset(
       (size.width - bounds.width * scale) / 2 - bounds.left * scale,
       (size.height - bounds.height * scale) / 2 - bounds.top * scale,
@@ -1986,39 +2374,43 @@ class _CumulativeDrawingPainter extends CustomPainter {
     canvas.scale(scale);
 
     for (final shape in completedShapes) {
+      if (shape.fill != null) {
+        canvas.drawPath(shape.path, Paint()..color = shape.fill!);
+      }
       final paint = Paint()
         ..color = (shape.stroke ?? const Color(0xFF2B5BDA)).withValues(alpha: 0.92)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 7
+        ..strokeWidth = shape.strokeWidth
         ..strokeCap = StrokeCap.round
         ..strokeJoin = StrokeJoin.round;
       canvas.drawPath(shape.path, paint);
     }
 
-    for (final shape in currentShapes) {
-      final previewPaint = Paint()
-        ..color = const Color(0xFFB4C5EA)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 5
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round
-        ..isAntiAlias = true;
-      canvas.drawPath(shape.path, previewPaint);
-    }
-
-    for (final shape in currentShapes) {
-      final revealPath = _progressivePath(shape.path, progress);
+    final activeIndex = currentShapes.isEmpty
+        ? 0
+        : (progress * currentShapes.length).floor().clamp(0, currentShapes.length - 1);
+    var activePoint = Offset.zero;
+    for (var index = 0; index < currentShapes.length; index++) {
+      final shape = currentShapes[index];
+      final shapeProgress = (progress * currentShapes.length - index).clamp(0.0, 1.0);
+      if (shapeProgress >= 1 && shape.fill != null) {
+        canvas.drawPath(shape.path, Paint()..color = shape.fill!);
+      }
+      final revealPath = _progressivePath(shape.path, shapeProgress);
       final paint = Paint()
         ..color = const Color(0xFF2F6CFF)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 6
+        ..strokeWidth = shape.strokeWidth
         ..strokeCap = StrokeCap.round
         ..strokeJoin = StrokeJoin.round
         ..isAntiAlias = true;
       canvas.drawPath(revealPath, paint);
+      if (index == activeIndex) {
+        activePoint = _pathPointAtProgress(shape.path, shapeProgress);
+      }
     }
 
-    final brushPoint = _pathPointAtProgress(_combineSvgPaths(currentShapes), progress);
+    final brushPoint = activePoint;
     final brushShadow = Paint()..color = Colors.orange.withValues(alpha: 0.20)..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12);
     canvas.drawCircle(brushPoint, 14, brushShadow);
     canvas.drawCircle(brushPoint, 10, Paint()..color = const Color(0xFFFFB22F));
@@ -2408,11 +2800,15 @@ class ParsedSvgShape {
     required this.path,
     required this.fill,
     required this.stroke,
+    this.strokeWidth = 7,
+    this.sourceKey,
   });
 
   final Path path;
   final Color? fill;
   final Color? stroke;
+  final double strokeWidth;
+  final String? sourceKey;
 }
 
 Path _parseSvgPathData(String data) => parseSvgPathData(data);
@@ -2721,29 +3117,31 @@ Color? _parseSvgColor(String? colorValue) {
   }
 }
 
+String? _inheritedSvgAttribute(XmlElement element, String name) {
+  XmlElement? current = element;
+  while (current != null) {
+    final value = current.getAttribute(name);
+    if (value != null) return value;
+    current = current.parentElement;
+  }
+  return null;
+}
+
 Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) async {
   final normalizedAssetPath = normalizeAssetPath(assetPath);
   String rawSvg;
-  print('READING FILE: $assetPath');
   try {
     rawSvg = await rootBundle.loadString(normalizedAssetPath);
-    print('READ OK: $assetPath');
   } catch (_) {
     final fallback = await readTextFromProjectFile(assetPath);
     if (fallback == null || fallback.isEmpty) {
-      print('READ FAILED: $assetPath');
       return const <ParsedSvgShape>[];
     }
     rawSvg = fallback;
-    print('READ FALLBACK OK: $assetPath');
   }
-
-  print('SVG PREVIEW: ${rawSvg.substring(0, math.min(200, rawSvg.length))}');
 
   try {
     final document = XmlDocument.parse(rawSvg);
-    print('AFTER XML: $assetPath');
-
     final shapes = <ParsedSvgShape>[];
 
     for (final element in document.descendants.whereType<XmlElement>()) {
@@ -2754,8 +3152,10 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
           shapes.add(
             ParsedSvgShape(
               path: path,
-              fill: _parseSvgColor(element.getAttribute('fill')),
-              stroke: _parseSvgColor(element.getAttribute('stroke')),
+              fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')),
+              stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')),
+              strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7,
+              sourceKey: d.trim(),
             ),
           );
         }
@@ -2770,13 +3170,13 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
 
       if (element.name.local == 'circle' && r != null && cx != null && cy != null) {
         final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 2));
-        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'circle:$cx:$cy:$r'));
         continue;
       }
 
       if (element.name.local == 'ellipse' && rx != null && ry != null && cx != null && cy != null) {
         final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: rx * 2, height: ry * 2));
-        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'ellipse:$cx:$cy:$rx:$ry'));
         continue;
       }
 
@@ -2789,17 +3189,14 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
           final path = Path()
             ..moveTo(x1, y1)
             ..lineTo(x2, y2);
-          shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(element.getAttribute('fill')), stroke: _parseSvgColor(element.getAttribute('stroke'))));
+          shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'line:$x1:$y1:$x2:$y2'));
         }
       }
     }
 
-    print('RETURNING ${shapes.length} SHAPES: $assetPath');
     return shapes;
   } catch (e, stack) {
-    print('PARSE ERROR IN $assetPath');
-    print(e);
-    print(stack);
+    debugPrint('Unable to parse drawing SVG $assetPath: $e\n$stack');
     rethrow;
   }
 }

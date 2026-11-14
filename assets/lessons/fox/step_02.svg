@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
-  <rect width="500" height="500" fill="#FFF9F2"/>
-  <g fill="#F7C38D" stroke="#E08F5B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
-    <path d="M150 252 C150 165, 210 118, 250 118 C290 118, 350 165, 350 252 C350 312, 310 350, 250 355 C190 350, 150 312, 150 252 Z"/>
-    <path d="M186 154 L135 76 L220 138 Z"/>
-    <path d="M314 154 L365 76 L280 138 Z"/>
+  <rect width="500" height="500" fill="#FFF8EF"/>
+  <g fill="#E98234" stroke="#70402D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
+<path d="M250 82 C188 82 143 128 139 195 C135 252 169 290 211 307 C229 314 240 326 250 340 C260 326 271 314 289 307 C331 290 365 252 361 195 C357 128 312 82 250 82 Z" fill="#E98234"/>
+<path d="M187 142 C164 118 143 84 126 49 C163 59 197 80 218 108 C228 121 232 135 231 149 Z"/>
+<path d="M313 142 C336 118 357 84 374 49 C337 59 303 80 282 108 C272 121 268 135 269 149 Z"/>
+<path d="M185 119 C169 101 154 80 144 68 C166 77 185 91 198 109 Z" fill="#F4B4A2" stroke-width="3"/>
+<path d="M315 119 C331 101 346 80 356 68 C334 77 315 91 302 109 Z" fill="#F4B4A2" stroke-width="3"/>
   </g>
 </svg>

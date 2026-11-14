@@ -62,7 +62,59 @@ flutter:
   assets:
     - assets/illustrations/
     - assets/lessons/
+    - assets/lessons/animal/
+    - assets/lessons/apartment/
+    - assets/lessons/apple/
+    - assets/lessons/bakery/
+    - assets/lessons/banana/
+    - assets/lessons/boat/
+    - assets/lessons/broccoli/
+    - assets/lessons/bunny/
+    - assets/lessons/butterfly/
+    - assets/lessons/cabbage/
+    - assets/lessons/car/
+    - assets/lessons/carrot/
+    - assets/lessons/castle/
+    - assets/lessons/cat/
+    - assets/lessons/cherry/
+    - assets/lessons/corn/
+    - assets/lessons/cucumber/
+    - assets/lessons/dog/
+    - assets/lessons/drill/
+    - assets/lessons/elephant/
+    - assets/lessons/firetruck/
+    - assets/lessons/fish/
     - assets/lessons/fox/
+    - assets/lessons/grapes/
+    - assets/lessons/harvester/
+    - assets/lessons/helicopter/
+    - assets/lessons/house/
+    - assets/lessons/lemon/
+    - assets/lessons/mixer/
+    - assets/lessons/onion/
+    - assets/lessons/orange/
+    - assets/lessons/peach/
+    - assets/lessons/pear/
+    - assets/lessons/penguin/
+    - assets/lessons/pepper/
+    - assets/lessons/playground/
+    - assets/lessons/police/
+    - assets/lessons/potato/
+    - assets/lessons/pumpkin/
+    - assets/lessons/robot/
+    - assets/lessons/school/
+    - assets/lessons/small_house/
+    - assets/lessons/snowman/
+    - assets/lessons/strawberry/
+    - assets/lessons/sun_house/
+    - assets/lessons/tomato/
+    - assets/lessons/tower/
+    - assets/lessons/tractor/
+    - assets/lessons/truck/
+    - assets/lessons/van/
+    - assets/lessons/vehicle/
+    - assets/lessons/villa/
+    - assets/lessons/watermelon/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
