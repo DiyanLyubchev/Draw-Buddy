@@ -1,9 +1,10 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#FFF8EF"/>
-  <g fill="none" stroke="#58483F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
-    <path d="M150 214h212v144c0 22-18 40-40 40H190c-22 0-40-18-40-40V214Z" fill="#92CDB5"/>
-    <path d="M214 214v-42"/>
-    <path d="M298 214v-42"/>
-    <path d="M182 254h148"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g>
+  <path d="M102 360 H410 L376 405 H139 Z" fill="#F1C979" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M142 360 V200 H241 V360 M299 360 V200 H367 V360" fill="none" stroke="#8BC3A3" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M142 200 L191 148 L241 200 Z" fill="#E99C68" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M190 149 V106" fill="none" stroke="#8BC3A3" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M178 102 C178 95.28 183.28 90 190 90 C196.72 90 202 95.28 202 102 C202 108.72 196.72 114 190 114 C183.28 114 178 108.72 178 102 Z" fill="#F4D16D" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

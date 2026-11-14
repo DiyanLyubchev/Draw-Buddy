@@ -1,10 +1,12 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#FFF8EF"/>
-  <g fill="none" stroke="#58483F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
-    <path d="M142 286h52l42-82h102l58 82h52c18 0 32 14 32 32v12c0 18-14 32-32 32h-26c-12 0-22-10-22-22v-8H166v8c0 12-10 22-22 22h-26c-18 0-32-14-32-32v-12c0-18 14-32 32-32Z" fill="#E5BD5C"/>
-    <path d="M216 204l18-52h104l14 52"/>
-    <path d="M192 344v26"/>
-    <path d="M344 344v26"/>
-    <path d="M200 254h126"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g>
+  <path d="M70 290 H310 V350 H70 Z M310 264 H370 L398 300 V350 H310 Z" fill="#D9B14E" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M108 352 C108 322.32 131.32 299 161 299 C190.68 299 214 322.32 214 352 C214 381.68 190.68 405 161 405 C131.32 405 108 381.68 108 352 Z" fill="#4D4946" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136 352 C136 338 147 327 161 327 C175 327 186 338 186 352 C186 366 175 377 161 377 C147 377 136 366 136 352 Z" fill="#D8D1C4" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M316 352 C316 332.96 330.96 318 350 318 C369.04 318 384 332.96 384 352 C384 371.04 369.04 386 350 386 C330.96 386 316 371.04 316 352 Z" fill="#4D4946" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M335 352 C335 343.6 341.6 337 350 337 C358.4 337 365 343.6 365 352 C365 360.4 358.4 367 350 367 C341.6 367 335 360.4 335 352 Z" fill="#D8D1C4" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M319 278 H362 L384 300 H319 Z" fill="#D7EDF2" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 373 H409 M102 373 L82 414 M148 373 L144 414 M192 373 L207 414" fill="none" stroke="#C49D52" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

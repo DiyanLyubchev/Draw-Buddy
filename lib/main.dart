@@ -64,7 +64,7 @@ final List<DrawingLesson> lessons = [
     title: 'Котка',
     emoji: '🐱',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/cat.svg',
+
     finalPreviewAsset: 'assets/lessons/cat/final_preview.svg',
     stepAssets: [
       'assets/lessons/cat/step_01.svg',
@@ -88,7 +88,7 @@ final List<DrawingLesson> lessons = [
     title: 'Куче',
     emoji: '🐶',
     accent: const Color(0xFF7CC6FE),
-    svgAsset: 'assets/illustrations/dog.svg',
+
     finalPreviewAsset: 'assets/lessons/dog/final_preview.svg',
     stepAssets: [
       'assets/lessons/dog/step_01.svg',
@@ -111,7 +111,7 @@ final List<DrawingLesson> lessons = [
     title: 'Лисица',
     emoji: '🦊',
     accent: const Color(0xFFFFA66B),
-    svgAsset: 'assets/illustrations/fox.svg',
+
     finalPreviewAsset: 'assets/lessons/fox/final_preview.svg',
     stepAssets: [
       'assets/lessons/fox/step_01.svg',
@@ -143,7 +143,7 @@ final List<DrawingLesson> lessons = [
     title: 'Зайче',
     emoji: '🐰',
     accent: const Color(0xFFD9C2FF),
-    svgAsset: 'assets/illustrations/bunny.svg',
+
     finalPreviewAsset: 'assets/lessons/bunny/final_preview.svg',
     stepAssets: [
       'assets/lessons/bunny/step_01.svg',
@@ -166,7 +166,7 @@ final List<DrawingLesson> lessons = [
     title: 'Рибка',
     emoji: '🐟',
     accent: const Color(0xFF7AE582),
-    svgAsset: 'assets/illustrations/fish.svg',
+
     finalPreviewAsset: 'assets/lessons/fish/final_preview.svg',
     stepAssets: [
       'assets/lessons/fish/step_01.svg',
@@ -189,7 +189,7 @@ final List<DrawingLesson> lessons = [
     title: 'Пингвин',
     emoji: '🐧',
     accent: const Color(0xFFB8C0FF),
-    svgAsset: 'assets/illustrations/penguin.svg',
+
     finalPreviewAsset: 'assets/lessons/penguin/final_preview.svg',
     stepAssets: [
       'assets/lessons/penguin/step_01.svg',
@@ -212,7 +212,7 @@ final List<DrawingLesson> lessons = [
     title: 'Слон',
     emoji: '🐘',
     accent: const Color(0xFFB0D7FF),
-    svgAsset: 'assets/illustrations/elephant.svg',
+
     finalPreviewAsset: 'assets/lessons/elephant/final_preview.svg',
     stepAssets: [
       'assets/lessons/elephant/step_01.svg',
@@ -235,7 +235,7 @@ final List<DrawingLesson> lessons = [
     title: 'Пеперуда',
     emoji: '🦋',
     accent: const Color(0xFFFFB4A2),
-    svgAsset: 'assets/illustrations/butterfly.svg',
+
     finalPreviewAsset: 'assets/lessons/butterfly/final_preview.svg',
     stepAssets: [
       'assets/lessons/butterfly/step_01.svg',
@@ -258,7 +258,7 @@ final List<DrawingLesson> lessons = [
     title: 'Автомобил',
     emoji: '🚗',
     accent: const Color(0xFF7AE582),
-    svgAsset: 'assets/illustrations/car.svg',
+
     finalPreviewAsset: 'assets/lessons/car/final_preview.svg',
     stepAssets: [
       'assets/lessons/car/step_01.svg',
@@ -281,7 +281,7 @@ final List<DrawingLesson> lessons = [
     title: 'Камион',
     emoji: '🚚',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/truck.svg',
+
     finalPreviewAsset: 'assets/lessons/truck/final_preview.svg',
     stepAssets: [
       'assets/lessons/truck/step_01.svg',
@@ -304,7 +304,7 @@ final List<DrawingLesson> lessons = [
     title: 'Ван',
     emoji: '🚐',
     accent: const Color(0xFF90E0EF),
-    svgAsset: 'assets/illustrations/van.svg',
+
     finalPreviewAsset: 'assets/lessons/van/final_preview.svg',
     stepAssets: [
       'assets/lessons/van/step_01.svg',
@@ -327,7 +327,7 @@ final List<DrawingLesson> lessons = [
     title: 'Трактор',
     emoji: '🚜',
     accent: const Color(0xFFD9C2FF),
-    svgAsset: 'assets/illustrations/tractor.svg',
+
     finalPreviewAsset: 'assets/lessons/tractor/final_preview.svg',
     stepAssets: [
       'assets/lessons/tractor/step_01.svg',
@@ -350,7 +350,7 @@ final List<DrawingLesson> lessons = [
     title: 'Пожарна кола',
     emoji: '🚒',
     accent: const Color(0xFFFF7F7F),
-    svgAsset: 'assets/illustrations/firetruck.svg',
+
     finalPreviewAsset: 'assets/lessons/firetruck/final_preview.svg',
     stepAssets: [
       'assets/lessons/firetruck/step_01.svg',
@@ -373,7 +373,7 @@ final List<DrawingLesson> lessons = [
     title: 'Полицейски камион',
     emoji: '🚓',
     accent: const Color(0xFF6DA9FF),
-    svgAsset: 'assets/illustrations/police.svg',
+
     finalPreviewAsset: 'assets/lessons/police/final_preview.svg',
     stepAssets: [
       'assets/lessons/police/step_01.svg',
@@ -396,7 +396,7 @@ final List<DrawingLesson> lessons = [
     title: 'Къща',
     emoji: '🏠',
     accent: const Color(0xFFB9FBC0),
-    svgAsset: 'assets/illustrations/house.svg',
+
     finalPreviewAsset: 'assets/lessons/house/final_preview.svg',
     stepAssets: [
       'assets/lessons/house/step_01.svg',
@@ -419,7 +419,7 @@ final List<DrawingLesson> lessons = [
     title: 'Малка къща',
     emoji: '🏡',
     accent: const Color(0xFFFACBFF),
-    svgAsset: 'assets/illustrations/small_house.svg',
+
     finalPreviewAsset: 'assets/lessons/small_house/final_preview.svg',
     stepAssets: [
       'assets/lessons/small_house/step_01.svg',
@@ -442,7 +442,7 @@ final List<DrawingLesson> lessons = [
     title: 'Вила',
     emoji: '🏝️',
     accent: const Color(0xFFFFD166),
-    svgAsset: 'assets/illustrations/villa.svg',
+
     finalPreviewAsset: 'assets/lessons/villa/final_preview.svg',
     stepAssets: [
       'assets/lessons/villa/step_01.svg',
@@ -465,7 +465,7 @@ final List<DrawingLesson> lessons = [
     title: 'Пързалка',
     emoji: '🛝',
     accent: const Color(0xFFBDE0FE),
-    svgAsset: 'assets/illustrations/playground.svg',
+
     finalPreviewAsset: 'assets/lessons/playground/final_preview.svg',
     stepAssets: [
       'assets/lessons/playground/step_01.svg',
@@ -488,7 +488,7 @@ final List<DrawingLesson> lessons = [
     title: 'Параход',
     emoji: '🛶',
     accent: const Color(0xFF9AD1D4),
-    svgAsset: 'assets/illustrations/boat.svg',
+
     finalPreviewAsset: 'assets/lessons/boat/final_preview.svg',
     stepAssets: [
       'assets/lessons/boat/step_01.svg',
@@ -511,7 +511,7 @@ final List<DrawingLesson> lessons = [
     title: 'Слънчев дом',
     emoji: '🏠',
     accent: const Color(0xFFFFE69A),
-    svgAsset: 'assets/illustrations/sun_house.svg',
+
     finalPreviewAsset: 'assets/lessons/sun_house/final_preview.svg',
     stepAssets: [
       'assets/lessons/sun_house/step_01.svg',
@@ -534,7 +534,7 @@ final List<DrawingLesson> lessons = [
     title: 'Снежен човек',
     emoji: '⛄',
     accent: const Color(0xFFBFE7FF),
-    svgAsset: 'assets/illustrations/snowman.svg',
+
     finalPreviewAsset: 'assets/lessons/snowman/final_preview.svg',
     stepAssets: [
       'assets/lessons/snowman/step_01.svg',
@@ -557,7 +557,7 @@ final List<DrawingLesson> lessons = [
     title: 'Ябълка',
     emoji: '🍎',
     accent: const Color(0xFFFFB3B3),
-    svgAsset: 'assets/illustrations/apple.svg',
+
     finalPreviewAsset: 'assets/lessons/apple/final_preview.svg',
     stepAssets: [
       'assets/lessons/apple/step_01.svg',
@@ -580,7 +580,7 @@ final List<DrawingLesson> lessons = [
     title: 'Круша',
     emoji: '🍐',
     accent: const Color(0xFFBFEBA9),
-    svgAsset: 'assets/illustrations/pear.svg',
+
     finalPreviewAsset: 'assets/lessons/pear/final_preview.svg',
     stepAssets: [
       'assets/lessons/pear/step_01.svg',
@@ -603,7 +603,7 @@ final List<DrawingLesson> lessons = [
     title: 'Портокал',
     emoji: '🍊',
     accent: const Color(0xFFFFCF73),
-    svgAsset: 'assets/illustrations/orange.svg',
+
     finalPreviewAsset: 'assets/lessons/orange/final_preview.svg',
     stepAssets: [
       'assets/lessons/orange/step_01.svg',
@@ -626,7 +626,7 @@ final List<DrawingLesson> lessons = [
     title: 'Банан',
     emoji: '🍌',
     accent: const Color(0xFFEADF5B),
-    svgAsset: 'assets/illustrations/banana.svg',
+
     finalPreviewAsset: 'assets/lessons/banana/final_preview.svg',
     stepAssets: [
       'assets/lessons/banana/step_01.svg',
@@ -649,7 +649,7 @@ final List<DrawingLesson> lessons = [
     title: 'Грозде',
     emoji: '🍇',
     accent: const Color(0xFFB38BFF),
-    svgAsset: 'assets/illustrations/grapes.svg',
+
     finalPreviewAsset: 'assets/lessons/grapes/final_preview.svg',
     stepAssets: [
       'assets/lessons/grapes/step_01.svg',
@@ -672,7 +672,7 @@ final List<DrawingLesson> lessons = [
     title: 'Ягода',
     emoji: '🍓',
     accent: const Color(0xFFFF8A8A),
-    svgAsset: 'assets/illustrations/strawberry.svg',
+
     finalPreviewAsset: 'assets/lessons/strawberry/final_preview.svg',
     stepAssets: [
       'assets/lessons/strawberry/step_01.svg',
@@ -695,7 +695,7 @@ final List<DrawingLesson> lessons = [
     title: 'Диня',
     emoji: '🍉',
     accent: const Color(0xFF7EDC8A),
-    svgAsset: 'assets/illustrations/watermelon.svg',
+
     finalPreviewAsset: 'assets/lessons/watermelon/final_preview.svg',
     stepAssets: [
       'assets/lessons/watermelon/step_01.svg',
@@ -718,7 +718,7 @@ final List<DrawingLesson> lessons = [
     title: 'Праскова',
     emoji: '🍑',
     accent: const Color(0xFFFFAA7A),
-    svgAsset: 'assets/illustrations/peach.svg',
+
     finalPreviewAsset: 'assets/lessons/peach/final_preview.svg',
     stepAssets: [
       'assets/lessons/peach/step_01.svg',
@@ -741,7 +741,7 @@ final List<DrawingLesson> lessons = [
     title: 'Череша',
     emoji: '🍒',
     accent: const Color(0xFFFC5B68),
-    svgAsset: 'assets/illustrations/cherry.svg',
+
     finalPreviewAsset: 'assets/lessons/cherry/final_preview.svg',
     stepAssets: [
       'assets/lessons/cherry/step_01.svg',
@@ -764,7 +764,7 @@ final List<DrawingLesson> lessons = [
     title: 'Лимон',
     emoji: '🍋',
     accent: const Color(0xFFF9E76D),
-    svgAsset: 'assets/illustrations/lemon.svg',
+
     finalPreviewAsset: 'assets/lessons/lemon/final_preview.svg',
     stepAssets: [
       'assets/lessons/lemon/step_01.svg',
@@ -787,7 +787,7 @@ final List<DrawingLesson> lessons = [
     title: 'Морков',
     emoji: '🥕',
     accent: const Color(0xFFFFB366),
-    svgAsset: 'assets/illustrations/carrot.svg',
+
     finalPreviewAsset: 'assets/lessons/carrot/final_preview.svg',
     stepAssets: [
       'assets/lessons/carrot/step_01.svg',
@@ -810,7 +810,7 @@ final List<DrawingLesson> lessons = [
     title: 'Домат',
     emoji: '🍅',
     accent: const Color(0xFFFF6B6B),
-    svgAsset: 'assets/illustrations/tomato.svg',
+
     finalPreviewAsset: 'assets/lessons/tomato/final_preview.svg',
     stepAssets: [
       'assets/lessons/tomato/step_01.svg',
@@ -833,7 +833,7 @@ final List<DrawingLesson> lessons = [
     title: 'Краставица',
     emoji: '🥒',
     accent: const Color(0xFF7DE48A),
-    svgAsset: 'assets/illustrations/cucumber.svg',
+
     finalPreviewAsset: 'assets/lessons/cucumber/final_preview.svg',
     stepAssets: [
       'assets/lessons/cucumber/step_01.svg',
@@ -856,7 +856,7 @@ final List<DrawingLesson> lessons = [
     title: 'Чушка',
     emoji: '🌶️',
     accent: const Color(0xFFFF7F7F),
-    svgAsset: 'assets/illustrations/pepper.svg',
+
     finalPreviewAsset: 'assets/lessons/pepper/final_preview.svg',
     stepAssets: [
       'assets/lessons/pepper/step_01.svg',
@@ -879,7 +879,7 @@ final List<DrawingLesson> lessons = [
     title: 'Картоф',
     emoji: '🥔',
     accent: const Color(0xFFB58C5E),
-    svgAsset: 'assets/illustrations/potato.svg',
+
     finalPreviewAsset: 'assets/lessons/potato/final_preview.svg',
     stepAssets: [
       'assets/lessons/potato/step_01.svg',
@@ -902,7 +902,7 @@ final List<DrawingLesson> lessons = [
     title: 'Броколи',
     emoji: '🥦',
     accent: const Color(0xFF7FD183),
-    svgAsset: 'assets/illustrations/broccoli.svg',
+
     finalPreviewAsset: 'assets/lessons/broccoli/final_preview.svg',
     stepAssets: [
       'assets/lessons/broccoli/step_01.svg',
@@ -925,7 +925,7 @@ final List<DrawingLesson> lessons = [
     title: 'Лук',
     emoji: '🧅',
     accent: const Color(0xFFD8B4FF),
-    svgAsset: 'assets/illustrations/onion.svg',
+
     finalPreviewAsset: 'assets/lessons/onion/final_preview.svg',
     stepAssets: [
       'assets/lessons/onion/step_01.svg',
@@ -948,7 +948,7 @@ final List<DrawingLesson> lessons = [
     title: 'Зеле',
     emoji: '🥬',
     accent: const Color(0xFF8CE28C),
-    svgAsset: 'assets/illustrations/cabbage.svg',
+
     finalPreviewAsset: 'assets/lessons/cabbage/final_preview.svg',
     stepAssets: [
       'assets/lessons/cabbage/step_01.svg',
@@ -971,7 +971,7 @@ final List<DrawingLesson> lessons = [
     title: 'Царевица',
     emoji: '🌽',
     accent: const Color(0xFFE4D16E),
-    svgAsset: 'assets/illustrations/corn.svg',
+
     finalPreviewAsset: 'assets/lessons/corn/final_preview.svg',
     stepAssets: [
       'assets/lessons/corn/step_01.svg',
@@ -994,7 +994,7 @@ final List<DrawingLesson> lessons = [
     title: 'Тиква',
     emoji: '🎃',
     accent: const Color(0xFFFFA857),
-    svgAsset: 'assets/illustrations/pumpkin.svg',
+
     finalPreviewAsset: 'assets/lessons/pumpkin/final_preview.svg',
     stepAssets: [
       'assets/lessons/pumpkin/step_01.svg',
@@ -1017,7 +1017,7 @@ final List<DrawingLesson> lessons = [
     title: 'Училище',
     emoji: '🏫',
     accent: const Color(0xFF9CCBFF),
-    svgAsset: 'assets/illustrations/school.svg',
+
     finalPreviewAsset: 'assets/lessons/school/final_preview.svg',
     stepAssets: [
       'assets/lessons/school/step_01.svg',
@@ -1040,7 +1040,7 @@ final List<DrawingLesson> lessons = [
     title: 'Замък',
     emoji: '🏰',
     accent: const Color(0xFFDDBBFF),
-    svgAsset: 'assets/illustrations/castle.svg',
+
     finalPreviewAsset: 'assets/lessons/castle/final_preview.svg',
     stepAssets: [
       'assets/lessons/castle/step_01.svg',
@@ -1063,7 +1063,7 @@ final List<DrawingLesson> lessons = [
     title: 'Пекарна',
     emoji: '🏪',
     accent: const Color(0xFFFFD8A8),
-    svgAsset: 'assets/illustrations/bakery.svg',
+
     finalPreviewAsset: 'assets/lessons/bakery/final_preview.svg',
     stepAssets: [
       'assets/lessons/bakery/step_01.svg',
@@ -1086,7 +1086,7 @@ final List<DrawingLesson> lessons = [
     title: 'Кула',
     emoji: '🗼',
     accent: const Color(0xFF9ADFBF),
-    svgAsset: 'assets/illustrations/tower.svg',
+
     finalPreviewAsset: 'assets/lessons/tower/final_preview.svg',
     stepAssets: [
       'assets/lessons/tower/step_01.svg',
@@ -1109,7 +1109,7 @@ final List<DrawingLesson> lessons = [
     title: 'Апартамент',
     emoji: '🏢',
     accent: const Color(0xFF9ED7FF),
-    svgAsset: 'assets/illustrations/apartment.svg',
+
     finalPreviewAsset: 'assets/lessons/apartment/final_preview.svg',
     stepAssets: [
       'assets/lessons/apartment/step_01.svg',
@@ -1132,7 +1132,7 @@ final List<DrawingLesson> lessons = [
     title: 'Робот',
     emoji: '🤖',
     accent: const Color(0xFF7DE2D1),
-    svgAsset: 'assets/illustrations/robot.svg',
+
     finalPreviewAsset: 'assets/lessons/robot/final_preview.svg',
     stepAssets: [
       'assets/lessons/robot/step_01.svg',
@@ -1155,7 +1155,7 @@ final List<DrawingLesson> lessons = [
     title: 'Миксер',
     emoji: '🥤',
     accent: const Color(0xFF82D9FF),
-    svgAsset: 'assets/illustrations/mixer.svg',
+
     finalPreviewAsset: 'assets/lessons/mixer/final_preview.svg',
     stepAssets: [
       'assets/lessons/mixer/step_01.svg',
@@ -1178,7 +1178,7 @@ final List<DrawingLesson> lessons = [
     title: 'Дрель',
     emoji: '🛠️',
     accent: const Color(0xFFFFC58F),
-    svgAsset: 'assets/illustrations/drill.svg',
+
     finalPreviewAsset: 'assets/lessons/drill/final_preview.svg',
     stepAssets: [
       'assets/lessons/drill/step_01.svg',
@@ -1201,7 +1201,7 @@ final List<DrawingLesson> lessons = [
     title: 'Комбайн',
     emoji: '🚜',
     accent: const Color(0xFFB1D9FF),
-    svgAsset: 'assets/illustrations/harvester.svg',
+
     finalPreviewAsset: 'assets/lessons/harvester/final_preview.svg',
     stepAssets: [
       'assets/lessons/harvester/step_01.svg',
@@ -1224,7 +1224,7 @@ final List<DrawingLesson> lessons = [
     title: 'Вертолет',
     emoji: '🚁',
     accent: const Color(0xFF9BD7FF),
-    svgAsset: 'assets/illustrations/helicopter.svg',
+
     finalPreviewAsset: 'assets/lessons/helicopter/final_preview.svg',
     stepAssets: [
       'assets/lessons/helicopter/step_01.svg',
@@ -1755,7 +1755,7 @@ class LessonCard extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: SvgPicture.asset(
-                                  lesson.finalPreviewAsset ?? lesson.svgAsset,
+                                  lesson.finalPreviewAsset,
                                   fit: BoxFit.contain,
                                   semanticsLabel: lesson.title,
                                 ),
@@ -2004,9 +2004,7 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
   }
 
   Future<void> _loadParsedSteps() async {
-    final assets = widget.lesson.stepAssets.isNotEmpty
-        ? widget.lesson.stepAssets
-        : [widget.lesson.svgAsset];
+    final assets = widget.lesson.stepAssets;
 
     try {
       final cumulativeSteps = await Future.wait(assets.map(parseSvgDrawingShapesForStep));
@@ -2234,15 +2232,13 @@ class _LessonVisualCardState extends State<_LessonVisualCard> with TickerProvide
                         alignment: Alignment.center,
                         children: [
                           Positioned.fill(
-                            child: widget.lesson.finalPreviewAsset != null
-                                ? Transform.scale(
-                                    scale: 0.88,
-                                    child: SvgPicture.asset(
-                                      widget.lesson.finalPreviewAsset!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  )
-                                : const SizedBox.shrink(),
+                            child: Transform.scale(
+                              scale: 0.88,
+                              child: SvgPicture.asset(
+                                widget.lesson.finalPreviewAsset,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
                           ),
                           Positioned(
                             bottom: 28,
@@ -2377,13 +2373,15 @@ class _CumulativeDrawingPainter extends CustomPainter {
       if (shape.fill != null) {
         canvas.drawPath(shape.path, Paint()..color = shape.fill!);
       }
-      final paint = Paint()
-        ..color = (shape.stroke ?? const Color(0xFF2B5BDA)).withValues(alpha: 0.92)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = shape.strokeWidth
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round;
-      canvas.drawPath(shape.path, paint);
+      if (shape.strokeVisible) {
+        final paint = Paint()
+          ..color = (shape.stroke ?? const Color(0xFF2B5BDA)).withValues(alpha: 0.92)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = shape.strokeWidth
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round;
+        canvas.drawPath(shape.path, paint);
+      }
     }
 
     final activeIndex = currentShapes.isEmpty
@@ -2397,14 +2395,16 @@ class _CumulativeDrawingPainter extends CustomPainter {
         canvas.drawPath(shape.path, Paint()..color = shape.fill!);
       }
       final revealPath = _progressivePath(shape.path, shapeProgress);
-      final paint = Paint()
-        ..color = const Color(0xFF2F6CFF)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = shape.strokeWidth
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round
-        ..isAntiAlias = true;
-      canvas.drawPath(revealPath, paint);
+      if (shape.strokeVisible) {
+        final paint = Paint()
+          ..color = const Color(0xFF2F6CFF)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = shape.strokeWidth
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round
+          ..isAntiAlias = true;
+        canvas.drawPath(revealPath, paint);
+      }
       if (index == activeIndex) {
         activePoint = _pathPointAtProgress(shape.path, shapeProgress);
       }
@@ -2801,6 +2801,7 @@ class ParsedSvgShape {
     required this.fill,
     required this.stroke,
     this.strokeWidth = 7,
+    this.strokeVisible = true,
     this.sourceKey,
   });
 
@@ -2808,6 +2809,7 @@ class ParsedSvgShape {
   final Color? fill;
   final Color? stroke;
   final double strokeWidth;
+  final bool strokeVisible;
   final String? sourceKey;
 }
 
@@ -3127,6 +3129,10 @@ String? _inheritedSvgAttribute(XmlElement element, String name) {
   return null;
 }
 
+bool _svgStrokeIsVisible(XmlElement element) {
+  return _inheritedSvgAttribute(element, 'stroke')?.toLowerCase() != 'none';
+}
+
 Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) async {
   final normalizedAssetPath = normalizeAssetPath(assetPath);
   String rawSvg;
@@ -3155,6 +3161,7 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
               fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')),
               stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')),
               strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7,
+              strokeVisible: _svgStrokeIsVisible(element),
               sourceKey: d.trim(),
             ),
           );
@@ -3170,13 +3177,13 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
 
       if (element.name.local == 'circle' && r != null && cx != null && cy != null) {
         final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 2));
-        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'circle:$cx:$cy:$r'));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, strokeVisible: _svgStrokeIsVisible(element), sourceKey: 'circle:$cx:$cy:$r'));
         continue;
       }
 
       if (element.name.local == 'ellipse' && rx != null && ry != null && cx != null && cy != null) {
         final path = Path()..addOval(Rect.fromCenter(center: Offset(cx, cy), width: rx * 2, height: ry * 2));
-        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'ellipse:$cx:$cy:$rx:$ry'));
+        shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, strokeVisible: _svgStrokeIsVisible(element), sourceKey: 'ellipse:$cx:$cy:$rx:$ry'));
         continue;
       }
 
@@ -3189,7 +3196,7 @@ Future<List<ParsedSvgShape>> parseSvgDrawingShapesForStep(String assetPath) asyn
           final path = Path()
             ..moveTo(x1, y1)
             ..lineTo(x2, y2);
-          shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, sourceKey: 'line:$x1:$y1:$x2:$y2'));
+          shapes.add(ParsedSvgShape(path: path, fill: _parseSvgColor(_inheritedSvgAttribute(element, 'fill')), stroke: _parseSvgColor(_inheritedSvgAttribute(element, 'stroke')), strokeWidth: double.tryParse(_inheritedSvgAttribute(element, 'stroke-width') ?? '') ?? 7, strokeVisible: _svgStrokeIsVisible(element), sourceKey: 'line:$x1:$y1:$x2:$y2'));
         }
       }
     }
@@ -3270,16 +3277,15 @@ class DrawingLesson {
     required this.title,
     required this.emoji,
     required this.accent,
-    required this.svgAsset,
-    this.finalPreviewAsset,
-    List<String>? stepAssets,
+    required this.finalPreviewAsset,
+    required List<String> stepAssets,
     required this.prompt,
     required this.voiceText,
     required List<String> steps,
     List<String>? teacherPrompts,
     String? rewardText,
   })  : steps = _normalizeSteps(steps),
-        stepAssets = stepAssets ?? const <String>[],
+        stepAssets = List<String>.unmodifiable(stepAssets),
         teacherPrompts = teacherPrompts ?? _defaultTeacherPrompts(_normalizeSteps(steps)),
         rewardText = rewardText ?? 'Много добре! Ти завърши картинката и си се справил отлично!';
 
@@ -3317,8 +3323,7 @@ class DrawingLesson {
   final String title;
   final String emoji;
   final Color accent;
-  final String svgAsset;
-  final String? finalPreviewAsset;
+  final String finalPreviewAsset;
   final List<String> stepAssets;
   final String prompt;
   final String voiceText;

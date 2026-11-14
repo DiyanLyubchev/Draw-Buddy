@@ -1,11 +1,12 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#FFF8EF"/>
-  <g fill="none" stroke="#58483F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
-    <path d="M200 170h112v30H200v-30Z" fill="#A3C1CA"/>
-    <path d="M220 200v94"/>
-    <path d="M292 200v94"/>
-    <path d="M174 200l-22 82h48l-28-82Z"/>
-    <path d="M338 200l22 82h-48l28-82Z"/>
-    <path d="M182 268h148"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g>
+  <path d="M91 278 H257 V345 H119 Q91 345 91 317 Z" fill="#789EAC" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M247 222 C278 198 343 207 370 238 C397 269 390 320 361 340 C330 362 270 346 247 316 C228 291 225 244 247 222 Z" fill="#86B8C5" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M114 357 C114 336.28 130.28 320 151 320 C171.72 320 188 336.28 188 357 C188 377.72 171.72 394 151 394 C130.28 394 114 377.72 114 357 Z" fill="#4E4A48" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M134 357 C134 347.48 141.48 340 151 340 C160.52 340 168 347.48 168 357 C168 366.52 160.52 374 151 374 C141.48 374 134 366.52 134 357 Z" fill="#DBD5C9" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M304 357 C304 336.28 320.28 320 341 320 C361.72 320 378 336.28 378 357 C378 377.72 361.72 394 341 394 C320.28 394 304 377.72 304 357 Z" fill="#4E4A48" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M324 357 C324 347.48 331.48 340 341 340 C350.52 340 358 347.48 358 357 C358 366.52 350.52 374 341 374 C331.48 374 324 366.52 324 357 Z" fill="#DBD5C9" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113 244 H190 L217 278 H113 Z" fill="#D7EDF1" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

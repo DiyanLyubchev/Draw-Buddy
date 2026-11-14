@@ -1,14 +1,12 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#FFF8EF"/>
-  <g fill="none" stroke="#58483F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
-    <path d="M188 214c0-70 54-124 120-124s120 54 120 124v62c0 78-62 140-120 140s-120-62-120-140v-62Z" fill="#F0AD62"/>
-    <path d="M256 104v-34"/>
-    <path d="M238 76c-8-16-2-30 16-46"/>
-    <path d="M274 76c8-16 2-30-16-46"/>
-    <path d="M202 220c18 18 34 28 54 32"/>
-    <path d="M310 220c-18 18-34 28-54 32"/>
-    <path d="M256 190v98"/>
-    <path d="M220 282c18 18 30 26 36 30"/>
-    <path d="M292 282c-18 18-30 26-36 30"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g>
+  <path d="M256 137 C184 137 137 188 137 258 C137 330 184 377 256 377 C328 377 375 330 375 258 C375 188 328 137 256 137 Z" fill="#F0A34E" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 160 C236 130 204 125 187 141 C207 165 228 171 251 168 C267 137 292 127 316 140 C302 164 280 172 256 169 Z" fill="none" stroke="#568047" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M246 165 Q256 133 267 165 L264 185 L248 185 Z" fill="#8D633D" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M187 211 C175 234 173 262 181 281" fill="none" stroke="#FFD99A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M222 274 Q256 297 290 274" fill="none" stroke="#E78E41" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 215 V251" fill="none" stroke="#E78E41" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 182 V196" fill="none" stroke="#704C3B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>
