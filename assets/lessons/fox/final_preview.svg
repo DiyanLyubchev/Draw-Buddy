@@ -1,21 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
 <rect width="512" height="512" fill="#F3DCCE"/>
 <g opacity="0.98">
-  <path d="M159 302 C184 273 232 268 282 290 C328 310 350 354 332 397 C315 438 263 451 205 440 C156 431 133 387 145 344 Z" fill="#D8793F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M310 365 C339 323 365 287 405 273 C431 264 455 265 474 270 C445 292 440 325 445 351 C452 389 429 425 392 439 C359 451 332 429 317 402 Z" fill="#D8793F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M171 194 L145 91 Q141 73 158 83 L222 132 Q266 106 308 127 L363 80 Q379 68 382 88 L373 194 C389 228 368 264 336 283 C296 307 229 300 190 276 C158 256 150 221 171 194 Z" fill="#E47E3F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M168 196 Q207 163 246 193 Q265 208 259 238 Q249 271 203 271 Q159 269 120 247 L83 235 L107 227 L83 215 Q130 206 168 196 Z" fill="#FFF4E8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M204 273 Q252 292 294 278 Q310 311 313 365 Q286 388 254 376 Q230 356 206 380 Q179 364 168 339 Z" fill="#FFF4E8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M365 276 Q405 265 451 270 Q423 291 426 326 Q401 344 374 350 Q361 314 365 276 Z" fill="#FFF4E8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M212 205 Q226 191 240 207 Q242 221 229 225 Q214 222 212 205 Z" fill="#49372F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M143 224 Q151 211 164 219 Q171 232 157 240 Q145 238 143 224 Z" fill="#49372F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M92 213 Q78 205 70 219 Q73 232 88 232 Q99 228 92 213 Z" fill="#49372F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M93 232 Q107 245 125 235 M124 235 Q135 249 151 239" fill="none" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M159 382 Q180 393 204 386 L202 431 Q180 438 157 425 Z M244 390 Q267 398 291 385 L301 431 Q276 444 249 434 Z" fill="#9A6041" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M179 387 Q197 392 205 385 M266 394 Q284 392 294 382" fill="#49372F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M202 317 Q220 328 238 319 M291 319 Q310 328 324 314 M340 345 Q354 354 368 348" fill="none" stroke="#A95D36" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M209 349 Q210 370 203 383 M293 346 Q301 362 300 382" fill="none" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M215 207 C215 204.76 216.76 203 219 203 C221.24 203 223 204.76 223 207 C223 209.24 221.24 211 219 211 C216.76 211 215 209.24 215 207 Z" fill="#FFFFFF" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M148 221 C148 219.32 149.32 218 151 218 C152.68 218 154 219.32 154 221 C154 222.68 152.68 224 151 224 C149.32 224 148 222.68 148 221 Z" fill="#FFFFFF" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M203 290 C228 269 283 269 309 292 C334 316 339 375 326 422 C306 447 280 453 256 438 C232 453 206 447 186 422 C173 375 178 316 203 290 Z" fill="#E7793D" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157 192 L137 91 Q135 76 151 86 L209 133 Q256 113 303 133 L361 86 Q377 76 375 91 L355 192 C370 231 345 271 312 287 C280 302 232 302 200 287 C167 271 142 231 157 192 Z" fill="#F0783E" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M159 190 C186 163 221 164 243 191 Q254 207 256 238 Q229 269 192 265 C161 261 144 240 133 222 L101 217 L120 207 L107 197 Q136 202 159 190 Z M353 190 C326 163 291 164 269 191 Q258 207 256 238 Q283 269 320 265 C351 261 368 240 379 222 L411 217 L392 207 L405 197 Q376 202 353 190 Z" fill="#FFF5E8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M213 286 Q256 308 299 286 L310 419 Q285 435 256 417 Q227 435 202 419 Z" fill="#FFF1D9" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M193 218 C193 211.28 196.96 206 202 206 C207.04 206 211 211.28 211 218 C211 224.72 207.04 230 202 230 C196.96 230 193 224.72 193 218 Z" fill="#49372F" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M301 218 C301 211.28 304.96 206 310 206 C315.04 206 319 211.28 319 218 C319 224.72 315.04 230 310 230 C304.96 230 301 224.72 301 218 Z" fill="#49372F" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M245 244 Q256 235 267 244 Q263 257 256 258 Q249 257 245 244 Z" fill="#49372F" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 258 Q256 270 245 273 M256 258 Q256 270 267 273 M245 273 Q236 280 228 274 M267 273 Q276 280 284 274" fill="none" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M208 343 C178 326 150 298 130 285 C104 268 81 280 82 304 C83 337 118 381 167 409 C184 419 201 402 213 384 Z" fill="#E7793D" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91 293 C105 282 119 286 133 300 L151 321 L137 347 C118 331 103 312 91 293 Z" fill="#FFF5E8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M181 412 Q201 422 220 413 M292 413 Q311 422 331 412 M178 175 Q189 185 202 177 M310 177 Q323 185 334 175" fill="none" stroke="#B9582E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 292 V409" fill="none" stroke="#D56A35" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
