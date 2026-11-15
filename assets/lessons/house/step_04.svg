@@ -1,11 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
 <rect width="512" height="512" fill="#FFF8EF"/>
-<g>
-  <path d="M91 231 L256 95 L421 231 V390 Q421 414 397 414 H115 Q91 414 91 390 Z" fill="#F0C56B" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M151 230 H219 V290 H151 Z M293 230 H361 V290 H293 Z" fill="#B9DFE8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M220 414 V299 H292 V414 Z" fill="#8B6452" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M121 205 L256 95 L391 205" fill="none" stroke="#F5E3B4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M176 329 H210 M302 329 H336" fill="none" stroke="#86B982" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M131 414 H381" fill="none" stroke="#6F9D6D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g opacity="0.98">
+  <path d="M91 224 L256 91 L421 224 V402 Q421 420 402 420 H110 Q91 420 91 402 Z" fill="#F0C56B" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M75 231 L256 80 L437 231 L415 250 L256 118 L97 250 Z" fill="#C96E57" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M335 148 V99 H374 V180" fill="#A96D54" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 244 H211 V315 H132 Z" fill="#B8DCE7" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M301 244 H380 V315 H301 Z" fill="#B8DCE7" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M171 244 V315 M132 279 H211 M340 244 V315 M301 279 H380" fill="none" stroke="#FFF6E7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M220 298 Q256 266 292 298 V420 H220 Z" fill="#8C5D4A" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M273 358 C273 355.2 275.2 353 278 353 C280.8 353 283 355.2 283 358 C283 360.8 280.8 363 278 363 C275.2 363 273 360.8 273 358 Z" fill="#F4D16D" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M240 186 Q256 160 272 186 V219 H240 Z" fill="#F8E7BB" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>

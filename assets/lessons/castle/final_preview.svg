@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
 <rect width="512" height="512" fill="#FFF8EF"/>
-<g>
+<g opacity="0.98">
   <path d="M89 185 H160 V125 H225 V180 H287 V125 H352 V185 H423 V414 H89 Z" fill="#B69BD0" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M89 185 L124 120 L160 185 Z M352 185 L388 120 L423 185 Z" fill="#D4B5E4" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M222 414 V306 Q256 260 290 306 V414 Z" fill="#765D68" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -8,5 +8,8 @@
   <path d="M131 414 H381" fill="none" stroke="#6F9D6D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M145 425 H367" fill="none" stroke="#E0C28D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M385 394 C385 391.2 387.2 389 390 389 C392.8 389 395 391.2 395 394 C395 396.8 392.8 399 390 399 C387.2 399 385 396.8 385 394 Z" fill="#F2CE69" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 389 C112 385.08 115.08 382 119 382 C122.92 382 126 385.08 126 389 C126 392.92 122.92 396 119 396 C115.08 396 112 392.92 112 389 Z" fill="#F5D16F" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M386 389 C386 385.08 389.08 382 393 382 C396.92 382 400 385.08 400 389 C400 392.92 396.92 396 393 396 C389.08 396 386 392.92 386 389 Z" fill="#F5D16F" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M107 433 H405" fill="none" stroke="#8FAE78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>

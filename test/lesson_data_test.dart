@@ -84,8 +84,8 @@ void main() {
     expect(normalizeAssetPath('lessons/fox/step_01.svg'), 'lessons/fox/step_01.svg');
   });
 
-  test('there are 51 local drawing lessons', () {
-    expect(lessons.length, 51);
+  test('there are 58 local drawing lessons', () {
+    expect(lessons.length, 58);
   });
 
   test('all lesson categories are present', () {

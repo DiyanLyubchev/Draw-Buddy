@@ -71,6 +71,13 @@ flutter:
     - assets/lessons/bunny/
     - assets/lessons/butterfly/
     - assets/lessons/cabbage/
+    - assets/lessons/candy_cane/
+    - assets/lessons/christmas_tree/
+    - assets/lessons/ornament_ball/
+    - assets/lessons/ornament_star/
+    - assets/lessons/reindeer/
+    - assets/lessons/santa/
+    - assets/lessons/snowflake/
     - assets/lessons/car/
     - assets/lessons/carrot/
     - assets/lessons/castle/

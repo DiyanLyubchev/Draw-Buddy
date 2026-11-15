@@ -22,5 +22,5 @@ flutter run -d chrome
 ## Notes
 
 - Works without internet access.
-- Keeps each final preview and its five cumulative drawing steps under `assets/lessons/<name>/`.
+- Keeps each final preview and its cumulative drawing steps under `assets/lessons/<name>/`.
 - Designed for tablet-sized screens and child-friendly interaction.

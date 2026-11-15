@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-<rect width="512" height="512" fill="#FFF8EF"/>
-<g>
-  <path d="M115 256 C158 170 266 150 345 211 L414 166 V346 L345 301 C266 362 158 342 115 256 Z" fill="#75C9D3" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M117 256 L68 198 V314 Z" fill="#F1A86D" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M231 188 Q256 144 283 184 Q258 209 231 188 Z" fill="#F3D070" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M231 324 Q256 368 283 328 Q258 303 231 324 Z" fill="#F3D070" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect width="512" height="512" fill="#F3DCCE"/>
+<g opacity="0.98">
+  <path d="M103 255 C137 183 221 154 297 178 C346 193 378 224 393 255 C378 286 346 317 297 332 C221 356 137 327 103 255 Z" fill="#E99A45" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M377 255 L441 198 Q457 188 458 207 L443 255 L458 303 Q457 322 441 312 Z" fill="#D98338" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>

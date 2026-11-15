@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g opacity="0.98">
+  <path d="M76 230 L256 101 L436 230 V395 H76 Z" fill="#79B2D1" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M151 230 H219 V290 H151 Z M293 230 H361 V290 H293 Z" fill="#B9DFE8" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M226 414 V302 H286 V414 Z" fill="#8B6452" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M121 205 L256 95 L391 205" fill="none" stroke="#F5E3B4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 329 H210 M302 329 H336" fill="none" stroke="#86B982" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M234 168 C234 155.68 243.68 146 256 146 C268.32 146 278 155.68 278 168 C278 180.32 268.32 190 256 190 C243.68 190 234 180.32 234 168 Z" fill="#F2D071" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 145 V191 M233 168 H279" fill="none" stroke="#FFF5D7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 414 H442" fill="none" stroke="#6B9B66" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 425 H367" fill="none" stroke="#E0C28D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M385 394 C385 391.2 387.2 389 390 389 C392.8 389 395 391.2 395 394 C395 396.8 392.8 399 390 399 C387.2 399 385 396.8 385 394 Z" fill="#F2CE69" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 389 C112 385.08 115.08 382 119 382 C122.92 382 126 385.08 126 389 C126 392.92 122.92 396 119 396 C115.08 396 112 392.92 112 389 Z" fill="#F5D16F" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M386 389 C386 385.08 389.08 382 393 382 C396.92 382 400 385.08 400 389 C400 392.92 396.92 396 393 396 C389.08 396 386 392.92 386 389 Z" fill="#F5D16F" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M107 433 H405" fill="none" stroke="#8FAE78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

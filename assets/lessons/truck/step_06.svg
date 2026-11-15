@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g opacity="0.98">
+  <path d="M86 247 H276 V337 H86 Z M276 277 H349 L397 317 V337 H276 Z" fill="#E58A70" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M122 346 C122 321.36 141.36 302 166 302 C190.64 302 210 321.36 210 346 C210 370.64 190.64 390 166 390 C141.36 390 122 370.64 122 346 Z" fill="#4D4946" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 346 C145 334.24 154.24 325 166 325 C177.76 325 187 334.24 187 346 C187 357.76 177.76 367 166 367 C154.24 367 145 357.76 145 346 Z" fill="#D8D1C4" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M306 346 C306 321.36 325.36 302 350 302 C374.64 302 394 321.36 394 346 C394 370.64 374.64 390 350 390 C325.36 390 306 370.64 306 346 Z" fill="#4D4946" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M329 346 C329 334.24 338.24 325 350 325 C361.76 325 371 334.24 371 346 C371 357.76 361.76 367 350 367 C338.24 367 329 357.76 329 346 Z" fill="#D8D1C4" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M299 291 H341 L371 317 H299 Z" fill="#D7EDF2" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M224 258 V214 M224 214 H188" fill="none" stroke="#FFF1D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 263 H258 M120 277 H247 M299 303 H341" fill="none" stroke="#F1D197" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M111 365 H218 M300 365 H392" fill="none" stroke="#8F9CA0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M101 257 H271 V268 H101 Z" fill="#F2D18B" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M315 329 H350" fill="none" stroke="#FFF2D7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M380 324 C380 320.08 383.08 317 387 317 C390.92 317 394 320.08 394 324 C394 327.92 390.92 331 387 331 C383.08 331 380 327.92 380 324 Z" fill="#F4D16D" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

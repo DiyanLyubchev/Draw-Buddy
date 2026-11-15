@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#FFF8EF"/>
+<g opacity="0.98">
+  <path d="M93 202 L256 86 L419 202 V410 H93 Z" fill="#E9A777" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M122 264 H390 V410 H122 Z" fill="#F2C494" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M72 207 L256 73 L440 207 L418 229 L256 112 L94 229 Z" fill="#B96A55" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M350 145 V94 H383 V179" fill="#865C50" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 232 H194 V293 H128 Z M318 232 H384 V293 H318 Z" fill="#A9D5E2" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M161 232 V293 M128 262 H194 M351 232 V293 M318 262 H384" fill="none" stroke="#FFF4DE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M218 244 Q256 213 294 244 V410 H218 Z" fill="#835A50" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M273 332 C273 329.2 275.2 327 278 327 C280.8 327 283 329.2 283 332 C283 334.8 280.8 337 278 337 C275.2 337 273 334.8 273 332 Z" fill="#F4D16D" stroke="#49372F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 318 H336 V335 H176 Z" fill="#BD765B" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M190 335 V363 M220 335 V363 M250 335 V363 M280 335 V363 M310 335 V363" fill="none" stroke="#FFF0D7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136 177 H190 V214 H136 Z M322 177 H376 V214 H322 Z" fill="#B8DCE7" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 305 H204 M308 305 H392" fill="none" stroke="#FFF0D7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M63 354 Q63 312 104 306 Q145 312 145 354 V416 H63 Z M367 354 Q367 312 408 306 Q449 312 449 354 V416 H367 Z" fill="#79A96E" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 333 V416 M408 333 V416 M50 431 H462" fill="none" stroke="#6E9A63" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

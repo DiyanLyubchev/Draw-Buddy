@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
 <rect width="512" height="512" fill="#FFF8EF"/>
-<g>
+<g opacity="0.98">
   <path d="M256 162 C221 142 189 151 171 181 C148 218 159 293 185 330 C205 360 233 355 256 330 C279 355 307 360 327 330 C353 293 364 218 341 181 C323 151 291 142 256 162 Z" fill="#70B879" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M255 180 C247 146 254 123 274 110 C291 134 285 159 270 183 Z" fill="#6FA75D" stroke="#49372F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M211 209 C201 254 209 296 231 320 M301 207 C313 249 307 287 284 316" fill="none" stroke="#A7D88A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M230 252 L240 257 M272 257 L282 252" fill="none" stroke="#FFF1CF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M256 181 V191" fill="none" stroke="#699052" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
